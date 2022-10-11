@@ -9,8 +9,8 @@ Midterm Project of Platform-Based Programming (CSGE602022)
 - Septio Nugroho (2106750843)
 - Wahyu Sahrijal (2106752142)
 
-## Tautan Aplikasi Heroku
-https://wisata-nusantara.herokuapp.com/
+## Tautan Aplikasi
+https://ristek.link/wisata-nusantara
 
 ## Cerita dan Manfaat Aplikasi
 (Belum Ada)
