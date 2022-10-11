@@ -1,5 +1,5 @@
 # WISATA NUSANTARA
-## Midterm Project of Platform-Based Programming (CSGE602022)
+Midterm Project of Platform-Based Programming (CSGE602022)
 
 ## Anggota Kelompok
 - Eugenius Mario Situmorang (2106750484)
@@ -10,7 +10,7 @@
 - Wahyu Sahrijal (2106752142)
 
 ## Tautan Aplikasi Heroku
-(Belum Ada)
+https://wisata-nusantara.herokuapp.com/
 
 ## Cerita dan Manfaat Aplikasi
 (Belum Ada)
