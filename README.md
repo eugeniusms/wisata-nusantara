@@ -1,4 +1,5 @@
-# MIDTERM PROJECT
+# WISATA NUSANTARA
+## Midterm Project of Platform-Based Programming (CSGE602022)
 
 ## Anggota Kelompok
 - Eugenius Mario Situmorang (2106750484)

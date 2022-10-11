@@ -1,4 +1,4 @@
-"""pbp_midterm_project URL Configuration
+"""wisata_nusantara URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/

@@ -1,5 +1,5 @@
 """
-ASGI config for pbp_midterm_project project.
+ASGI config for wisata_nusantara project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "pbp_midterm_project.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wisata_nusantara.settings")
 
 application = get_asgi_application()
