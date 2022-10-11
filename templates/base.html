@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -23,24 +23,16 @@
                         current: "currentColor",
                         black: "#000000",
                         white: "#FFFFFF",
-                        onyx: "#373737",
-                        dimgray: "#6C6C6C",
-                        gogreen: "#00CD71",
-                        seagreen: "#219653",
-                        magicmint: "#AFF6D6",
-                        coralred: "#FF4444",
-                        yelloworange: "#FBA63C",
-                        cultured: "#F6F6F6",
-                        chinesesilver: "#CCCCCC",
-                        hookergreen: "#487E5F",
-                        quartz: "#514A4A",
+                        suede: "#ECC39C",
+                        sea: "#A4D1C9",
+                        camel: "#A57748",
+                        leather: "#634433",
+                        alloy: "#DC7056",
                     },
                     fontFamily: {
                         poppins: ["Poppins", "sans-serif"],
                         roboto: ["Roboto", "sans-serif"],
                         montserrat: ["Montserrat", "sans-serif"],
-                        merriweather: ["Merriweather", "serif"],
-                        opensans: ["Open Sans", "sans-serif"],
                     },
                 },
                 screens: {
@@ -54,6 +46,26 @@
       </script>
 
 </head>
+    <!-- NAVBAR COMPONENT -->
+    <nav>
+        <div class="flex justify-between items-center bg-leather text-white font-roboto cursor-pointer p-4">
+            <div class="flex items-center">
+                <img src="{% static 'favicon.png' %}" alt="logo" class="w-8 h-8">
+                <div class="texl-2xl ml-2">Wisata Nusantara</div>
+            </div>
+            <div class="flex items-center">
+                <a href="#" class="mr-4 hover:text-suede">Dashboard</a>
+                <a href="#" class="mr-4 hover:text-suede">Destination</a>
+                <a href="#" class="mr-4 hover:text-suede">Event</a>
+                <a href="#" class="mr-4 hover:text-suede">Story</a>
+                <a href="#" class="mr-4 hover:text-suede">Journey</a>
+                <a href="#" class="mr-4 hover:text-suede">About</a>
+                <a href="#" class="mr-4 hover:text-suede">Contact</a>
+                <a href="#" class="mr-4 hover:text-suede">Login</a>
+            </div>
+        </div>
+    </nav>
+    <!-- CHILD COMPONENT -->
     <body>
         <div class="font-poppins">
             {% block content %}{% endblock %}
