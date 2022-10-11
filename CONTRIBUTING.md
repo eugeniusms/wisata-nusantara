@@ -1,5 +1,5 @@
 ## Contribution
-So you want to help? That's great 🙌!
+So you want to help? That's great! 🙌
 <br>
 ![Happy people dance](./assets/images/dance-girl-happy.gif)
 <br>
@@ -10,7 +10,7 @@ Here are a few things to know to get you started on the right path.
 - Django
 
 ### Development Installation
-1.  Fork and star this repo 😆.
+1.  Fork and star this repo. 😆
 2.  Run the following command lines on your terminal.
     ```
     git clone git@github.com:eugeniusms/wisata-nusantara.git
