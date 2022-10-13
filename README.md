@@ -29,7 +29,7 @@ Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indo
     - Filter berdasarkan wilayah/lokasi
 3.  Daftar Event (Aulia Najwa Salsabila)<br/>
     Halaman ini berisi daftar event wisata yang ada di Indonesia. Pengguna aplikasi (masyarakat umum) dapat melihat setiap daftar event yang ada.
-    Event di Indonesia
+    - Event di Indonesia
     - Filter berdasarkan jenis kegiatan (konser,olahraga,atraksi/dll)
 4.  Panduan Perjalanan (Septio Nugroho)<br/>
     Halaman ini berisi informasi penting bagi wisatawan terkait dokumen perjalanan (tiket, visa, dan lain sebagainya), cuaca dan kondisi tempat wisata, perbedaan waktu, dan lain-lain. Diharapkan pengunjung nantinya telah mempersiapkan apa yang sekiranya dibutuhkan saat mengunjungi tempat tersebut. (
