@@ -1,11 +1,8 @@
 # WISATA NUSANTARA 🏝
 Midterm Project of Platform-Based Programming (CSGE602022)
-<br>
-KELOMPOK B07 PBP
-<br>
-Semester Gasal Fasilkom UI 2021/2022
+![Pulih Bersama G20](./assets/images/pulih-bersama.jpeg)
 
-## Anggota Kelompok 👨‍💻👩‍💻
+## Anggota Kelompok B07 👨‍💻👩‍💻
 - Eugenius Mario Situmorang (2106750484)
 - Abdillah Assajjad (2106653571)
 - Aulia Najwa Salsabila (2106751524)
