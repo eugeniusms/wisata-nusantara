@@ -1,8 +1,7 @@
-# WISATA NUSANTARA 🏝
-Midterm Project of Platform-Based Programming (CSGE602022)
+# WISATA NUSANTARA
 ![Pulih Bersama G20](./assets/images/pulih-bersama.jpeg)
 
-## Anggota Kelompok B07 👨‍💻👩‍💻
+## Kelompok B07 👨‍💻👩‍💻
 - Eugenius Mario Situmorang (2106750484)
 - Abdillah Assajjad (2106653571)
 - Aulia Najwa Salsabila (2106751524)
@@ -16,7 +15,7 @@ https://ristek.link/wisata-nusantara
 ## Cerita dan Manfaat Aplikasi 🌟
 Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional.
 
-## Daftar Modul 🙌
+## Daftar Modul 💡
 1.  <b>Homepage (Semua)</b><br/>
     Pada halaman ini, pengguna dapat melihat highlights wisata yang terdaftar di dalam sistem. Selain itu, halaman ini menampilkan semua daftar modul yang ada di dalam aplikasi.
     - About website
