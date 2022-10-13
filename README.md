@@ -24,7 +24,7 @@
 ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
 ![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)
 ### Tautan
-![WISATA NUSANTARA](https://ristek.link/wisata-nusantara)  <br/>
+<a href="https://ristek.link/wisata-nusantara"><button>WISATA NUSANTARA</button></a><br/>
 ![Counter](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Feugeniusms1212%2Fhit-counter)
 
 
