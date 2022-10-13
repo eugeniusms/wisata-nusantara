@@ -1,4 +1,4 @@
-# WISATA NUSANTARA
+# WISATA NUSANTARA <img src="https://user-images.githubusercontent.com/1303154/88677602-1635ba80-d120-11ea-84d8-d263ba5fc3c0.gif" width="28px" alt="hi">
 ![Pulih Bersama G20](./assets/images/pulih-bersama.jpeg)
 
 ## Kelompok B07 👨‍💻👩‍💻
@@ -9,8 +9,22 @@
 - Septio Nugroho (2106750843)
 - Wahyu Sahrijal (2106752142)
 
-## Tautan Aplikasi 💻
+## Aplikasi 💻
+### Technology Stack
+https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
+https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
+https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green
+https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white
+https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white
+https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white
+https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
+### Tautan
+https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Feugeniusms1212%2Fhit-counter
 https://ristek.link/wisata-nusantara
+
 
 ## Cerita dan Manfaat Aplikasi 🌟
 Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional.
@@ -45,11 +59,11 @@ Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indo
 
 ## Role Pengguna Aplikasi 👱‍♂️👩
 1.  <b>Masyarakat umum (Guest User)</b>
-    - <b>Homepage</b><br/>
+    <b>Homepage</b><br/>
     Pengguna dapat melihat halaman utama dari aplikasi untuk menikmati modul aplikasi secara lebih lanjut.
     - <b>Daftar Destinasi</b><br/>
     Pengguna dapat melihat daftar destinasi yang ada di dalam sistem. 
-    - <b>Daftar Event<br/>
+    - <b>Daftar Event</b><br/>
     Pengguna dapat melihat daftar event yang ada di dalam sistem.
     - <b>Panduan Perjalanan</b><br/>
     Pengguna dapat melihat panduan perjalanan berdasarkan panduan yang telah disusun oleh masyarakat umum.
@@ -73,3 +87,6 @@ Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indo
     Admin dapat memonitor dan menambahkan cerita perjalanan.
     - <b>Halaman Login dan Register</b><br/>
     Admin dapat membuat akun dan masuk ke dalam aplikasi.
+
+## Credits
+PBP Kelompok B07 @2022
