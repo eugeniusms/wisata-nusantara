@@ -56,13 +56,11 @@ Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indo
     - Daftar Event<br/>
     Pengguna dapat melihat daftar event yang ada di dalam sistem.
     - Panduan Perjalanan<br/>
-    Pengguna dapat melihat panduan perjalanan berdasarkan panduan yang telah disusun oleh masyarakat umum (signed in user)
+    Pengguna dapat melihat panduan perjalanan berdasarkan panduan yang telah disusun oleh masyarakat umum.
     - FAQ<br/>
     Pengguna dapat melihat daftar pertanyaan dan jawaban yang sudah pernah ditanyakan ke admin aplikasi di dalam daftar FAQ.
     - Cerita Perjalanan<br/>
-    Pengguna dapat melihat cerita perjalanan yang disusun oleh masyarakat umum (signed in user). 
-    - Halaman Login dan Register<br/>
-    Pengguna dapat membuat dan masuk ke dalam akun untuk membuka fitur lain sebagai role signed in user.
+    Pengguna dapat melihat cerita perjalanan yang disusun oleh masyarakat umum. 
 
 2.  Admin (Staff Wisata Nusantara)
     - Homepage<br/>
