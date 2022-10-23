@@ -14,9 +14,10 @@ Eugenius Mario Situmorang
 ### Form Feature (Input Destination Data) - Admin 
 
 1.  Name of Destination
-2.  Location (Region) - Dropdown 34 Provinces in Indonesia
-3.  Category - Many Checkbox
-4.  Description
+2.  Description
+3.  Location (Region) - Dropdown 34 Provinces in Indonesia
+4.  Category - Many Checkbox
+
 
 ### Addons
 

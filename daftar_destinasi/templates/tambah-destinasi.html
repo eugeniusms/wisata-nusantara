@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Tambah Destinasi | Wisata Nusantara
+{% endblock %}
+
+<script>
+  $(document).ready(function(){
+      // [POST] ADD DESTINASI 
+      $('#tambah-destinasi').click(function () {
+          event.preventDefault();
+          const formTerisi = $('#nama').val() && $('#deskripsi').val() && $('#kategori').val() && $('#lokasi').val();
+          if (formTerisi) {
+              $.post(
+                  url = '/daftar-destinasi/tambah/',
+                  data = {
+                      nama: $('#nama').val(),
+                      deskripsi: $('#deskripsi').val(),
+                      kategori: $('#kategori').val(),
+                      lokasi: $('#lokasi').val(),
+                  }, 
+                  function (res, status) {
+                      if (status == 'success') {
+                        console.log(res);
+                      }
+                  },
+              )
+          }
+      })
+    })
+</script>
+
+{% block content %}
+<div>
+  <p>Tambah Destinasi</p>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="nama" id="nama" placeholder="Destinasi"/>
+    <input type="text" name="deskripsi" id="deskripsi" placeholder="Deskripsi"/>
+    <input type="text" name="lokasi" id="lokasi" placeholder="Lokasi"/>
+    <input type="text" name="kategori" id="kategori" placeholder="Kategori"/>
+
+    <button type="submit" id="tambah-destinasi">Tambah</button>
+  </form>
+</div>
+{% endblock %}
