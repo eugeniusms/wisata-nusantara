@@ -56,6 +56,11 @@
             // Show/Hide Dropdown Button
             $('#ddButton').click(function() {
                 $('#navbarDropdown').toggle();
+                if ($('#ddLogo').hasClass('fa-rotate-90')) {
+                    $('#ddLogo').removeClass('fa-rotate-90');
+                } else {
+                    $('#ddLogo').addClass('fa-rotate-90');
+                }
             })
         });
       </script>
@@ -63,13 +68,13 @@
 </head>
     <!-- NAVBAR COMPONENT -->
     <header class="sticky top-0 z-50">
-        <div class="flex justify-between items-center bg-black text-white font-roboto cursor-pointer p-4">
+        <div class="flex justify-between items-center bg-black drop-shadow-xl text-white font-roboto cursor-pointer p-4 rounded-b-3xl tablet:rounded-none">
             <div class="flex items-center">
-                <i class="fa-solid fa-mountain-city" style="color:white;font-size:20px;"></i>
+                <i class="fa-solid fa-mountain-city" style="color:white;font-size:16px;"></i>
                 <p class="text-xl ml-4 mobile:hidden tablet:block">Wisata Nusantara</p>
             </div>
             <div class="tablet:hidden">
-                <p class="text-lg ml-2">Wisata Nusantara</p>
+                <p class="text-sm">Wisata Nusantara</p>
             </div>
             <div class="mobile:hidden tablet:block">
                 <div class="flex items-center">
@@ -83,18 +88,39 @@
                 </div>
             </div>
             <button class="flex items-center gap-2 tablet:hidden" id="ddButton">
-                <i class="fa fa-caret-down" style="font-size:28px;"></i>
+                <i class="fa fa-caret-down" style="font-size:24px;" id="ddLogo"></i>
             </button>
         </div>
         <div class="flex justify-end tablet:hidden">
-            <div class="w-fit bg-brightgray/90 drop-shadow-xl rounded-2xl py-4 px-8 mobile:hidden top-16 right-1 z-50 fixed" id="navbarDropdown">
-                <div class="py-1"><a href="#" class="hover:text-leather">Dashboard</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">Destination</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">Event</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">Journey</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">Story</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">FAQ</a></div>
-                <div class="py-1"><a href="#" class="hover:text-leather">Login</a></div>
+            <div class="grid grid-cols-1 divide-y text-sm w-fit bg-brightgray/90 drop-shadow-xl rounded-2xl py-3 px-6 mobile:hidden top-16 right-3 z-50 fixed" id="navbarDropdown">
+                <div class="py-1">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Dashboard</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Destination</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Event</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-book"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Journey</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-comments"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Story</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-question"></i>
+                    <a href="#" class="ml-2 hover:text-leather">FAQ</a>
+                </div>
+                <div class="py-1">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <a href="#" class="ml-2 hover:text-leather">Login</a>
+                </div>
             </div>
         </div>
     </header>
