@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "example_app",
+    "daftar_destinasi",
 ]
 
 MIDDLEWARE = [
