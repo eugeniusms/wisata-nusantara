@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -45,6 +46,16 @@
         }
       </script>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            // Show/Hide Dropdown Button
+            $('#ddButton').click(function() {
+                $('#navbarDropdown').toggle();
+            })
+        });
+      </script>
+
 </head>
     <!-- NAVBAR COMPONENT -->
     <nav>
@@ -53,14 +64,43 @@
                 <img src="{% static 'favicon.png' %}" alt="logo" class="w-8 h-8">
                 <p class="text-xl ml-2">Wisata Nusantara</p>
             </div>
-            <div class="flex items-center">
-                <a href="#" class="mr-4 hover:text-suede">Dashboard</a>
+            <div class="mobile:hidden tablet:block">
+                <div class="flex items-center">
+                    <!-- ALL -->
+                    <a href="#" class="mr-4 hover:text-suede">Dashboard</a> 
+                    <!-- MARIO -->
+                    <a href="#" class="mr-4 hover:text-suede">Destination</a>
+                    <!-- AULIA -->
+                    <a href="#" class="mr-4 hover:text-suede">Event</a>
+                    <!-- SEPTIO -->
+                    <a href="#" class="mr-4 hover:text-suede">Journey</a>
+                    <!-- RIZKA -->
+                    <a href="#" class="mr-4 hover:text-suede">Story</a>
+                    <!-- ABDI -->
+                    <a href="#" class="mr-r hover:text-suede">FAQ</a>
+                    <!-- WAHYU -->
+                    <a href="#" class="mr-4 hover:text-suede">Login</a>
+                </div>
+            </div>
+            <button class="tablet:hidden" id="ddButton">
+                <i class="fa fa-caret-down" style="font-size:32px;"></i>
+            </button>
+        </div>
+        <div class="tablet:hidden">
+            <div class="items-center mobile:hidden" id="navbarDropdown">
+                <!-- ALL -->
+                <a href="#" class="mr-4 hover:text-suede">Dashboard</a> 
+                <!-- MARIO -->
                 <a href="#" class="mr-4 hover:text-suede">Destination</a>
+                <!-- AULIA -->
                 <a href="#" class="mr-4 hover:text-suede">Event</a>
-                <a href="#" class="mr-4 hover:text-suede">Story</a>
+                <!-- SEPTIO -->
                 <a href="#" class="mr-4 hover:text-suede">Journey</a>
-                <a href="#" class="mr-4 hover:text-suede">About</a>
-                <a href="#" class="mr-4 hover:text-suede">Contact</a>
+                <!-- RIZKA -->
+                <a href="#" class="mr-4 hover:text-suede">Story</a>
+                <!-- ABDI -->
+                <a href="#" class="mr-r hover:text-suede">FAQ</a>
+                <!-- WAHYU -->
                 <a href="#" class="mr-4 hover:text-suede">Login</a>
             </div>
         </div>
