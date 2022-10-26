@@ -1,12 +1,16 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import Destinasi
-import json
+from django.core import serializers
 
 
 # Create your views here.
+def show_json(request):
+    data = Destinasi.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
 def daftar_destinasi(request):
   return render(request, 'daftar-destinasi.html')
 

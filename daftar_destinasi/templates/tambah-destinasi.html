@@ -6,28 +6,28 @@
 
 <script>
   $(document).ready(function(){
-      // [POST] ADD DESTINASI 
-      $('#tambah-destinasi').click(function () {
-          event.preventDefault();
-          const formTerisi = $('#nama').val() && $('#deskripsi').val() && $('#kategori').val() && $('#lokasi').val();
-          if (formTerisi) {
-              $.post(
-                  url = '/daftar-destinasi/tambah/',
-                  data = {
-                      nama: $('#nama').val(),
-                      deskripsi: $('#deskripsi').val(),
-                      kategori: $('#kategori').val(),
-                      lokasi: $('#lokasi').val(),
-                  }, 
-                  function (res, status) {
-                      if (status == 'success') {
-                        console.log(res);
-                      }
-                  },
-              )
-          }
-      })
+    // [POST] ADD DESTINASI 
+    $('#tambah-destinasi').click(function () {
+        event.preventDefault();
+        const formTerisi = $('#nama').val() && $('#deskripsi').val() && $('#kategori').val() && $('#lokasi').val();
+        if (formTerisi) {
+            $.post(
+                url = '/daftar-destinasi/tambah/',
+                data = {
+                    nama: $('#nama').val(),
+                    deskripsi: $('#deskripsi').val(),
+                    kategori: $('#kategori').val(),
+                    lokasi: $('#lokasi').val(),
+                }, 
+                function (res, status) {
+                    if (status == 'success') {
+                      console.log(res);
+                    }
+                },
+            )
+        }
     })
+  })
 </script>
 
 {% block content %}
