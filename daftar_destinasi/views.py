@@ -30,6 +30,9 @@ def daftar_destinasi(request):
 
 def destinasi_by_id(request, id):
   destinasi = Destinasi.objects.get(pk=id)
+  username = request.user.username
+  is_admin = username == "eugenius.mario"
+  is_loggedin = username != ""
 
   context = {
     'nama': destinasi.nama,
@@ -40,6 +43,9 @@ def destinasi_by_id(request, id):
     'foto_cover_url': destinasi.foto_cover_url,
     'maps_url': destinasi.maps_url,
     'suka': destinasi.suka,
+    'username': username,
+    'is_admin': is_admin,
+    'is_loggedin': is_loggedin
   }
 
   return render(request, 'destinasi-by-id.html', context)
