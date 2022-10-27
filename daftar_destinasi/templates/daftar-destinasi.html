@@ -9,7 +9,7 @@
 
 {% block content %}
 <!-- MOBILE -->
-<div class="tablet:hidden bg-lotion">
+<div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
   <div>
     <div class="p-4">
       <p>Hello, Mario!</p>
@@ -17,12 +17,12 @@
       <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
       <p class="font-bold text-lg py-2">Categories</p>
       <div class="flex gap-3 overflow-x-auto">
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">New</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">New</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
 
       </div>
     </div>
@@ -31,7 +31,7 @@
         {% for destinasi in data %}
         <a href="/destination/{{ destinasi.pk }}">
           <div class="p-4">
-            <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+            <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
               <div class="h-[210px]"></div>
               <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
                 <div>
@@ -72,47 +72,86 @@
 </div>
 
 <!-- TABLET & DESKTOP -->
-<div class="mobile:hidden tablet:block">
-  <div>
-    <div class="p-4">
-      <p>Hello, Mario!</p>
-      <p class="font-bold text-xl py-2">Where do you want to go?</p>
-      <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
-      <p class="font-bold text-lg py-2">Categories</p>
-      <div class="flex gap-3 flex-wrap">
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">New</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
-        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+<div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="flex">
+    <div class="bg-zinc-900 px-8 py-4 cursor-pointer">
+      <div class="flex items-center text-slate-300 pb-1 pt-3">
+        <i class="fa-solid fa-house" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">Home</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-calendar-days" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">Events</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-book" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">Journey</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-comments" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">Story</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-question" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">FAQ</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
+        <p class="pl-2">Profile</p>
+      </div>
+      <div class="flex items-center text-slate-300 pt-8 pb-1">
+        <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
+        <p class="pl-2">Wishlist</p>
+      </div>
+      <div class="flex items-center text-slate-300 py-1">
+        <i class="fa-solid fa-plus" style="font-size:14px;color:#22C55E;"></i>
+        <p class="pl-2">Add Destination</p>
+      </div>
+    </div>
 
-      </div>
-    </div>
     <div>
-      <div id="daftar-destinasi" class="flex flex-wrap">
-        {% for destinasi in data %}
-        <a href="/destination/{{ destinasi.pk }}">
-          <div class="p-4">
-            <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
-              <div class="h-[210px]"></div>
-              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
-                <div>
-                  <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
-                  <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
-                </div> 
-                <div class="text-center">
-                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                  <p class="text-[9px]">{{ destinasi.suka }}</p>
-                </div>
-              </div>
-              <div class="h-[1px]"></div>
-            </div>
-          </div>
-        </a>
-        {% endfor %}
+      <div class="pl-8 pt-6 pb-4">
+        <p>Hello, Mario!</p>
+        <p class="font-bold text-xl pb-3">Where do you want to go?</p>
+        <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
+        <p class="font-bold text-lg py-3">Categories</p>
+        <div class="flex gap-3 flex-wrap">
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">New</button>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+
+        </div>
       </div>
+      <div>
+        <div id="daftar-destinasi" class="flex flex-wrap">
+          {% for destinasi in data %}
+          <a href="/destination/{{ destinasi.pk }}">
+            <div class="pl-8 pt-6">
+              <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+                <div class="h-[210px]"></div>
+                <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                  <div>
+                    <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                    <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+                  </div> 
+                  <div class="text-center">
+                    <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                    <p class="text-[9px]">{{ destinasi.suka }}</p>
+                  </div>
+                </div>
+                <div class="h-[1px]"></div>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="h-[200px]"></div>
     </div>
+
   </div>
 </div>
 {% endblock %}
