@@ -9,8 +9,8 @@
 <div class="bg-gradient-to-r from-green-500 to-slate-500 h-[780px]">
     <div class="pt-[150px]"></div>
     <div class="flex justify-center">
-        <div class="login bg-white py-10 px-10 rounded-xl w-fit">
-            <div class="text-center text-3xl font-bold pb-8 ">Login</div>
+        <div class="login bg-white py-6 px-6 tablet:py-10 tablet:px-10 rounded-xl w-fit">
+            <div class="text-center text-xl tablet:text-3xl font-bold pb-8 ">Login</div>
             <div class="flex justify-center">
                 <form method="POST" action="">
                     {% csrf_token %}
@@ -40,14 +40,14 @@
                     </table>
                     <div>
                         <div class="flex justify-center">
-                        <div class="bg-black text-white text-xl w-fit rounded-xl py-2 px-8 my-6">
+                        <div class="bg-black text-white text-md tablet:text-xl w-fit rounded-xl py-2 px-8 my-6">
                             <button type="submit" id="tambah-destinasi">Login</button>
                         </div>
                         </div>
                     </div>
                 </form>  
             </div>
-            <div class="text-center">
+            <div class="text-center text-sm tablet:text-md">
                 {% if messages %}
                     <ul>
                         {% for message in messages %}
