@@ -6,40 +6,65 @@
 
 {% block content %}
 
-<div class = "login">
+<div class="bg-gradient-to-r from-green-500 to-slate-500 h-[780px]">
+    <div class="pt-[150px]"></div>
+    <div class="flex justify-center">
+        <div class="login bg-white py-10 px-10 rounded-xl w-fit">
+            <div class="text-center text-3xl font-bold pb-8 ">Login</div>
+            <div class="flex justify-center">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td><label class="font-semibold">Username&nbsp;&nbsp;</label></td>
+                            <td><input 
+                                type="text" 
+                                name="username" 
+                                placeholder="Username" 
+                                class="bg-[#e9f0fd] py-2 px-4 rounded-xl mb-2" 
+                                required
+                                >
+                            </td>
+                        </tr>    
+                        <tr>
+                            <td><label class="font-semibold">Password</label></td>
+                            <td><input 
+                                type="password" 
+                                name="password" 
+                                placeholder="Password" 
+                                class="bg-[#e9f0fd] py-2 px-4 rounded-xl mb-2" 
+                                required
+                                >
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <div class="flex justify-center">
+                        <div class="bg-black text-white text-xl w-fit rounded-xl py-2 px-8 my-6">
+                            <button type="submit" id="tambah-destinasi">Login</button>
+                        </div>
+                        </div>
+                    </div>
+                </form>  
+            </div>
+            <div class="text-center">
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li class="text-rose">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}     
+                Belum mempunyai akun? 
+                <a href="{% url 'login_register:register' %}">
+                    <button class="font-bold text-bone">
+                        Buat Akun
+                    </button>
+                </a>
+            </div>
 
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'login_register:register' %}">Buat Akun</a>
-
+        </div>
+    </div>
 </div>
 
 {% endblock content %}
