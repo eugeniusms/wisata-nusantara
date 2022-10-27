@@ -28,6 +28,10 @@ def destinasi_by_id(request, id):
     'deskripsi': destinasi.deskripsi,
     'lokasi': destinasi.lokasi,
     'kategori': destinasi.kategori,
+    'foto_thumbnail_url': destinasi.foto_thumbnail_url,
+    'foto_cover_url': destinasi.foto_cover_url,
+    'maps_url': destinasi.maps_url,
+    'suka': destinasi.suka,
   }
 
   return render(request, 'destinasi-by-id.html', context)

@@ -6,12 +6,18 @@
 
 
 {% block content %}
-<!-- <div class="tablet:hidden"> -->
-<div>
+<!-- MOBILE -->
+<div class="tablet:hidden">
   <p>Hello, Mario!</p>
-  <p>{{ nama }}</p>
-  <p>{{ deskripsi }}</p>
-  <p>{{ lokasi }}</p>
-  <p>{{ kategori }}</p>
+  <div class="p-8" id="card">
+    <img src="{{ foto_thumbnail_url }}" alt="">
+    <img src="{{ foto_cover_url }}" alt="">
+    <p class="font-bold text-[14px]">{{ nama }}</p>
+    <p class="text-[10px]">{{ deskripsi }}</p>
+    <p class="font-bold text-[12px]">{{ lokasi }}</p>
+    <p class="font-bold text-[12px]">{{ kategori }}</p>
+    <p>{{ maps_url }}</p>
+    <p>{{ suka }}</p>
+  </div>
 </div>
 {% endblock %}

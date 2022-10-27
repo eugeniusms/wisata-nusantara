@@ -8,27 +8,33 @@
 </script>
 
 {% block content %}
-<!-- <div class="tablet:hidden"> -->
-<div>
-  <p>Hello, Mario!</p>
-  <p>Where do you want to go?</p>
+<!-- MOBILE -->
+<div class="tablet:hidden bg-lotion">
   <div>
-    <input type="text" name="search-destination" id="search-destination" placeholder="Search destination"/>
-    <div id="category">
-      <div>Mountain</div>
-      <div>Culinary</div>
-      {% for destinasi in data %}
-        <p>{{ destinasi.nama }}</p>
-        <p>{{ destinasi.deskripsi }}</p>
-        <p>{{ destinasi.lokasi }}</p>
-        <p>{{ destinasi.kategori }}</p>
-      {% endfor %}
-    </div>
-  </div>
-  <!-- WISATA'S CARD -->
-  <div>
+    <p>Hello, Mario!</p>
+    <p>Where do you want to go?</p>
     <div>
-      <p></p>
+      <input type="text" name="search-destination" id="search-destination" placeholder="Search destination"/>
+      <div id="daftar-destinasi" class="flex overflow-x-auto">
+        {% for destinasi in data %}
+        <div class="p-4">
+          <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+            <div class="h-[210px]"></div>
+            <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+              <div>
+                <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+              </div> 
+              <div class="text-center">
+                <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#b3b3b3"></i>
+                <p class="text-[9px]">{{ destinasi.suka }}</p>
+              </div>
+            </div>
+            <div class="h-[1px]"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </div>
