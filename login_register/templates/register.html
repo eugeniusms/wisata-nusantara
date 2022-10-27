@@ -10,9 +10,9 @@
     <div class="pt-[130px]"></div>
     <div class = "login">
         <div class="flex justify-center">
-            <div class="login bg-white py-6 px-6 tablet:py-10 tablet:px-10 rounded-xl w-fit">
+            <div class="login bg-white py-6 mx-4 tablet:py-10 tablet:px-10 rounded-xl w-fit">
                 <div class="text-center text-xl tablet:text-3xl font-bold pb-8 ">Register</div>
-                <div class="flex justify-center text-sm">
+                <div class="flex justify-center text-[11px] tablet:text-sm">
                     <form method="POST" >  
                         {% csrf_token %}  
                         <style>
@@ -20,7 +20,7 @@
                                 background-color: #e9f0fd;
                                 border-radius: 20px;
                                 padding: 2px 20px;
-                                width: 250px;
+                                width: 200px;
                             }
                         </style>
                         <table>  
@@ -35,7 +35,7 @@
                         </div>
                     </form>
                 </div>
-                    <div class="text-center text-sm tablet:text-md">
+                    <div class="text-center text-[11px] tablet:text-[14px]">
                         {% if messages %}
                             <ul>
                                 {% for message in messages %}
