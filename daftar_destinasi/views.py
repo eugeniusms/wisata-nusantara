@@ -43,12 +43,18 @@ def tambah_destinasi(request):
     deskripsi = request.POST.get('deskripsi')
     lokasi = request.POST.get('lokasi')
     kategori = request.POST.get('kategori')
+    foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
+    foto_cover_url = request.POST.get('foto_cover_url')
+    maps_url = request.POST.get('maps_url')
 
     destinasi = Destinasi(
       nama=nama,
       deskripsi=deskripsi,
       lokasi=lokasi,
-      kategori=kategori
+      kategori=kategori,
+      foto_thumbnail_url=foto_thumbnail_url,
+      foto_cover_url=foto_cover_url,
+      maps_url=maps_url
     )
     destinasi.save()
 
