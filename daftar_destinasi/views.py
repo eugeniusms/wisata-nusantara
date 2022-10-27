@@ -55,6 +55,7 @@ def tambah_destinasi(request):
     foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
     foto_cover_url = request.POST.get('foto_cover_url')
     maps_url = request.POST.get('maps_url')
+    created_by = request.user.username
 
     destinasi = Destinasi(
       nama=nama,
@@ -63,22 +64,18 @@ def tambah_destinasi(request):
       kategori=kategori,
       foto_thumbnail_url=foto_thumbnail_url,
       foto_cover_url=foto_cover_url,
-      maps_url=maps_url
+      maps_url=maps_url,
+      created_by=created_by
     )
     destinasi.save()
 
-    context = {
-      'nama': destinasi.nama,
-      'description': destinasi.deskripsi,
-      'location': destinasi.lokasi,
-      'category': destinasi.kategori
-    }
-
-    print(context)
-
     return JsonResponse({"header": "Destinasi Ditambahkan"}, status=200)
 
-  return render(request, 'tambah-destinasi.html')
+  context = {
+    'username': request.user.username
+  }
+
+  return render(request, 'tambah-destinasi.html', context)
 
 @csrf_exempt
 @login_required(login_url='/auth/login')

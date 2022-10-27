@@ -11,3 +11,5 @@ class Destinasi(models.Model):
   foto_cover_url = models.URLField()
   maps_url = models.URLField()
   suka = models.IntegerField(default=0)
+  # user related
+  created_by = models.TextField()
