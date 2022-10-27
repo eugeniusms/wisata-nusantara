@@ -15,9 +15,15 @@ def show_json(request):
 
 def daftar_destinasi(request):
   data = Destinasi.objects.all()
-
+  username = request.user.username
+  is_admin = username == "eugenius.mario"
+  is_loggedin = username != ""
+  
   context = {
-    'data': data
+    'data': data,
+    'username': username,
+    'is_admin': is_admin,
+    'is_loggedin': is_loggedin
   }
 
   return render(request, 'daftar-destinasi.html', context)
@@ -39,6 +45,7 @@ def destinasi_by_id(request, id):
   return render(request, 'destinasi-by-id.html', context)
 
 @csrf_exempt
+@login_required(login_url='/auth/login')
 def tambah_destinasi(request):
   if (request.method == 'POST'):
     nama = request.POST.get('nama')
@@ -76,13 +83,14 @@ def tambah_destinasi(request):
 @csrf_exempt
 @login_required(login_url='/auth/login')
 def hapus_destinasi(request):
-  data = Destinasi.objects.all()
+  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
+    data = Destinasi.objects.all()
 
-  context = {
-    'data': data
-  }
+    context = {
+      'data': data
+    }
 
-  return render(request, 'hapus-destinasi.html', context)
+    return render(request, 'hapus-destinasi.html', context)
   
 @csrf_exempt
 @login_required(login_url='/auth/login')

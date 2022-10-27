@@ -12,7 +12,7 @@
 <div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
   <div>
     <div class="p-4">
-      <p>Hello, Mario!</p>
+      <p>Hello, {{ username }}!</p>
       <p class="font-bold text-xl py-2">Where do you want to go?</p>
       <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
       <p class="font-bold text-lg py-2">Categories</p>
@@ -99,6 +99,7 @@
         <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
         <p class="pl-2">Profile</p>
       </div>
+      {% if is_loggedin %}
       <div class="flex items-center text-slate-300 pt-8 pb-1">
         <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
         <p class="pl-2">Wishlist</p>
@@ -109,17 +110,20 @@
           <p class="pl-2">Add Destination</p>
         </div>
       </a>
+      {% endif %}
+      {% if is_admin %}
       <a href="/destination/delete">
         <div class="flex items-center text-slate-300 py-1">
           <i class="fa-solid fa-trash" style="font-size:14px;color:#BD4B4B;"></i>
           <p class="pl-2">Delete Destination</p>
         </div>
       </a>
+      {% endif %}
     </div>
 
     <div>
       <div class="pl-8 pt-6 pb-4">
-        <p>Hello, Mario!</p>
+        <p>Hello, {{ username }}!</p>
         <p class="font-bold text-xl pb-3">Where do you want to go?</p>
         <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="shadow-3xl py-2 px-2 rounded-xl"/>
         <p class="font-bold text-lg py-3">Categories</p>
