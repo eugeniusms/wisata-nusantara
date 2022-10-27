@@ -1,10 +1,12 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import Destinasi
 from django.core import serializers
 
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def show_json(request):
@@ -71,6 +73,21 @@ def tambah_destinasi(request):
 
   return render(request, 'tambah-destinasi.html')
 
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def hapus_destinasi(request):
+  data = Destinasi.objects.all()
 
-# def add(request):
+  context = {
+    'data': data
+  }
+
+  return render(request, 'hapus-destinasi.html', context)
   
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def hapus_destinasi_by_id(request, id):
+  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
+    task = Destinasi.objects.get(pk=id)
+    task.delete()
+  return HttpResponseRedirect("/destination/delete")
