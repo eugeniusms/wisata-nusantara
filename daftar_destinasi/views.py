@@ -8,11 +8,17 @@ from django.core import serializers
 
 # Create your views here.
 def show_json(request):
-    data = Destinasi.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+  data = Destinasi.objects.all()
+  return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def daftar_destinasi(request):
-  return render(request, 'daftar-destinasi.html')
+  data = Destinasi.objects.all()
+
+  context = {
+    'data': data
+  }
+
+  return render(request, 'daftar-destinasi.html', context)
 
 def destinasi_by_id(request, id):
   destinasi = Destinasi.objects.get(pk=id)

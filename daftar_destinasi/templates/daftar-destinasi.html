@@ -5,35 +5,6 @@
 {% endblock %}
 
 <script>
-  $(document).ready(function(){
-    // AJAX [GET]
-    // mendapatkan todo dari json yang ada di "http://localhost:8000/daftar-destinasi/json"
-    // $.get('/daftar-destinasi/json/', function (allDestinasi) {
-    //   allDestinasi.map((destinasi) => {
-    //     console.log(destinasi)
-    //     $('#category').append(`
-    //       <div class="flex justify-center items-center h-screen">
-    //         <div class="flex flex-col justify-center items-center">
-    //           <p class="text-3xl text-alloy">${destinasi.nama}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.deskripsi}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.lokasi}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.kategori}</p>
-    //         </div>
-    //       </div>
-    //     `)
-    //   })
-    // })
-
-    $.ajax({
-        url: "/destination/json/",
-        type: 'GET',
-        dataType: 'json', // added data type
-        success: function(res) {
-            console.log(res);
-            alert(res);
-        }
-    });
-  })
 </script>
 
 {% block content %}
@@ -46,6 +17,12 @@
     <div id="category">
       <div>Mountain</div>
       <div>Culinary</div>
+      {% for destinasi in data %}
+        <p>{{ destinasi.nama }}</p>
+        <p>{{ destinasi.deskripsi }}</p>
+        <p>{{ destinasi.lokasi }}</p>
+        <p>{{ destinasi.kategori }}</p>
+      {% endfor %}
     </div>
   </div>
   <!-- WISATA'S CARD -->

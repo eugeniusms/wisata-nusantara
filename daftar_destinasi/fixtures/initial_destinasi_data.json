@@ -1,0 +1,72 @@
+[
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 1,
+    "fields": {
+      "nama": "Candi Borobudur",
+      "deskripsi": "Candi Borobudur memiliki panjang 121,66 meter dengan lebar 121,38 meter dan tinggi 35,40 meter. Menurut filsafat Buddha, struktur tingkatan Candi Borobudur merupakan tiruan alam semesta akan roda kehidupan.",
+      "lokasi": "Magelang, Jawa Tengah",
+      "kategori": "Candi",
+      "foto_thumbnail_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g790291-d320054-Reviews-Borobudur_Temple-Borobudur_Magelang_Central_Java_Java.html&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAI",
+      "foto_cover_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnnindonesia.com%2Fgaya-hidup%2F20220606172121-255-805509%2Fselain-tiket-borobudur-naik-ada-aturan-wajib-yang-bakal-diterapkan&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAD",
+      "maps_url": "https://goo.gl/maps/NmxHPSXsdDDpEoWg7",
+      "suka": 218
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 2,
+    "fields": {
+      "nama": "Candi Borobudur",
+      "deskripsi": "Candi Borobudur memiliki panjang 121,66 meter dengan lebar 121,38 meter dan tinggi 35,40 meter. Menurut filsafat Buddha, struktur tingkatan Candi Borobudur merupakan tiruan alam semesta akan roda kehidupan.",
+      "lokasi": "Magelang, Jawa Tengah",
+      "kategori": "Candi",
+      "foto_thumbnail_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g790291-d320054-Reviews-Borobudur_Temple-Borobudur_Magelang_Central_Java_Java.html&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAI",
+      "foto_cover_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnnindonesia.com%2Fgaya-hidup%2F20220606172121-255-805509%2Fselain-tiket-borobudur-naik-ada-aturan-wajib-yang-bakal-diterapkan&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAD",
+      "maps_url": "https://goo.gl/maps/NmxHPSXsdDDpEoWg7",
+      "suka": 218
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 3,
+    "fields": {
+      "nama": "Candi Borobudur",
+      "deskripsi": "Candi Borobudur memiliki panjang 121,66 meter dengan lebar 121,38 meter dan tinggi 35,40 meter. Menurut filsafat Buddha, struktur tingkatan Candi Borobudur merupakan tiruan alam semesta akan roda kehidupan.",
+      "lokasi": "Magelang, Jawa Tengah",
+      "kategori": "Candi",
+      "foto_thumbnail_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g790291-d320054-Reviews-Borobudur_Temple-Borobudur_Magelang_Central_Java_Java.html&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAI",
+      "foto_cover_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnnindonesia.com%2Fgaya-hidup%2F20220606172121-255-805509%2Fselain-tiket-borobudur-naik-ada-aturan-wajib-yang-bakal-diterapkan&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAD",
+      "maps_url": "https://goo.gl/maps/NmxHPSXsdDDpEoWg7",
+      "suka": 218
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 4,
+    "fields": {
+      "nama": "Candi Borobudur",
+      "deskripsi": "Candi Borobudur memiliki panjang 121,66 meter dengan lebar 121,38 meter dan tinggi 35,40 meter. Menurut filsafat Buddha, struktur tingkatan Candi Borobudur merupakan tiruan alam semesta akan roda kehidupan.",
+      "lokasi": "Magelang, Jawa Tengah",
+      "kategori": "Candi",
+      "foto_thumbnail_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g790291-d320054-Reviews-Borobudur_Temple-Borobudur_Magelang_Central_Java_Java.html&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAI",
+      "foto_cover_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnnindonesia.com%2Fgaya-hidup%2F20220606172121-255-805509%2Fselain-tiket-borobudur-naik-ada-aturan-wajib-yang-bakal-diterapkan&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAD",
+      "maps_url": "https://goo.gl/maps/NmxHPSXsdDDpEoWg7",
+      "suka": 218
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 5,
+    "fields": {
+      "nama": "Candi Borobudur",
+      "deskripsi": "Candi Borobudur memiliki panjang 121,66 meter dengan lebar 121,38 meter dan tinggi 35,40 meter. Menurut filsafat Buddha, struktur tingkatan Candi Borobudur merupakan tiruan alam semesta akan roda kehidupan.",
+      "lokasi": "Magelang, Jawa Tengah",
+      "kategori": "Candi",
+      "foto_thumbnail_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g790291-d320054-Reviews-Borobudur_Temple-Borobudur_Magelang_Central_Java_Java.html&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAI",
+      "foto_cover_url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.cnnindonesia.com%2Fgaya-hidup%2F20220606172121-255-805509%2Fselain-tiket-borobudur-naik-ada-aturan-wajib-yang-bakal-diterapkan&psig=AOvVaw0jWcCE396qxYNMHcktOOek&ust=1666932213336000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKjp1sfM__oCFQAAAAAdAAAAABAD",
+      "maps_url": "https://goo.gl/maps/NmxHPSXsdDDpEoWg7",
+      "suka": 218
+    }
+  }
+]
