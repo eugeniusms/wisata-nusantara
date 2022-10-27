@@ -29,22 +29,24 @@
     <div>
       <div id="daftar-destinasi" class="flex overflow-x-auto">
         {% for destinasi in data %}
-        <div class="p-4">
-          <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
-            <div class="h-[210px]"></div>
-            <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
-              <div>
-                <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
-                <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
-              </div> 
-              <div class="text-center">
-                <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                <p class="text-[9px]">{{ destinasi.suka }}</p>
+        <a href="/destination/{{ destinasi.pk }}">
+          <div class="p-4">
+            <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+              <div class="h-[210px]"></div>
+              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                <div>
+                  <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                  <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+                </div> 
+                <div class="text-center">
+                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                  <p class="text-[9px]">{{ destinasi.suka }}</p>
+                </div>
               </div>
+              <div class="h-[1px]"></div>
             </div>
-            <div class="h-[1px]"></div>
           </div>
-        </div>
+        </a>
         {% endfor %}
       </div>
     </div>
@@ -66,6 +68,51 @@
     <a>
       <i class="fa-solid fa-user" style="font-size:20px;color:white"></i>
     </a>
+  </div>
+</div>
+
+<!-- TABLET & DESKTOP -->
+<div class="mobile:hidden tablet:block">
+  <div>
+    <div class="p-4">
+      <p>Hello, Mario!</p>
+      <p class="font-bold text-xl py-2">Where do you want to go?</p>
+      <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
+      <p class="font-bold text-lg py-2">Categories</p>
+      <div class="flex gap-3 flex-wrap">
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">New</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+
+      </div>
+    </div>
+    <div>
+      <div id="daftar-destinasi" class="flex flex-wrap">
+        {% for destinasi in data %}
+        <a href="/destination/{{ destinasi.pk }}">
+          <div class="p-4">
+            <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+              <div class="h-[210px]"></div>
+              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                <div>
+                  <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                  <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+                </div> 
+                <div class="text-center">
+                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                  <p class="text-[9px]">{{ destinasi.suka }}</p>
+                </div>
+              </div>
+              <div class="h-[1px]"></div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
