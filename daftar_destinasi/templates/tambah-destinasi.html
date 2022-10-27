@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-  Tambah Destinasi | Wisata Nusantara
+  Add Destination | Wisata Nusantara
 {% endblock %}
 
 <script>
@@ -12,7 +12,7 @@
         const formTerisi = $('#nama').val() && $('#deskripsi').val() && $('#kategori').val() && $('#lokasi').val();
         if (formTerisi) {
             $.post(
-                url = '/daftar-destinasi/tambah/',
+                url = '/destination/add/',
                 data = {
                     nama: $('#nama').val(),
                     deskripsi: $('#deskripsi').val(),

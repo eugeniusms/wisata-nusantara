@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-  Daftar Destinasi | Wisata Nusantara
+  Destination | Wisata Nusantara
 {% endblock %}
 
 <script>
@@ -25,7 +25,7 @@
     // })
 
     $.ajax({
-        url: "/daftar-destinasi/json/",
+        url: "/destination/json/",
         type: 'GET',
         dataType: 'json', // added data type
         success: function(res) {

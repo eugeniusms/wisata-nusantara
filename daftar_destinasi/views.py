@@ -14,6 +14,18 @@ def show_json(request):
 def daftar_destinasi(request):
   return render(request, 'daftar-destinasi.html')
 
+def destinasi_by_id(request, id):
+  destinasi = Destinasi.objects.get(pk=id)
+
+  context = {
+    'nama': destinasi.nama,
+    'deskripsi': destinasi.deskripsi,
+    'lokasi': destinasi.lokasi,
+    'kategori': destinasi.kategori,
+  }
+
+  return render(request, 'destinasi-by-id.html', context)
+
 @csrf_exempt
 def tambah_destinasi(request):
   if (request.method == 'POST'):
