@@ -1,58 +1,71 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-  Daftar Destinasi | Wisata Nusantara
+  Destination | Wisata Nusantara
 {% endblock %}
 
 <script>
-  $(document).ready(function(){
-    // AJAX [GET]
-    // mendapatkan todo dari json yang ada di "http://localhost:8000/daftar-destinasi/json"
-    // $.get('/daftar-destinasi/json/', function (allDestinasi) {
-    //   allDestinasi.map((destinasi) => {
-    //     console.log(destinasi)
-    //     $('#category').append(`
-    //       <div class="flex justify-center items-center h-screen">
-    //         <div class="flex flex-col justify-center items-center">
-    //           <p class="text-3xl text-alloy">${destinasi.nama}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.deskripsi}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.lokasi}</p>
-    //           <p class="text-3xl text-alloy">${destinasi.kategori}</p>
-    //         </div>
-    //       </div>
-    //     `)
-    //   })
-    // })
-
-    $.ajax({
-        url: "/daftar-destinasi/json/",
-        type: 'GET',
-        dataType: 'json', // added data type
-        success: function(res) {
-            console.log(res);
-            alert(res);
-        }
-    });
-  })
 </script>
 
 {% block content %}
-<!-- <div class="tablet:hidden"> -->
-<div>
-  <p>Hello, Mario!</p>
-  <p>Where do you want to go?</p>
+<!-- MOBILE -->
+<div class="tablet:hidden bg-lotion">
   <div>
-    <input type="text" name="search-destination" id="search-destination" placeholder="Search destination"/>
-    <div id="category">
-      <div>Mountain</div>
-      <div>Culinary</div>
+    <div class="p-4">
+      <p>Hello, Mario!</p>
+      <p class="font-bold text-xl py-2">Where do you want to go?</p>
+      <input type="text" name="search-destination" id="search-destination" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
+      <p class="font-bold text-lg py-2">Categories</p>
+      <div class="flex gap-3 overflow-x-auto">
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Unique</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Popular</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">New</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+        <button class="bg-bone text-white text-[12px] rounded-3xl px-4 py-2">Favorite</button>
+
+      </div>
+    </div>
+    <div>
+      <div id="daftar-destinasi" class="flex overflow-x-auto">
+        {% for destinasi in data %}
+        <div class="p-4">
+          <div class="bg-local rounded-3xl w-[200px]" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+            <div class="h-[210px]"></div>
+            <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+              <div>
+                <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+              </div> 
+              <div class="text-center">
+                <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                <p class="text-[9px]">{{ destinasi.suka }}</p>
+              </div>
+            </div>
+            <div class="h-[1px]"></div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
-  <!-- WISATA'S CARD -->
-  <div>
-    <div>
-      <p></p>
-    </div>
+
+  <div class="flex justify-between bg-black rounded-tr-3xl rounded-tl-3xl pt-6 pb-8 px-10 mt-3">
+    <a href="">
+      <i class="fa-solid fa-house" style="font-size:20px;color:white"></i>
+    </a>
+    <a href="">
+      <i class="fa-solid fa-calendar-days" style="font-size:20px;color:white"></i>
+    </a>
+    <a>
+      <i class="fa-solid fa-heart" style="font-size:20px;color:white"></i>
+    </a>
+    <a>
+      <i class="fa-solid fa-plus" style="font-size:20px;color:white"></i>
+    </a>
+    <a>
+      <i class="fa-solid fa-user" style="font-size:20px;color:white"></i>
+    </a>
   </div>
 </div>
 {% endblock %}
