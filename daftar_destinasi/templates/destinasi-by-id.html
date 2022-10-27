@@ -8,15 +8,45 @@
 {% block content %}
 <!-- MOBILE -->
 <div class="tablet:hidden">
-  <div class="p-8" id="card">
-    <img src="{{ foto_thumbnail_url }}" alt="">
-    <img src="{{ foto_cover_url }}" alt="">
-    <p class="font-bold text-[14px]">{{ nama }}</p>
-    <p class="text-[10px]">{{ deskripsi }}</p>
-    <p class="font-bold text-[12px]">{{ lokasi }}</p>
-    <p class="font-bold text-[12px]">{{ kategori }}</p>
-    <p>{{ maps_url }}</p>
-    <p>{{ suka }}</p>
+  <div class="bg-local shadow-2xl" id="card" style="background-image:url({{ foto_cover_url }});background-size:500px;">
+    <div class="h-[210px]"></div>
+    <div class="bg-white rounded-tl-3xl rounded-tr-3xl h-[400px]">
+      <div class="flex justify-between pt-7 px-6 rounded-xl">
+        <div>
+          <p class="font-bold text-[14px]">{{ nama }}</p>
+          <p class="text-philippinesilver text-[12px]">{{ lokasi }}</p>
+        </div> 
+        <div class="text-center">
+          <i class="fa fa-solid fa-sun" style="font-size:24px;color:#bdac4b"></i>
+          <p class="text-[9px]">{{ kategori }}</p>
+          <p class="text-philippinesilver text-[10px]">Category</p>
+        </div>
+        <div class="text-center">
+          <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+          <p class="text-[9px]">{{ suka }}</p>
+          <p class="text-philippinesilver text-[10px]">Like</p>
+        </div>
+        <a href="{{ maps_url }}">
+          <div class="text-center">
+            <i class="fa fa-duotone fa-map-location-dot" style="font-size:24px;color:#4bbd7a"></i>
+            <p class="text-[9px]">Google</p>
+            <p class="text-philippinesilver text-[10px]">Maps</p>
+          </div>
+        </a>
+      </div>
+      <div class="font-bold text-philippinesilver text-[14px] mt-6 px-6 py-2 border-t-[2px]">Description</div>
+      <div class="bg-gradient-to-r from-slate-200 to-slate-100 pt-6 pb-64 px-6">
+        <p class="text-[12px]">{{ deskripsi }}</p>
+        
+        <a href="/destination/">
+          <div class="flex items-center gap-2 bg-black text-white text-[14px] w-fit px-4 py-2 rounded-xl mt-4 drop-shadow-xl">
+            <i class="fa-solid fa-arrow-left"></i>
+            <p>Back</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="h-[1px]"></div>
+    </div>
   </div>
-</div>
 {% endblock %}
