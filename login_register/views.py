@@ -8,6 +8,10 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib.auth import logout
 
+import datetime
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
 # Create your views here.
 def register(request):
   form = UserCreationForm()
@@ -28,8 +32,10 @@ def login_user(request):
       password = request.POST.get('password')
       user = authenticate(request, username=username, password=password)
       if user is not None:
-          login(request, user)
-          return redirect('example_app:index')
+          login(request, user) # melakukan login terlebih dahulu
+          response = HttpResponseRedirect(reverse("example_app:index")) # membuat response
+          response.set_cookie('last_login', str(datetime.datetime.now())) # membuat cookie last_login dan menambahkannya ke dalam response
+          return response
       else:
           messages.info(request, 'Username atau Password salah!')
   context = {}
@@ -37,4 +43,6 @@ def login_user(request):
 
 def logout_user(request):
   logout(request)
-  return redirect('login_register:login')
+  response = HttpResponseRedirect(reverse('login_register:login'))
+  response.delete_cookie('last_login')
+  return response
