@@ -1,10 +1,12 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import Destinasi
 from django.core import serializers
 
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def show_json(request):
@@ -13,9 +15,15 @@ def show_json(request):
 
 def daftar_destinasi(request):
   data = Destinasi.objects.all()
-
+  username = request.user.username
+  is_admin = username == "eugenius.mario"
+  is_loggedin = username != ""
+  
   context = {
-    'data': data
+    'data': data,
+    'username': username,
+    'is_admin': is_admin,
+    'is_loggedin': is_loggedin
   }
 
   return render(request, 'daftar-destinasi.html', context)
@@ -37,34 +45,54 @@ def destinasi_by_id(request, id):
   return render(request, 'destinasi-by-id.html', context)
 
 @csrf_exempt
+@login_required(login_url='/auth/login')
 def tambah_destinasi(request):
   if (request.method == 'POST'):
     nama = request.POST.get('nama')
     deskripsi = request.POST.get('deskripsi')
     lokasi = request.POST.get('lokasi')
     kategori = request.POST.get('kategori')
+    foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
+    foto_cover_url = request.POST.get('foto_cover_url')
+    maps_url = request.POST.get('maps_url')
+    created_by = request.user.username
 
     destinasi = Destinasi(
       nama=nama,
       deskripsi=deskripsi,
       lokasi=lokasi,
-      kategori=kategori
+      kategori=kategori,
+      foto_thumbnail_url=foto_thumbnail_url,
+      foto_cover_url=foto_cover_url,
+      maps_url=maps_url,
+      created_by=created_by
     )
     destinasi.save()
 
-    context = {
-      'nama': destinasi.nama,
-      'description': destinasi.deskripsi,
-      'location': destinasi.lokasi,
-      'category': destinasi.kategori
-    }
-
-    print(context)
-
     return JsonResponse({"header": "Destinasi Ditambahkan"}, status=200)
 
-  return render(request, 'tambah-destinasi.html')
+  context = {
+    'username': request.user.username
+  }
 
+  return render(request, 'tambah-destinasi.html', context)
 
-# def add(request):
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def hapus_destinasi(request):
+  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
+    data = Destinasi.objects.all()
+
+    context = {
+      'data': data
+    }
+
+    return render(request, 'hapus-destinasi.html', context)
   
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def hapus_destinasi_by_id(request, id):
+  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
+    task = Destinasi.objects.get(pk=id)
+    task.delete()
+  return HttpResponseRedirect("/destination/delete")

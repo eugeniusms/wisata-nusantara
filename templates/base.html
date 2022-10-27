@@ -71,6 +71,7 @@
 
 </head>
     <!-- NAVBAR COMPONENT -->
+    <!-- <div class="bg-gradient-to-r from-green-500 to-slate-500"> -->
     <header class="sticky top-0 z-50">
         <div class="flex justify-between items-center bg-black drop-shadow-xl text-white font-roboto cursor-pointer p-4 rounded-b-3xl tablet:rounded-none">
             <div class="flex items-center">
@@ -82,13 +83,18 @@
             </div>
             <div class="mobile:hidden tablet:block">
                 <div class="flex items-center">
-                    <a href="#" class="mr-4 hover:text-suede">Dashboard</a> 
+                    <a href="/" class="mr-4 hover:text-suede">Dashboard</a> 
                     <a href="/destination/" class="mr-4 hover:text-suede">Destination</a>
                     <a href="#" class="mr-4 hover:text-suede">Event</a>
                     <a href="#" class="mr-4 hover:text-suede">Journey</a>
                     <a href="#" class="mr-4 hover:text-suede">Story</a>
                     <a href="#" class="mr-4 hover:text-suede">FAQ</a>
-                    <a href="/auth/login/" class="mr-4 hover:text-suede">Login</a>
+                    {% if user.is_authenticated %}
+                        <a href="/auth/logout/" class="mr-4 text-rose hover:text-suede">Logout</a>
+                    {% endif %}
+                    {% if not user.is_authenticated %}
+                        <a href="/auth/login/" class="mr-4 text-bone hover:text-suede">Login</a>
+                    {% endif %}
                 </div>
             </div>
             <button class="flex items-center gap-2 tablet:hidden" id="ddButton">
@@ -99,7 +105,7 @@
             <div class="grid grid-cols-1 divide-y text-sm w-fit bg-brightgray/90 drop-shadow-xl rounded-2xl py-3 px-6 mobile:hidden top-16 right-3 z-50 fixed" id="navbarDropdown">
                 <div class="py-1">
                     <i class="fa-solid fa-house"></i>
-                    <a href="#" class="ml-2 hover:text-leather">Dashboard</a>
+                    <a href="/" class="ml-2 hover:text-leather">Dashboard</a>
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-location-dot"></i>
@@ -128,6 +134,7 @@
             </div>
         </div>
     </header>
+    <!-- </div> -->
     <!-- CHILD COMPONENT -->
     <body class="top-0 relative">
         <div class="font-poppins">

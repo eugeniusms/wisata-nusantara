@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  Delete Destination | Wisata Nusantara
+{% endblock %}
+
+<script>
+</script>
+
+{% block content %}
+<div class="bg-gradient-to-r from-green-500 to-slate-500">
+  <p class="text-center py-8 text-3xl font-bold">Delete Destination</p>
+  <div id="daftar-destinasi" class="flex flex-wrap">
+    {% for destinasi in data %}
+    <a href="/destination/delete/{{ destinasi.pk }}">
+      <div class="pl-8 pt-6">
+        <div class="bg-local rounded-3xl w-[200px] shadow-2xl hover:opacity-50 hover:border-4 hover:border-red-500" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+          <div class="h-[210px]"></div>
+          <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+            <div>
+              <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+              <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+              <p class="text-rose text-[10px]">by {{ destinasi.created_by }}</p>
+            </div> 
+            <div class="text-center">
+              <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+              <p class="text-[9px]">{{ destinasi.suka }}</p>
+            </div>
+          </div>
+          <div class="h-[1px]"></div>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  <div class="h-[320px]"></div>
+</div>
+{% endblock %}
