@@ -43,12 +43,7 @@ INSTALLED_APPS = [
     "example_app",
     "daftar_destinasi",
     "login_register",
-<<<<<<< HEAD
     "daftar_event",
-=======
-    "daftar_event"
-
->>>>>>> aabee72c4de4398d109de33223c0dd88e29f1373
 ]
 
 MIDDLEWARE = [

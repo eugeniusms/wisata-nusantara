@@ -4,7 +4,7 @@
   Event & Activities | Wisata Nusantara
 {% endblock %}
 
-<<<<<<< HEAD
+
 {% block content %}
 
 <body>
@@ -14,20 +14,11 @@
       <p class="text-center text-2xl font-semibold mb-2">Welcome, {{user_loggedin}}</p>
     {% endif %}
     
-=======
-{% load static %}
-<script src="{% static 'daftar_event/script.js' %}" type="text/javascript"></script>
 
-{% block content %}
-<body>
-  <div class="h-screen bg-blue-200">
-    <p class="text-center text-4xl font-bold py-5 ">Event & Activity</p>
->>>>>>> aabee72c4de4398d109de33223c0dd88e29f1373
     <div class="flex justify-center">
       <select id="filter-category" class=" filter border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
         <option>Choose a category</option>
         <option>All</option>
-<<<<<<< HEAD
         <option>Musik</option>
         <option>Olahraga</option>
         <option>Budaya</option>
@@ -110,37 +101,5 @@
     });
   };
 </script>
-=======
-        <option>Konser</option>
-        <option>Atraksi</option>
-        <option>Olahraga</option>
-        <option>Tur</option>
-      </select>
-      <button class=" ml-2 inline-flex items-center  py-2 px-3 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Apply</button>
-    </div>
-
-    <div class="flex justify-center justify-items-center bg-blue-200 h-fit mt-4 p-4">
-      <div id="container" class="grid grid-cols-4 gap-4">
-        {% for event in daftar_event %}
-        <div class="bg-white rounded-2xl p-8 shadow-xl flex flex-col gap-2 max-w-[300px]">
-          <a href="#">
-            <img class="rounded-t-lg" src="https://thumbs.dreamstime.com/b/pink-cosmos-flowe-flowerbackground-112007426.jpg" alt="" />
-        </a>
-          <p class="text-center text-xl font-semibold">{{event.nama}} </p>
-          <p class="text-center text-xs">{{event.lokasi}}</p>
-          <a href="{% url 'daftar_event:lihat-event' id=event.id %}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-        </a>
-        <a href="{% url 'daftar_event:delete-task' id=event.id %}"><button class=" ml-2 inline-flex items-center  py-2 px-3 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Delete</button></a>
-        </div>
-        {% endfor %}
-      </div>
-    </div class="bg-blue-200"  >
-    <a href="{% url 'daftar_event:tambah-event' %}"><button class=" ml-2 inline-flex items-center py-2 px-3 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button></a>
-  </div>
-  </div>
-</body>
->>>>>>> aabee72c4de4398d109de33223c0dd88e29f1373
 {% endblock %}
 
