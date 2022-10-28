@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block page_title %}
+  Event & Activities | Wisata Nusantara
+{% endblock %}
+
+{% block content %}
+
+<body>
+  <div class="h-screen bg-gradient-to-r from-green-500 to-slate-500">
+    <p class="text-center text-4xl font-bold pt-5">Events</p>
+    {% if user_loggedin %}
+      <p class="text-center text-2xl font-semibold mb-2">Welcome, {{user_loggedin}}</p>
+    {% endif %}
+    
+    <div class="flex justify-center">
+      <select id="filter-category" class=" filter border border-gray-300 rounded-full text-gray-600 h-10 pl-5 pr-10 bg-white hover:border-gray-400 focus:outline-none appearance-none">
+        <option>Choose a category</option>
+        <option>All</option>
+        <option>Musik</option>
+        <option>Olahraga</option>
+        <option>Budaya</option>
+        <option>Lainnya</option>
+      </select>
+      <button onclick="showCat()" class=" ml-2 inline-flex items-center py-2 px-3 bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Apply</button>
+    </div>
+
+    <div class="mx-auto h-full mt-5 mb-7 bg-gradient-to-r from-green-500 to-slate-500 h-fit p-4">
+      <div class="flex flex-wrap gap-5 justify-center" id="container">
+      </div>
+      <div class="flex justify-center justify-items-center bg-gradient-to-r from-green-500 to-slate-500 h-fit p-4">
+        {% if user_loggedin %}
+          <a href="{% url 'daftar_event:tambah-event' %}"class=" bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full">Add New Event</a>
+        {% endif %}
+
+        {% if user_admin %}
+          <a href="{% url 'daftar_event:delete' %}"class=" bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full ml-4">Delete Event</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    let tab= "";
+    $.ajax({
+        url: "{% url 'daftar_event:show_json' %}",
+        type: "GET",
+        dataType: "json",
+        success: function(resp){  
+            for (let i of resp){
+                tab +=`
+                <div class="bg-white rounded-xl px-5 py-5 w-[300px] ">
+                  <p class="text-center text-xl font-semibold">${i.fields.nama}</p>
+                      <p class="text-center text-xs">${i.fields.lokasi}</p>
+                    <div class="flex m-2 p-2 flex-col">
+                      <div class="px-3 bg-gray-900 rounded-full">
+                        <a href="/event/show-event/${i.pk}" class="=text-center text-white">Read more</a>
+                      </div>
+                    </div>
+                  </div>`;
+              $('#container').html(tab);
+            }
+        },
+        error: function(resp){
+            console.log('Error?');
+        }
+    });
+  });
+
+  function showCat(){
+    let tab= "";
+    let e = document.getElementById("filter-category");
+    var text = e.options[e.selectedIndex].text;
+    $.ajax({
+        url: `/daftar-event/show/${text}`,
+        type: "GET",
+        dataType: "json",
+        success: function(resp){  
+          console.log(123123)
+          for (let i of resp){
+            tab +=`
+            <div class="bg-white rounded-xl px-5 py-5 w-[300px] ">
+                  <p class="text-center text-xl font-semibold">${i.nama}</p>
+                      <p class="text-center text-xs">${i.lokasi}</p>
+                    <div class="flex m-2 p-2 flex-col">
+                      <div class="px-3 bg-opacity-10 rounded-2xl">
+                        <a href="/event/show-event/${i.pk}" class="justify-center text-center break-words whitespace-pre-wrap">Read more</a>
+                      </div>
+                    </div>
+                  </div>`;
+            $('#container').html(tab);
+          }
+        },
+        error: function(resp){
+            console.log('Error?');
+        }
+    });
+  };
+</script>
+{% endblock %}
+

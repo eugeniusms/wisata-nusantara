@@ -1,0 +1,51 @@
+[
+  {
+    "model":"daftar_event.Event",
+    "pk":1,
+    "fields":{
+      "nama":"Sounds of Downtown Vol.3",
+      "lokasi":"Lapangan Bhumi Marinir Karang Pilang, Surabaya",
+      "jenis":"Musik",
+      "deskripsi":"Festival musik terbesar se-Jawa Timur tahun 2022.",
+      "foto" : "https://cf.shopee.co.id/file/2f36ca6f2ad2e2fc0439fe1117b36590",
+      "username" : "aul"
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":2,
+    "fields":{
+      "nama":"MesaStila 100 2022",
+      "lokasi":"Gunung Andong, Jawa Tengah",
+      "jenis":"Olahraga",
+      "deskripsi":"Ajang trail running dengan melewati keindahan 5 gunung di Indonesia.",
+      "foto" : "https://www.indonesia.travel/content/dam/indtravelrevamp/microsite-event/artikel-event/alasan-kenapa-kamu-harus-daftar-mesastila-100-2022-sekarang/poster.jpg",
+      "username" : "aul"
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":3,
+    "fields":{
+      "nama":"Festival Tangkeno 2022",
+      "lokasi":"Desa Wisata Tangkeno, Sulawesi Tenggara",
+      "jenis":"Budaya",
+      "deskripsi":"Festival yang memberikan pengalaman akan seni budaya dan keindahan Sulawesi Tenggara.",
+      "foto" : "https://pbs.twimg.com/media/FerHRneaAAEyDHK?format=jpg&name=large",
+      "username" : "aul"
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":4,
+    "fields":{
+      "nama":"Jakarta Fashion and Food Festival 2022",
+      "lokasi":"Summarecon Mall Kelapa Gading, Jakarta",
+      "jenis":"Lainnya",
+      "deskripsi":"Peragaan busana dan lebih dari 70 kuliner nusantara selama sebulan penuh.",
+      "foto" : "https://media.suara.com/pictures/653x366/2022/08/29/62611-jf3-model-search-2022.jpg",
+      "username" : "aul"
+    }
+  }
+
+]

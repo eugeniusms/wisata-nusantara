@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  {{ nama }} | Wisata Nusantara
+{% endblock %}
+
+{% block content %}
+<div class="h-screen bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="container px-5 py-24 mx-auto" style="cursor: auto;">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap">
+      <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="https://thumbs.dreamstime.com/b/pink-cosmos-flowe-flowerbackground-112007426.jpg" style="cursor: auto;">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0" style="cursor: auto;">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest" style="cursor: auto;">{{jenis}} || {{lokasi}}</h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-1" style="cursor: auto;">{{nama}}</h1>
+        <div class="flex mb-4">
+        </div>
+        <p class="leading-relaxed">{{deskripsi}}</p>
+    </div>
+  </div>
+  </div>
+  
+{% endblock %}
