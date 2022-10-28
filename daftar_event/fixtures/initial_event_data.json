@@ -1,0 +1,43 @@
+[
+  {
+    "model":"daftar_event.Event",
+    "pk":1,
+    "fields":{
+      "nama":"Sounds of Downtown Vol.3",
+      "lokasi":"Lapangan Bhumi Marinir Karang Pilang, Surabaya",
+      "jenis":"Musik",
+      "deskripsi":"Festival musik terbesar se-Jawa Timur tahun 2022."
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":2,
+    "fields":{
+      "nama":"MesaStila 100 2022",
+      "lokasi":"Gunung Andong, Jawa Tengah",
+      "jenis":"Olahraga",
+      "deskripsi":"Ajang trail running dengan melewati keindahan 5 gunung di Indonesia."
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":3,
+    "fields":{
+      "nama":"Festival Tangkeno 2022",
+      "lokasi":"Desa Wisata Tangkeno, Sulawesi Tenggara",
+      "jenis":"Budaya",
+      "deskripsi":"Festival yang memberikan pengalaman akan seni budaya dan keindahan Sulawesi Tenggara."
+    }
+  },
+  {
+    "model":"daftar_event.Event",
+    "pk":4,
+    "fields":{
+      "nama":"Jakarta Fashion and Food Festival 2022",
+      "lokasi":"Summarecon Mall Kelapa Gading, Jakarta",
+      "jenis":"Lainnya",
+      "deskripsi":"Peragaan busana dan lebih dari 70 kuliner nusantara selama sebulan penuh."
+    }
+  }
+
+]

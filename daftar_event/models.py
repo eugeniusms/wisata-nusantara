@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 class Event(models.Model):
   event_choices = (
-  ("Atraksi", "Atraksi"),
-  ("Konser", "Konser"),
+  ("Musik", "Musik"),
   ("Olahraga", "Olahraga"),
-  ("Beauty", "Beauty"),
+  ("Budaya", "Budaya"),
+  ("Lainnya", "Lainnya"),
   )
   nama = models.CharField(max_length = 255)
   lokasi = models.TextField()

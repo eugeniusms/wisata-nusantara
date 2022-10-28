@@ -1,3 +1,4 @@
+from email.policy import default
 from django import forms
 from django.forms import fields, widgets
 from daftar_event.models import Event
@@ -9,30 +10,36 @@ class event_form(forms.ModelForm) :
 
   nama_attrs = {
     'type' : 'text',
-    'placeholder' : 'Nama Event',
-    'class' : 'form-control'
+    'placeholder' : 'Name',
+    'class' : 'form-control py-2 px-3 rounded-xl mb-2',
+    'id' : 'nama',
   }
   lokasi_attrs = {
     'type' : 'text',
-    'placeholder' : 'Lokasi',
-    'class' : 'form-control'
+    'placeholder' : 'Location',
+    'class' : 'form-control py-2 px-3 rounded-xl mb-2',
+    'id' :'lokasi',
   }
   jenis_attrs = {
-    'class' : 'form-control'
+    'class' : 'form-control py-2 px-3 rounded-xl mb-2',
+    'id' : 'jenis',
   }
   event_choices = (
-  ("Atraksi", "Atraksi"),
-  ("Konser", "Konser"),
+  ("Musik", "Musik"),
   ("Olahraga", "Olahraga"),
-  ("Beauty", "Beauty"),
+  ("Budaya", "Budaya"),
+  ("Lainnya", "Lainnya"),
   )
   deskripsi_attrs = {
     'type' : 'text',
-    'placeholder' : 'Harga',
-    'class' : 'form-control'
+    'placeholder' : 'Description',
+    'class' : 'form-control py-2 px-3 rounded-xl mb-2',
+    'rows' : '6',
+    'cols' : '30', 
+    'id' : 'deskripsi',
   }
-  nama = forms.CharField(label="Nama",required=True, max_length=255,widget=forms.TextInput(attrs=nama_attrs))
-  lokasi = forms.CharField(label="Lokasi",required=True, max_length=255,widget=forms.TextInput(attrs=lokasi_attrs))
-  jenis = forms.ChoiceField(choices=event_choices,required=True)
-  deskripsi = forms.CharField(label="Deskripsi",required=True, max_length=255,widget=forms.TextInput(attrs=deskripsi_attrs))
+  nama = forms.CharField(label="Name",required=True, max_length=255,widget=forms.TextInput(attrs=nama_attrs))
+  lokasi = forms.CharField(label="Location",required=True, max_length=255,widget=forms.TextInput(attrs=lokasi_attrs))
+  jenis = forms.ChoiceField(choices=event_choices,required=True,widget=forms.Select(attrs=jenis_attrs))
+  deskripsi = forms.CharField(label="Deskripsi",required=True, max_length=255,widget=forms.Textarea(attrs=deskripsi_attrs))
 
