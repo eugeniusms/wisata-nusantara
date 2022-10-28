@@ -4,8 +4,19 @@
   Destination | Wisata Nusantara
 {% endblock %}
 
+{% block meta %}
 <script>
+  $(document).ready(function(){
+    $.ajax({
+      url: "http://localhost:8000/destination/json",
+      type: "GET",
+      success: function(data) {
+        console.log(data);
+      }
+    })
+  })
 </script>
+{% endblock %}
 
 {% block content %}
 <!-- MOBILE -->
