@@ -60,11 +60,7 @@
             // Show/Hide Dropdown Button
             $('#ddButton').click(function() {
                 $('#navbarDropdown').toggle();
-                if ($('#ddLogo').hasClass('fa-rotate-90')) {
-                    $('#ddLogo').removeClass('fa-rotate-90');
-                } else {
-                    $('#ddLogo').addClass('fa-rotate-90');
-                }
+                $('#ddLogo').toggleClass('fa-rotate-90');
             })
         });
       </script>

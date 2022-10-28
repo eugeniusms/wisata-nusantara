@@ -8,7 +8,57 @@
 </script>
 
 {% block content %}
-<div>
-  DASHBOARD
+<!-- MOBILE -->
+<div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="p-4">
+    <div class="flex justify-between items-end py-4">
+      <i class="fa-solid fa-car-side" style="font-size:32px;color:white;"></i>
+      <i class="fa fa-solid fa-mountain-city" style="font-size:64px;color:white;"></i>
+    </div>
+    <div>
+      <p class="text-white font-light text-4xl py-4">Wisata <br/>Nusantara</p>
+      <p class="text-white font-light text-[12px] py-2">The “Wisata Nusantara” application is inspired by the enthusiasm of the G20 Indonesia 2022 presidency. G20 Indonesia 2022 is expected to be a means to promote the Indonesian tourism sector and the creative economy which had weakened due to the Covid-19 pandemic.</p>
+      <p class="text-white font-light text-[12px] pt-2">This application will contain various destinations and events in Indonesia. In addition, this application will also provide travel guides for local and international tourists.</p>
+    </div>
+    <div class="flex justify-center my-8">
+      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl animate-pulse">Open Destination</button>
+    </div>
+
+    <!-- CREATE CARD DESTINATION AUTOMATIC CAROUSEL -->
+
+    <!-- TABLE INFOGRAPHIC -->
+    <div class="flex justify-between bg-white p-4 rounded-xl">
+      <div>
+        <div class="p-10">
+          <div class="flex justify-center font-semibold text-3xl text-bone">421+</div>
+          <div class="flex justify-center text-sm">Destination</div>
+        </div>
+        <div class="p-10">
+          <div class="flex justify-center font-semibold text-3xl text-bone">300+</div>
+          <div class="flex justify-center text-sm">Story</div>
+        </div>
+      </div>
+      <div>
+        <div class="p-10">
+          <div class="flex justify-center font-semibold text-3xl text-bone">101+</div>
+          <div class="flex justify-center text-sm">Events</div>
+        </div>
+        <div class="p-10">
+          <div class="flex justify-center font-semibold text-3xl text-bone">30+</div>
+          <div class="flex justify-center text-sm">Journey</div>
+        </div>
+      </div>
+    </div>
+    <!-- END OF TABLE INFOGRAPHIC -->
+
+    <div class="pt-10">
+      <p class="text-white font-light text-[12px] py-2">The platform is used to tell various stories of the journey you have experienced. You can tell your story from your point of view to other explorers.</p>
+    </div>
+
+    <div class="flex justify-center mt-2 mb-8">
+      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">Tell Me About Your Story</button>
+    </div>
+  </div>
 </div>
 {% endblock %}
+
