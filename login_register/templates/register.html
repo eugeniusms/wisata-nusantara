@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Registrasi Akun</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class="bg-gradient-to-r from-green-500 to-slate-500 h-[780px]">
+    <div class="pt-[130px]"></div>
+    <div class = "login">
+        <div class="flex justify-center">
+            <div class="login bg-white py-6 mx-4 tablet:py-10 tablet:px-10 rounded-xl w-fit">
+                <div class="text-center text-xl tablet:text-3xl font-bold pb-8 ">Register</div>
+                <div class="flex justify-center text-[11px] tablet:text-sm">
+                    <form method="POST" >  
+                        {% csrf_token %}  
+                        <style>
+                            input {
+                                background-color: #e9f0fd;
+                                border-radius: 20px;
+                                padding: 2px 20px;
+                                width: 200px;
+                            }
+                        </style>
+                        <table>  
+                            {{ form.as_table }}  
+                        </table>  
+                        <div>
+                            <div class="flex justify-center">
+                            <div class="bg-black text-white text-md tablet:text-xl w-fit rounded-xl py-2 px-8 my-6">
+                                <button type="submit" id="tambah-destinasi">Register</button>
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                    <div class="text-center text-[11px] tablet:text-[14px]">
+                        {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                    <li class="text-rose">{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}     
+                        Sudah mempunyai akun? 
+                        <a href="{% url 'login_register:login' %}">
+                            <button class="font-bold text-bone">
+                                Masuk Akun
+                            </button>
+                        </a>
+                    </div>
+
+            </div>
+        </div>
+    </div>  
+</div>
+{% endblock content %}
