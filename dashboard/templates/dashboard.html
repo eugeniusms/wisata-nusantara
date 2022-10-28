@@ -20,11 +20,36 @@
       <p class="text-white font-light text-[12px] py-2">The “Wisata Nusantara” application is inspired by the enthusiasm of the G20 Indonesia 2022 presidency. G20 Indonesia 2022 is expected to be a means to promote the Indonesian tourism sector and the creative economy which had weakened due to the Covid-19 pandemic.</p>
       <p class="text-white font-light text-[12px] pt-2">This application will contain various destinations and events in Indonesia. In addition, this application will also provide travel guides for local and international tourists.</p>
     </div>
-    <div class="flex justify-center my-8">
-      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl animate-pulse">Open Destination</button>
+
+    <!-- UPGRADE! CREATE CARD DESTINATION AUTOMATIC CAROUSEL -->
+    <div class="mt-10">
+      <div id="daftar-destinasi" class="flex overflow-x-auto">
+        {% for destinasi in data %}
+        <a href="/destination/{{ destinasi.pk }}">
+          <div class="p-4">
+            <div class="rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
+              <div class="h-[210px]"></div>
+              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                <div>
+                  <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
+                  <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
+                </div> 
+                <div class="text-center">
+                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                  <p class="text-[9px]">{{ destinasi.suka }}</p>
+                </div>
+              </div>
+              <div class="h-[1px]"></div>
+            </div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
     </div>
 
-    <!-- CREATE CARD DESTINATION AUTOMATIC CAROUSEL -->
+    <div class="flex justify-center mb-8">
+      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl animate-pulse">Open Destination</button>
+    </div>
 
     <!-- TABLE INFOGRAPHIC -->
     <div class="flex justify-between bg-white p-4 rounded-xl">
