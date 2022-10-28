@@ -72,7 +72,6 @@ def add_json(request):
     Event.objects.create(nama=nama, lokasi=lokasi, jenis = jenis, deskripsi=deskripsi)
     return JsonResponse({"Sukses": "Data masuk"},status=200)
 
-
 def category_event(request,cat):
   data = Event.objects.filter(jenis=cat)
   if cat == "All":

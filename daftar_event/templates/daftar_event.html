@@ -76,16 +76,17 @@
     let e = document.getElementById("filter-category");
     var text = e.options[e.selectedIndex].text;
     $.ajax({
-        url: `/daftar-event/show/${text}`,
+        url: `/event/show/${text}`,
         type: "GET",
         dataType: "json",
-        success: function(resp){  
+        success: function(resp){
+          console.log(resp)  
           console.log(123123)
           for (let i of resp){
             tab +=`
             <div class="bg-white rounded-xl px-5 py-5 w-[300px] ">
-                  <p class="text-center text-xl font-semibold">${i.nama}</p>
-                      <p class="text-center text-xs">${i.lokasi}</p>
+                  <p class="text-center text-xl font-semibold">${i.fields.nama}</p>
+                      <p class="text-center text-xs">${i.fields.lokasi}</p>
                     <div class="flex m-2 p-2 flex-col">
                       <div class="px-3 bg-opacity-10 rounded-2xl">
                         <a href="/event/show-event/${i.pk}" class="justify-center text-center break-words whitespace-pre-wrap">Read more</a>
