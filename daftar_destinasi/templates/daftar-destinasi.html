@@ -25,6 +25,18 @@
     ]
     var searchKeyword = ""
     var kategoriAktif = "All"
+    
+    const sideBar = [
+      { name: "Home", icon: "fas fa-globe-asia", iconColor: "#CBD5E1", link: "fa-solid fa-house", linkColor: "#CBD5E1", link: "/" },
+      { name: "Events", icon: "fas fa-calendar-alt", iconColor: "#CBD5E1", link: "fa-solid fa-calendar-days", linkColor: "#CBD5E1", link: "/event/" },
+      { name: "Journey", icon: "fas fa-book", iconColor: "#CBD5E1", link: "fa-solid fa-book", linkColor: "#CBD5E1", link: "/journey/" },
+      { name: "Story", icon: "fas fa-comments", iconColor: "#CBD5E1", link: "fa-solid fa-comments", linkColor: "#CBD5E1", link: "/story/" },
+      { name: "FAQ", icon: "fas fa-question", iconColor: "#CBD5E1", link: "fa-solid fa-question", linkColor: "#CBD5E1", link: "/faq/" },
+      { name: "Profile", icon: "fas fa-user", iconColor: "#CBD5E1", link: "fa-solid fa-user", linkColor: "#CBD5E1", link: "/destination/profile/" },
+      { name: "Wishlist", icon: "fas fa-heart", iconColor: "#22C55E", link: "fa-solid fa-heart", linkColor: "#22C55E", link: "/destination/wishlist/" },
+      { name: "Add Destination", icon: "fas fa-plus", iconColor: "#22C55E", link: "fa-solid fa-plus", linkColor: "#22C55E", link: "/destination/add/" },
+      { name: "Delete Destination", icon: "fas fa-trash", iconColor: "#BD4B4B", link: "fa-solid fa-trash", linkColor: "#BD4B4B", link: "/destination/delete/" }
+    ]
     // ================================ END OF INITIATING DATA ===================================
 
     // ================================ ALL ABOUT DESTINATION ====================================
@@ -186,59 +198,59 @@
 <div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
   <div class="flex">
     <div class="bg-zinc-900 px-8 py-4 cursor-pointer w-[250px]">
-      <a href="/">
-        <div class="flex items-center text-slate-300 pb-1 pt-3">
+      <a href="/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center pb-1 pt-3">
           <i class="fa-solid fa-house" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">Home</p>
         </div>
       </a>
-      <a href="/event/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/event/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-calendar-days" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">Events</p>
         </div>
       </a>
-      <a href="/journey/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/journey/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-book" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">Journey</p>
         </div>
       </a>
-      <a href="/story/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/story/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-comments" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">Story</p>
         </div>
       </a>
-      <a href="/faq/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/faq/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-question" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">FAQ</p>
         </div>
       </a>
-      <a href="/destination/profile/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/destination/profile/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
           <p class="pl-2">Profile</p>
         </div>
       </a>
       {% if is_loggedin %}
-      <a href="/destination/wishlist/">
-        <div class="flex items-center text-slate-300 pt-8 pb-1">
+      <a href="/destination/wishlist/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center pt-8 pb-1">
           <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
           <p class="pl-2">Wishlist</p>
         </div>
       </a>
-      <a href="/destination/add/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/destination/add/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-plus" style="font-size:14px;color:#22C55E;"></i>
           <p class="pl-2">Add Destination</p>
         </div>
       </a>
       {% endif %}
       {% if is_admin %}
-      <a href="/destination/delete/">
-        <div class="flex items-center text-slate-300 py-1">
+      <a href="/destination/delete/" class="text-slate-300 hover:text-bone">
+        <div class="flex items-center py-1">
           <i class="fa-solid fa-trash" style="font-size:14px;color:#BD4B4B;"></i>
           <p class="pl-2">Delete Destination</p>
         </div>
