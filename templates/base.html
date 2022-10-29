@@ -54,25 +54,44 @@
         }
       </script>
 
+      <style>
+      /* hide scrollbar but allow scrolling */ 
+      #daftar-destinasi {
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow: scroll;
+      }
+
+      #daftar-destinasi::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+
+      body {
+        -ms-overflow-style: none; /* for Internet Explorer, Edge */
+        scrollbar-width: none; /* for Firefox */
+        overflow: scroll;
+      }
+
+      body::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+      }
+      </style>
+
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
       <script>
         $(document).ready(function(){
             // Show/Hide Dropdown Button
             $('#ddButton').click(function() {
                 $('#navbarDropdown').toggle();
-                if ($('#ddLogo').hasClass('fa-rotate-90')) {
-                    $('#ddLogo').removeClass('fa-rotate-90');
-                } else {
-                    $('#ddLogo').addClass('fa-rotate-90');
-                }
+                $('#ddLogo').toggleClass('fa-rotate-90');
             })
         });
       </script>
     {% block meta %}{% endblock %}
 </head>
     <!-- NAVBAR COMPONENT -->
-    <!-- <div class="bg-gradient-to-r from-green-500 to-slate-500"> -->
-    <header class="sticky top-0 z-50">
+    <div class="bg-gradient-to-r from-green-500 to-slate-500 sticky top-0 z-50">
+    <header class="">
         <div class="flex justify-between items-center bg-black drop-shadow-xl text-white font-roboto cursor-pointer p-4 rounded-b-3xl tablet:rounded-none">
             <div class="flex items-center">
                 <i class="fa-solid fa-mountain-city" style="color:white;font-size:16px;"></i>
@@ -134,7 +153,7 @@
             </div>
         </div>
     </header>
-    <!-- </div> -->
+    </div>
     <!-- CHILD COMPONENT -->
     <body class="top-0 relative">
         <div class="font-poppins">
@@ -142,5 +161,9 @@
         </div>
     </body>
     <!-- FOOTER COMPONENT -->
-    <footer></footer>
+    <footer>
+        <div>
+            {% block footer %}{% endblock %}
+        </div>
+    </footer>
 </html>
