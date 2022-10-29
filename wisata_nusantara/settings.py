@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "daftar_destinasi",
     "login_register",
     "daftar_event",
+    "dashboard",
 ]
 
 MIDDLEWARE = [
