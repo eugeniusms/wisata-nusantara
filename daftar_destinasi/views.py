@@ -14,19 +14,7 @@ def show_json(request):
   return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def daftar_destinasi(request):
-  data = Destinasi.objects.all()
-  username = request.user.username
-  is_admin = username == "eugenius.mario"
-  is_loggedin = username != ""
-  
-  context = {
-    'data': data,
-    'username': username,
-    'is_admin': is_admin,
-    'is_loggedin': is_loggedin
-  }
-
-  return render(request, 'daftar-destinasi.html', context)
+  return render(request, 'daftar-destinasi.html')
 
 def destinasi_by_id(request, id):
   destinasi = Destinasi.objects.get(pk=id)
