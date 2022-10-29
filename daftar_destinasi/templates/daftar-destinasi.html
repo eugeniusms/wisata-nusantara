@@ -23,6 +23,8 @@
       "Mountains",
       "Nature",
     ]
+    var searchKeyword = ""
+    var kategoriAktif = "All"
     // ================================ END OF INITIATING DATA ===================================
 
     // ================================ ALL ABOUT DESTINATION ====================================
@@ -66,36 +68,62 @@
 
     // Search Destination (Mobile)
     $("#search-destination-mobile").keydown(function() {
-      const search = $(this).val();
-      const filteredData = allData.filter((destinasi) => {
-        return destinasi.fields.nama.toLowerCase().includes(search.toLowerCase())
-      })
-      $("#daftar-destinasi-mobile").html("");
-      filteredData.map((destinasi) => {
-        $("#daftar-destinasi-mobile").append(destination(destinasi))
-      })
-      // Jika kosong
-      if (filteredData.length == 0 && search != "") {
-        $("#daftar-destinasi-not-found-mobile").html(`
-          <div class="flex justify-center items-center">
-            <p class="my-16 text-[20px] text-gray-700 font-montserrat font-bold">No destinations found :(</p>
-          </div>
-        `);
-      } else {
-        $("#daftar-destinasi-not-found-mobile").html("");
-      }
+      searchKeyword = $(this).val();
+      showResult();
     })
 
     // Search Destination (Tablet & Desktop)
     $("#search-destination-tablet-desktop").keydown(function() {
-      const search = $(this).val();
+      searchKeyword = $(this).val();
+      showResult();
+    })
+
+    // ================================ END OF DESTINATION ================================
+
+    // ================================ ALL ABOUT CATEGORY ================================
+    allCategory.map((category) => {
+      $("#kategori-mobile").append(`
+        <div class="kategori" id=${category}>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black focus:drop-shadow-2xl focus:bg-bone focus:text-black focus:font-bold transition duration-150 ease-in-out">${category}</button>
+        </div>
+      `)
+      $("#kategori-tablet-desktop").append(`
+        <div class="kategori" id=${category}>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black hover:font-bold focus:drop-shadow-2xl focus:bg-bone focus:text-black focus:font-bold transition duration-150 ease-in-out">${category}</button>
+        </div>
+      `)
+    })
+
+    // IF CATEGORY CLICKED
+    $(".kategori").click(function() {
+      kategoriAktif = $(this).attr("id");
+      $("#info-kategori-mobile").html(`
+        Category : ${kategoriAktif}
+      `)
+      $("#info-kategori-tablet-desktop").html(`
+        Category : ${kategoriAktif}
+      `)
+      showResult();
+    })
+    // ================================ END OF CATEGORY ===================================
+
+    // ================================ RESULT SHOW =======================================
+    const showResult = () => {
+
       const filteredData = allData.filter((destinasi) => {
-        return destinasi.fields.nama.toLowerCase().includes(search.toLowerCase())
-      })
+        return kategoriAktif == "All" ? true : destinasi.fields.kategori.toLowerCase().includes(kategoriAktif.toLowerCase());
+      }).filter((destinasi) => {
+        return searchKeyword == "" ? true : destinasi.fields.nama.toLowerCase().includes(searchKeyword.toLowerCase())
+      });
+
+      $("#daftar-destinasi-mobile").html("");
       $("#daftar-destinasi-tablet-desktop").html("");
+
       filteredData.map((destinasi) => {
+        $("#daftar-destinasi-mobile").append(destination(destinasi))
         $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
       })
+
       // Jika kosong
       if (filteredData.length == 0 && search != "") {
         $("#daftar-destinasi-not-found-tablet-desktop").html(`
@@ -104,48 +132,12 @@
           </div>
         `);
       } else {
+        $("#daftar-destinasi-not-found-mobile").html("");
         $("#daftar-destinasi-not-found-tablet-desktop").html("");
       }
-    })
-    // ================================ END OF DESTINATION ================================
 
-    // ================================ ALL ABOUT CATEGORY ================================
-    allCategory.map((category) => {
-      $("#kategori-mobile").append(`
-        <div class="kategori" id=${category}>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black transition duration-150 ease-in-out">${category}</button>
-        </div>
-      `)
-      $("#kategori-tablet-desktop").append(`
-        <div class="kategori" id=${category}>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black hover:font-bold transition duration-150 ease-in-out">${category}</button>
-        </div>
-      `)
-    })
-
-    // IF CATEGORY CLICKED
-    $(".kategori").click(function() {
-      const kategoriAktif = $(this).attr("id");
-
-      if (kategoriAktif != "All") {
-        const filteredData = allData.filter((destinasi) => {
-          return destinasi.fields.kategori.toLowerCase().includes(kategoriAktif.toLowerCase())
-        })
-        $("#daftar-destinasi-tablet-desktop").html("");
-        filteredData.map((destinasi) => {
-          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
-        })
-      } else {
-        // Reset
-        $("#daftar-destinasi-mobile").html("");
-        $("#daftar-destinasi-tablet-desktop").html("");
-        allData.map((destinasi) => {
-          $("#daftar-destinasi-mobile").append(destination(destinasi));
-          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
-        });
-      }
-    })
-    // ================================ END OF CATEGORY ===================================
+    }
+    // ================================ END OF RESULT SHOW =================================
   })
 </script>
 {% endblock %}
@@ -157,9 +149,9 @@
     <div class="p-4">
       <p>Hello, {{ username }}!</p>
       <p class="font-bold text-xl py-2">Where do you want to go?</p>
-      <input type="text" name="search-destination" id="search-destination-mobile" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
+      <input type="text" name="search-destination" id="search-destination-mobile" placeholder="Search destination name" size="30" class="py-2 px-2 rounded-xl"/>
       
-      <p class="font-bold text-lg py-2">Categories</p>
+      <p class="font-bold text-lg py-2" id="info-kategori-mobile">Categories</p>
       <div class="flex gap-3 overflow-x-auto" id="kategori-mobile"></div>
 
     </div>
@@ -258,9 +250,9 @@
       <div class="pl-8 pt-6 pb-4">
         <p>Hello, {{ username }}!</p>
         <p class="font-bold text-xl pb-3">Where do you want to go?</p>
-        <input type="text" name="search-destination" id="search-destination-tablet-desktop" placeholder="Search destination" size="40" class="shadow-3xl py-2 px-2 rounded-xl"/>
+        <input type="text" name="search-destination" id="search-destination-tablet-desktop" placeholder="Search destination name" size="40" class="shadow-3xl py-2 px-2 rounded-xl"/>
         
-        <p class="font-bold text-lg py-3">Categories</p>
+        <p class="font-bold text-lg py-3" id="info-kategori-tablet-desktop">Categories</p>
         <div class="flex gap-3 flex-wrap" id="kategori-tablet-desktop"></div>
 
       </div>
