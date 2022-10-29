@@ -40,10 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "example_app",
-    "daftar_destinasi",
     "authentication",
     "dashboard",
+    "daftar_destinasi",
 ]
 
 MIDDLEWARE = [
