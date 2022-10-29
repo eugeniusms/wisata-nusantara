@@ -102,8 +102,8 @@
     </div>
 
     <!-- UPGRADE! CREATE CARD DESTINATION AUTOMATIC CAROUSEL -->
-    <div class="mt-10">
-      <div id="daftar-destinasi" class="flex overflow-x-auto">
+    <div class="flex mt-10 px-4 py-8 border-4 border-white border rounded-3xl drop-shadow-2xl">
+      <div id="daftar-destinasi" class="flex overflow-x-auto w-4/5">
         {% for destinasi in data %}
         <a href="/destination/{{ destinasi.pk }}">
           <div class="p-4">
@@ -125,15 +125,36 @@
         </a>
         {% endfor %}
       </div>
+
+      <div class="flex justify-center items-center ml-8 border-l border-2-white px-4">
+        <div>
+          <div>
+            <p class="text-white text-center font-light text-[16px] pt-4 pb-8 w-[180px]">You can see all the list of Indonesian tourist destinations that are on the website so you can set your trip more easily and neatly.</p>
+          </div>
+          <div>
+            <a href="/destination/">
+              <button class="ml-4 bg-black text-white rounded-xl font-roboto text-md font-semibold shadow-2xl animate-pulse py-3 px-8 hover:scale-110 hover:bg-bone hover:border hover:border-2 hover:border-black hover:text-black hover:animate-none transition duration-150 ease-in-out">Check Other<br/>Destination</button>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="flex justify-center mb-8">
-      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl animate-pulse">Open Destination</button>
-    </div>
+    <div class="h-16"></div>
 
-    <!-- TABLE INFOGRAPHIC -->
-    <div class="flex justify-center">
-      <div class="flex justify-between bg-white p-4 rounded-xl w-1/3">
+    <!-- TABLE INFOGRAPHIC 1-->
+    <div class="flex justify-between">
+      <div class="text-white w-[320px] border-2 border-white rounded-3xl px-8 cursor-pointer hover:text-black hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+        <div class="pt-10">
+          <p class="text-center font-light text-[16px] py-2">Indonesian has various events. There are many tourism models that are enjoyed from various regions in the archipelago both from natural beauty to socio -cultural diversity.</p>
+        </div>
+    
+        <div class="flex justify-center mt-2 mb-8">
+          <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">See events</button>
+        </div>
+      </div>
+
+      <div class="flex justify-between bg-white p-4 rounded-xl w-[340px] cursor-pointer">
         <div>
           <div class="p-10">
             <div class="flex justify-center font-semibold text-3xl text-bone">421+</div>
@@ -141,7 +162,7 @@
           </div>
           <div class="p-10">
             <div class="flex justify-center font-semibold text-3xl text-bone">300+</div>
-            <div class="flex justify-center text-sm">Story</div>
+            <div class="flex justify-center text-sm">Stories</div>
           </div>
         </div>
         <div>
@@ -155,16 +176,54 @@
           </div>
         </div>
       </div>
+
+      <div class="text-white w-[320px] border-2 border-white rounded-3xl px-8 cursor-pointer hover:text-black hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+        <div class="pt-10">
+          <p class="text-center font-light text-[16px] py-2">The platform is used to tell various stories of the journey you have experienced. You can tell your story from your point of view to other explorers.</p>
+        </div>
+    
+        <div class="flex justify-center mt-2 mb-8">
+          <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">Tell Me About Your Story</button>
+        </div>
+      </div>
+    </div>
+    <!-- END OF TABLE INFOGRAPHIC 2-->
+    <div class="h-16"></div>
+
+    <div class="flex justify-between">
+      <div class="text-white w-[320px] border-2 border-white rounded-3xl px-8 cursor-pointer hover:text-black hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+        <div class="pt-10">
+          <p class="text-center font-light text-[16px] py-2">"Wisata Nusantara" Nusantara Tourism provides a container for you to tell you a travel guide to tourist destinations so you can enjoy your vacation comfortably.</p>
+        </div>
+    
+        <div class="flex justify-center mt-2 mb-8">
+          <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">See guides</button>
+        </div>
+      </div>
+
+      <div class="text-white w-[320px] border-2 border-white rounded-3xl px-8 cursor-pointer hover:text-black hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+        <div class="pt-10">
+          <p class="text-center font-light text-[16px] py-2">Hi You! Come on join with us, You can join as a contributor in our project with register and help fill in data to make it easier for every application user.</p>
+        </div>
+    
+        <div class="flex justify-center mt-2 mb-8">
+          <button class="bg-bone border border-2 border-black text-black rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">Join as Contributor</button>
+        </div>
+      </div>
+
+      <div class="text-white w-[320px] border-2 border-white rounded-3xl px-8 cursor-pointer hover:text-black hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+        <div class="pt-10">
+          <p class="text-center font-light text-[16px] py-2">You can say hi and ask about the application to the admin. Admin will reply and serve your message well until you get an answer to your expects.</p>
+        </div>
+    
+        <div class="flex justify-center mt-2 mb-8">
+          <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">Tell Me About Your Problem</button>
+        </div>
+      </div>
     </div>
     <!-- END OF TABLE INFOGRAPHIC -->
 
-    <div class="pt-10">
-      <p class="text-white font-light text-[16px] py-2">The platform is used to tell various stories of the journey you have experienced. You can tell your story from your point of view to other explorers.</p>
-    </div>
-
-    <div class="flex justify-center mt-2 mb-8">
-      <button class="bg-black text-white rounded-xl py-3 w-full my-4 font-roboto text-md font-semibold shadow-2xl">Tell Me About Your Story</button>
-    </div>
+    
 
     <!-- USER STORY -->
   </div>
@@ -173,9 +232,11 @@
 
 <!-- FOOTER -->
 {% block footer %}
+<!-- MOBILE -->
+<div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
   <div class="bg-black text-white font-poppins p-8">
     <div class="text-[14px] py-2">
-      Kudos
+      Credit
     </div>
     <div class="rounded-xl bg-white text-black text-[11px] p-3 grid grid-cols-1 divide-y">
       <div>Eugenius Mario Situmorang</div>
@@ -186,4 +247,21 @@
       <div>Wahyu Sahrijal</div>
     </div>
   </div>
+</div>
+<!-- TABLET & DESKTOP -->
+<div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="bg-black text-white font-poppins px-8 pt-10 pb-16">
+    <div class="text-[16px] py-2">
+      Credit
+    </div>
+    <div class="rounded-xl bg-white text-black text-[15px] p-3 grid grid-cols-1 divide-y">
+      <div>Eugenius Mario Situmorang</div>
+      <div>Abdillah Assajjad</div>
+      <div>Aulia Najwa Salsabila</div>
+      <div>Rizka Nisrina Nabila</div>
+      <div>Septio Nugroho</div>
+      <div>Wahyu Sahrijal</div>
+    </div>
+  </div>
+</div>
 {% endblock %}
