@@ -7,7 +7,7 @@
 {% block content %}
 <body>
 <div class=" h-screen bg-gradient-to-r from-green-500 to-slate-500">
-    <p class="text-center text-4xl font-bold py-5">Add New Event or Activity</p>
+    <p class="text-center text-4xl font-bold py-5">Add New Event</p>
     <div class="flex justify-center">
         <form method="POST" action="" id="addEvent">
             {% csrf_token %}
@@ -28,6 +28,10 @@
                     <td><label for="{{form.deskripsi.id_for_label}}" id="" class="font-semibold">Description</label></td>
                     <td>{{forms.deskripsi}}</td>
                 </tr>
+                <tr>
+                  <td><label for="{{form.foto.id_for_label}}" id="" class="font-semibold">Photo URL</label></td>
+                  <td>{{forms.foto}}</td>
+              </tr>
                 
             </table>
             <div class="flex justify-center">
@@ -52,6 +56,7 @@
         lokasi: $("#lokasi").val(),
         jenis: $("#jenis").val(),
         deskripsi: $("#deskripsi").val(),
+        foto : $("#foto").val(),
         csrfmiddlewaretoken: "{{ csrf_token }}",
       },
       dataType: "json",
