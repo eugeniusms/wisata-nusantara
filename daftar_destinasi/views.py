@@ -61,7 +61,7 @@ def tambah_destinasi(request):
     foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
     foto_cover_url = request.POST.get('foto_cover_url')
     maps_url = request.POST.get('maps_url')
-    created_by = request.user.username
+    created_by = request.user
 
     destinasi = Destinasi(
       nama=nama,
