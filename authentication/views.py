@@ -21,7 +21,7 @@ def register(request):
       if form.is_valid():
           form.save()
           messages.success(request, 'Akun telah berhasil dibuat!')
-          return redirect('login_register:login')
+          return redirect('authentication:login')
   
   context = {'form':form}
   return render(request, 'register.html', context)
@@ -43,6 +43,6 @@ def login_user(request):
 
 def logout_user(request):
   logout(request)
-  response = HttpResponseRedirect(reverse('login_register:login'))
+  response = HttpResponseRedirect(reverse('authentication:login'))
   response.delete_cookie('last_login')
   return response
