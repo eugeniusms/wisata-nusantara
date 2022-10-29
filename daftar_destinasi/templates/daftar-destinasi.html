@@ -7,13 +7,30 @@
 {% block meta %}
 <script>
   $(document).ready(function(){
+    // ================================ ALL ABOUT INITIATING DATA ================================
     var allData = null
+    const allCategory = [
+      "All",
+      "Favorites",
+      "Art&Culture",
+      "Beach&Sea",
+      "Caves",
+      "Culinary",
+      "Temples",
+      "Forest",
+      "Hills",
+      "Historic",
+      "Mountains",
+      "Nature",
+    ]
+    // ================================ END OF INITIATING DATA ===================================
 
+    // ================================ ALL ABOUT DESTINATION ====================================
     // Destination Card
     const destination = (destinasi) => {
       return(`
         <a href="/destination/${destinasi.pk}">
-          <div class="p-4">
+          <div class="p-4 hover:scale-105 transition duration-150 ease-in-out">
             <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
               <div class="h-[210px]"></div>
               <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
@@ -90,8 +107,45 @@
         $("#daftar-destinasi-not-found-tablet-desktop").html("");
       }
     })
+    // ================================ END OF DESTINATION ================================
 
-    
+    // ================================ ALL ABOUT CATEGORY ================================
+    allCategory.map((category) => {
+      $("#kategori-mobile").append(`
+        <div class="kategori" id=${category}>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black transition duration-150 ease-in-out">${category}</button>
+        </div>
+      `)
+      $("#kategori-tablet-desktop").append(`
+        <div class="kategori" id=${category}>
+          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2 hover:bg-bone hover:drop-shadow-2xl hover:text-black hover:font-bold transition duration-150 ease-in-out">${category}</button>
+        </div>
+      `)
+    })
+
+    // IF CATEGORY CLICKED
+    $(".kategori").click(function() {
+      const kategoriAktif = $(this).attr("id");
+
+      if (kategoriAktif != "All") {
+        const filteredData = allData.filter((destinasi) => {
+          return destinasi.fields.kategori.toLowerCase().includes(kategoriAktif.toLowerCase())
+        })
+        $("#daftar-destinasi-tablet-desktop").html("");
+        filteredData.map((destinasi) => {
+          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
+        })
+      } else {
+        // Reset
+        $("#daftar-destinasi-mobile").html("");
+        $("#daftar-destinasi-tablet-desktop").html("");
+        allData.map((destinasi) => {
+          $("#daftar-destinasi-mobile").append(destination(destinasi));
+          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
+        });
+      }
+    })
+    // ================================ END OF CATEGORY ===================================
   })
 </script>
 {% endblock %}
@@ -104,20 +158,10 @@
       <p>Hello, {{ username }}!</p>
       <p class="font-bold text-xl py-2">Where do you want to go?</p>
       <input type="text" name="search-destination" id="search-destination-mobile" placeholder="Search destination" size="30" class="py-2 px-2 rounded-xl"/>
+      
       <p class="font-bold text-lg py-2">Categories</p>
-      <div class="flex gap-3 overflow-x-auto">
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorites</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Art & Culture</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Beach & Sea</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Caves</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Culinary</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Temples</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Forest</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Hills</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Historic</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Mountains</button>
-        <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Nature</button>
-      </div>
+      <div class="flex gap-3 overflow-x-auto" id="kategori-mobile"></div>
+
     </div>
 
     <div>
@@ -215,21 +259,10 @@
         <p>Hello, {{ username }}!</p>
         <p class="font-bold text-xl pb-3">Where do you want to go?</p>
         <input type="text" name="search-destination" id="search-destination-tablet-desktop" placeholder="Search destination" size="40" class="shadow-3xl py-2 px-2 rounded-xl"/>
+        
         <p class="font-bold text-lg py-3">Categories</p>
-        <div class="flex gap-3 flex-wrap">
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Favorites</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Art & Culture</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Beach & Sea</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Caves</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Culinary</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Temples</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Forest</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Hills</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Historic</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Mountains</button>
-          <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Nature</button>
+        <div class="flex gap-3 flex-wrap" id="kategori-tablet-desktop"></div>
 
-        </div>
       </div>
 
       <div>
