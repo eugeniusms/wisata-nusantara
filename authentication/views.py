@@ -9,8 +9,12 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+
+from django.core import serializers
+
+from django.contrib.auth.models import User
 
 # Create your views here.
 def register(request):
@@ -46,3 +50,11 @@ def logout_user(request):
   response = HttpResponseRedirect(reverse('authentication:login'))
   response.delete_cookie('last_login')
   return response
+
+def show_all_user(request):
+  user = User.objects.all()
+  return HttpResponse(serializers.serialize("json", user), content_type="application/json")
+
+def show_user_loggedin(request):
+  user = User.objects.filter(username=request.user.username)
+  return HttpResponse(serializers.serialize("json", user), content_type="application/json")
