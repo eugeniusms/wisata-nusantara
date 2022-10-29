@@ -26,7 +26,10 @@ PRODUCTION = os.getenv('DATABASE_URL') is not None
 SECRET_KEY = "django-insecure-%x%ibb%*s3%9egfly3c%zay%!rc9@blbt+*d(bc)inr@l*5!n3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ON_HEROKU', '0') == '0':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -41,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "authentication",
+    "helpers",
     "dashboard",
     "daftar_destinasi",
 ]
