@@ -90,36 +90,50 @@
 <div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
   <div class="flex">
     <div class="bg-zinc-900 px-8 py-4 cursor-pointer w-[250px]">
-      <div class="flex items-center text-slate-300 pb-1 pt-3">
-        <i class="fa-solid fa-house" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">Home</p>
-      </div>
-      <div class="flex items-center text-slate-300 py-1">
-        <i class="fa-solid fa-calendar-days" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">Events</p>
-      </div>
-      <div class="flex items-center text-slate-300 py-1">
-        <i class="fa-solid fa-book" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">Journey</p>
-      </div>
-      <div class="flex items-center text-slate-300 py-1">
-        <i class="fa-solid fa-comments" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">Story</p>
-      </div>
-      <div class="flex items-center text-slate-300 py-1">
-        <i class="fa-solid fa-question" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">FAQ</p>
-      </div>
-      <div class="flex items-center text-slate-300 py-1">
-        <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
-        <p class="pl-2">Profile</p>
-      </div>
+      <a href="/">
+        <div class="flex items-center text-slate-300 pb-1 pt-3">
+          <i class="fa-solid fa-house" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">Home</p>
+        </div>
+      </a>
+      <a href="/event/">
+        <div class="flex items-center text-slate-300 py-1">
+          <i class="fa-solid fa-calendar-days" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">Events</p>
+        </div>
+      </a>
+      <a href="/journey/">
+        <div class="flex items-center text-slate-300 py-1">
+          <i class="fa-solid fa-book" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">Journey</p>
+        </div>
+      </a>
+      <a href="/story/">
+        <div class="flex items-center text-slate-300 py-1">
+          <i class="fa-solid fa-comments" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">Story</p>
+        </div>
+      </a>
+      <a href="/faq/">
+        <div class="flex items-center text-slate-300 py-1">
+          <i class="fa-solid fa-question" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">FAQ</p>
+        </div>
+      </a>
+      <a href="/destination/profile/">
+        <div class="flex items-center text-slate-300 py-1">
+          <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
+          <p class="pl-2">Profile</p>
+        </div>
+      </a>
       {% if is_loggedin %}
-      <div class="flex items-center text-slate-300 pt-8 pb-1">
-        <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
-        <p class="pl-2">Wishlist</p>
-      </div>
-      <a href="/destination/add">
+      <a href="/destination/wishlist/">
+        <div class="flex items-center text-slate-300 pt-8 pb-1">
+          <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
+          <p class="pl-2">Wishlist</p>
+        </div>
+      </a>
+      <a href="/destination/add/">
         <div class="flex items-center text-slate-300 py-1">
           <i class="fa-solid fa-plus" style="font-size:14px;color:#22C55E;"></i>
           <p class="pl-2">Add Destination</p>
@@ -127,7 +141,7 @@
       </a>
       {% endif %}
       {% if is_admin %}
-      <a href="/destination/delete">
+      <a href="/destination/delete/">
         <div class="flex items-center text-slate-300 py-1">
           <i class="fa-solid fa-trash" style="font-size:14px;color:#BD4B4B;"></i>
           <p class="pl-2">Delete Destination</p>
