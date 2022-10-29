@@ -9,6 +9,8 @@
   $(document).ready(function(){
     // ================================ ALL ABOUT INITIATING DATA ================================
     var allData = null
+    var userLoggedIn = null
+
     const allCategory = [
       "All",
       "Favorites",
@@ -23,20 +25,112 @@
       "Mountains",
       "Nature",
     ]
+    // Saving Current State
     var searchKeyword = ""
     var kategoriAktif = "All"
-    
-    const sideBar = [
-      { name: "Home", icon: "fas fa-globe-asia", iconColor: "#CBD5E1", link: "fa-solid fa-house", linkColor: "#CBD5E1", link: "/" },
-      { name: "Events", icon: "fas fa-calendar-alt", iconColor: "#CBD5E1", link: "fa-solid fa-calendar-days", linkColor: "#CBD5E1", link: "/event/" },
-      { name: "Journey", icon: "fas fa-book", iconColor: "#CBD5E1", link: "fa-solid fa-book", linkColor: "#CBD5E1", link: "/journey/" },
-      { name: "Story", icon: "fas fa-comments", iconColor: "#CBD5E1", link: "fa-solid fa-comments", linkColor: "#CBD5E1", link: "/story/" },
-      { name: "FAQ", icon: "fas fa-question", iconColor: "#CBD5E1", link: "fa-solid fa-question", linkColor: "#CBD5E1", link: "/faq/" },
-      { name: "Profile", icon: "fas fa-user", iconColor: "#CBD5E1", link: "fa-solid fa-user", linkColor: "#CBD5E1", link: "/destination/profile/" },
-      { name: "Wishlist", icon: "fas fa-heart", iconColor: "#22C55E", link: "fa-solid fa-heart", linkColor: "#22C55E", link: "/destination/wishlist/" },
-      { name: "Add Destination", icon: "fas fa-plus", iconColor: "#22C55E", link: "fa-solid fa-plus", linkColor: "#22C55E", link: "/destination/add/" },
-      { name: "Delete Destination", icon: "fas fa-trash", iconColor: "#BD4B4B", link: "fa-solid fa-trash", linkColor: "#BD4B4B", link: "/destination/delete/" }
+
+    // Sidebar Elements
+    const sidebarElements = [
+      {
+        name: "Home",
+        icon: "fa-solid fa-house",
+        iconColor: "#CBD5E1",
+        link: "/",
+      },
+      {
+        name: "Events",
+        icon: "fa-solid fa-calendar-days",
+        iconColor: "#CBD5E1",
+        link: "/event/",
+      },
+      {
+        name: "Journey",
+        icon: "fa-solid fa-book",
+        iconColor: "#CBD5E1",
+        link: "/journey/",
+      },
+      {
+        name: "Story",
+        icon: "fa-solid fa-comments",
+        iconColor: "#CBD5E1",
+        link: "/story/",
+      },
+      {
+        name: "FAQ",
+        icon: "fa-solid fa-question",
+        iconColor: "#CBD5E1",
+        link: "/faq/",
+      },
+      {
+        name: "Profile",
+        icon: "fa-solid fa-user",
+        iconColor: "#CBD5E1",
+        link: "/destination/profile/",
+      },
+      {
+        name: "Wishlist",
+        icon: "fa-solid fa-heart",
+        iconColor: "#22C55E",
+        link: "/destination/wishlist/",
+      },
+      {
+        name: "Add Destination",
+        icon: "fa-solid fa-plus",
+        iconColor: "#22C55E",
+        link: "/destination/add/",
+      },
+      {
+        name: "Delete Destination",
+        icon: "fa-solid fa-trash",
+        iconColor: "#BD4B4B",
+        link: "/destination/delete/",
+      },
     ]
+
+    // Create Sidebar Element
+    const sidebarElement = (element) => {
+      if (element.name == "Wishlist" && userLoggedIn.length != 0) {
+        return(`
+          <a href="${element.link}" class="text-slate-300 hover:text-bone">
+            <div class="flex items-center py-1 mt-8">
+              <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
+              <p class="pl-2">${element.name}</p>
+            </div>
+          </a>
+        `)
+      }
+      if (element.name == "Wishlist" && userLoggedIn.length == 0) {
+        return ``;  
+      }
+      if (element.name == "Add Destination" && userLoggedIn.length == 0) {
+        return ``;
+      }
+      if (element.name == "Delete Destination" && userLoggedIn[0].fields.username != "eugenius.mario") {
+        return ``;
+      }
+      return(`
+        <a href="${element.link}" class="text-slate-300 hover:text-bone">
+          <div class="flex items-center py-1">
+            <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
+            <p class="pl-2">${element.name}</p>
+          </div>
+        </a>
+      `)
+    }
+
+    // GET User Logged In
+    $.ajax({
+      url: "http://localhost:8000/auth/show-user-loggedin/json",
+      type: "GET",
+      success: function(data) {
+        userLoggedIn = data;
+        console.log(data);
+        sidebarElements.map((element) => {
+          $("#sidebar-destination").append(sidebarElement(element));
+        });
+      }
+    })
+
     // ================================ END OF INITIATING DATA ===================================
 
     // ================================ ALL ABOUT DESTINATION ====================================
@@ -197,66 +291,8 @@
 <!-- TABLET & DESKTOP -->
 <div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
   <div class="flex">
-    <div class="bg-zinc-900 px-8 py-4 cursor-pointer w-[250px]">
-      <a href="/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center pb-1 pt-3">
-          <i class="fa-solid fa-house" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">Home</p>
-        </div>
-      </a>
-      <a href="/event/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-calendar-days" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">Events</p>
-        </div>
-      </a>
-      <a href="/journey/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-book" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">Journey</p>
-        </div>
-      </a>
-      <a href="/story/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-comments" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">Story</p>
-        </div>
-      </a>
-      <a href="/faq/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-question" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">FAQ</p>
-        </div>
-      </a>
-      <a href="/destination/profile/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-user" style="font-size:14px;color:#CBD5E1;"></i>
-          <p class="pl-2">Profile</p>
-        </div>
-      </a>
-      {% if is_loggedin %}
-      <a href="/destination/wishlist/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center pt-8 pb-1">
-          <i class="fa-solid fa-heart" style="font-size:14px;color:#22C55E;"></i>
-          <p class="pl-2">Wishlist</p>
-        </div>
-      </a>
-      <a href="/destination/add/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-plus" style="font-size:14px;color:#22C55E;"></i>
-          <p class="pl-2">Add Destination</p>
-        </div>
-      </a>
-      {% endif %}
-      {% if is_admin %}
-      <a href="/destination/delete/" class="text-slate-300 hover:text-bone">
-        <div class="flex items-center py-1">
-          <i class="fa-solid fa-trash" style="font-size:14px;color:#BD4B4B;"></i>
-          <p class="pl-2">Delete Destination</p>
-        </div>
-      </a>
-      {% endif %}
-    </div>
+
+    <div class="bg-zinc-900 px-8 py-4 cursor-pointer w-[250px]" id="sidebar-destination"></div>
 
     <div>
       <div class="pl-8 pt-6 pb-4">
