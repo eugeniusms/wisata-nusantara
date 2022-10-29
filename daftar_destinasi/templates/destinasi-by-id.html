@@ -144,3 +144,89 @@
   </div>
 </div>
 {% endblock %}
+
+<!-- FOOTER -->
+{% block footer %}
+<!-- MOBILE -->
+<div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="bg-black text-white font-poppins px-8 pt-10 pb-16">
+    <div class="flex justify-center grid grid-cols-1 divide-gray-800 divide-y">
+
+      <div>
+        
+        <div class="flex justify-center items-center gap-4">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/G20_Indonesia_2022_logo.svg/1229px-G20_Indonesia_2022_logo.svg.png" height="48" width=48"/>
+          <div class="text-[11px]">
+            <p>G20 - 2022</p>
+            <p>Recovery Movement</p>
+            <p>Jakarta, Indonesia</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-center text-[14px] pb-2 pt-6">
+            Credit
+          </div>
+          <div class="rounded-xl text-white text-sm border-[1px] border-white text-[11px] p-3 grid grid-cols-1 divide-y mx-12">
+            <div>Eugenius Mario Situmorang</div>
+            <div>Abdillah Assajjad</div>
+            <div>Aulia Najwa Salsabila</div>
+            <div>Rizka Nisrina Nabila</div>
+            <div>Septio Nugroho</div>
+            <div>Wahyu Sahrijal</div>
+          </div>
+        </div>
+
+        <div class="flex justify-center items-center gap-4 pt-10">
+          <img src="https://acakadul.files.wordpress.com/2013/08/makara-ui-fasilkom.png" height="48" width="48"/>
+          <div class="text-[11px]">
+            <p>PBP Midterm Project</p>
+            <p>Fakultas Ilmu Komputer</p>
+            <p>Universitas Indonesia</p>
+          </div>
+        </div>
+
+      </div>
+  
+    </div>
+  </div>
+</div>
+<!-- TABLET & DESKTOP -->
+<div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="bg-black text-white font-poppins px-8 pt-10 pb-16">
+    <div class="flex justify-center grid grid-cols-3 divide-gray-800 divide-x">
+
+      <div class="flex justify-center items-center gap-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/G20_Indonesia_2022_logo.svg/1229px-G20_Indonesia_2022_logo.svg.png" height="64" width="64"/>
+        <div class="text-sm">
+          <p>G20 - 2022</p>
+          <p>Recovery Movement</p>
+          <p>Jakarta, Indonesia</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-center text-[16px] py-2">
+          Credit
+        </div>
+        <div class="rounded-xl text-white text-sm border-[1px] border-white text-[15px] p-3 grid grid-cols-1 divide-y mx-24">
+          <div>Eugenius Mario Situmorang</div>
+          <div>Abdillah Assajjad</div>
+          <div>Aulia Najwa Salsabila</div>
+          <div>Rizka Nisrina Nabila</div>
+          <div>Septio Nugroho</div>
+          <div>Wahyu Sahrijal</div>
+        </div>
+      </div>
+      <div class="flex justify-center items-center gap-4">
+        <img src="https://acakadul.files.wordpress.com/2013/08/makara-ui-fasilkom.png" height="64" width="64"/>
+        <div class="text-sm">
+          <p>PBP Midterm Project</p>
+          <p>Fakultas Ilmu Komputer</p>
+          <p>Universitas Indonesia</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+</div>
+{% endblock %}
