@@ -7,11 +7,40 @@
 {% block meta %}
 <script>
   $(document).ready(function(){
+    var data = null
+
+    const destination = (destinasi) => {
+      return(`
+        <a href="/destination/${destinasi.pk}">
+          <div class="p-4">
+            <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
+              <div class="h-[210px]"></div>
+              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                <div>
+                  <p class="font-bold text-[11px]">${destinasi.fields.nama}</p>
+                  <p class="text-philippinesilver text-[9px]">${destinasi.fields.lokasi}</p>
+                </div> 
+                <div class="text-center">
+                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                  <p class="text-[9px]">${destinasi.fields.suka}</p>
+                </div>
+              </div>
+              <div class="h-[1px]"></div>
+            </div>
+          </div>
+        </a>
+      `)
+    }
+
     $.ajax({
       url: "http://localhost:8000/destination/json",
       type: "GET",
       success: function(data) {
         console.log(data);
+        data.map((destinasi) => {
+          $("#daftar-destinasi-mobile").append(destination(destinasi))
+          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
+        })
       }
     })
   })
@@ -41,30 +70,11 @@
         <button class="bg-black text-white text-[12px] rounded-3xl px-4 py-2">Nature</button>
       </div>
     </div>
+
     <div>
-      <div id="daftar-destinasi" class="flex overflow-x-auto">
-        {% for destinasi in data %}
-        <a href="/destination/{{ destinasi.pk }}">
-          <div class="p-4">
-            <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
-              <div class="h-[210px]"></div>
-              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
-                <div>
-                  <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
-                  <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
-                </div> 
-                <div class="text-center">
-                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                  <p class="text-[9px]">{{ destinasi.suka }}</p>
-                </div>
-              </div>
-              <div class="h-[1px]"></div>
-            </div>
-          </div>
-        </a>
-        {% endfor %}
-      </div>
+      <div id="daftar-destinasi-mobile" class="flex overflow-x-auto"></div>
     </div>
+
   </div>
 
   <div class="flex justify-between bg-black rounded-tr-3xl rounded-tl-3xl pt-6 pb-8 px-10 mt-3">
@@ -171,30 +181,11 @@
 
         </div>
       </div>
+
       <div>
-        <div id="daftar-destinasi" class="flex flex-wrap">
-          {% for destinasi in data %}
-          <a href="/destination/{{ destinasi.pk }}">
-            <div class="pl-8 pt-6">
-              <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url({{ destinasi.foto_thumbnail_url }});background-size:250px;">
-                <div class="h-[210px]"></div>
-                <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
-                  <div>
-                    <p class="font-bold text-[11px]">{{ destinasi.nama }}</p>
-                    <p class="text-philippinesilver text-[9px]">{{ destinasi.lokasi }}</p>
-                  </div> 
-                  <div class="text-center">
-                    <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                    <p class="text-[9px]">{{ destinasi.suka }}</p>
-                  </div>
-                </div>
-                <div class="h-[1px]"></div>
-              </div>
-            </div>
-          </a>
-          {% endfor %}
-        </div>
+        <div id="daftar-destinasi-tablet-desktop" class="flex flex-wrap"></div>
       </div>
+
       <div class="h-[200px]"></div>
     </div>
 
