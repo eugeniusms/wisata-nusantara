@@ -21,4 +21,6 @@ urlpatterns = [
     path('', include('example_app.urls')),
     path('destination/', include('daftar_destinasi.urls')),
     path('auth/', include('login_register.urls')),
+    path('faq/', include('faq.urls', namespace="faq") ),
+
 ]

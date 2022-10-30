@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+
+    <!-- component -->
+<!-- Code block starts -->
+<dh-component>
+  <div class="py-12 bg-gray-700 h-[1400px] transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0" id="modal">
+      <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
+          <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400 mt-16">
+              <div class="w-full flex justify-start text-gray-600 mb-3">
+                  <svg  xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-wallet" width="52" height="52" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                      <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                  </svg>
+              </div>
+              <form action="" method="POST">
+                {% csrf_token %}
+                <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">Enter Question Details</h1>
+                <label for="username" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Owner Name</label>
+                <input id="username" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Place your name here" />
+                <label for="question" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Question</label>
+                <input id="question" class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="What is your question?" />
+              </form>
+              <div class="flex items-center justify-start w-full">
+                  <button id="submit-button" class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm" onclick="modalHandler()">Submit</button>
+                  <button class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm" onclick="modalHandler()">Cancel</button>
+              </div>
+              <button class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onclick="modalHandler()" aria-label="close modal" role="button">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  class="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+              </button>
+          </div>
+      </div>
+  </div>
+  <!-- <div class="w-full flex justify-center py-12" id="button">
+      <button class="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm" onclick="modalHandler(true)">Open Modal</button>
+  </div> -->
+  <script>
+      
+  </script>
+  
+</dh-component>
+<!-- Code block ends -->
+
+      <section id="hide-sec" class="text-gray-700">
+        <div class="container items-center justify-center">
+            <img src="https://i.ibb.co/DQ4FZhL/pattern-bg.png" alt="blue pattern background" class="absolute w-full h-64 md:h-96 object-center object-fit z-0" />
+            <div class="relative flex flex-col items-center justify-center sm:px-0 px-6 z-20 pb-32">
+                <div class="md:py-36 py-20">
+                    <h1 id= "faq-header" role="heading" class="xl:text-6xl md:text-5xl text-6xl font-bold leading-10 z-10 text-white ml-60">Frequently asked questions</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container mx-auto">     
+            <div id="isi-disini" class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+              <div class="w-full lg:w-1/2 px-4 py-2 mt-0">
+              <!-- <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  How Long is this site live?
+                </summary>
+
+                <span>
+                  Laboris qui labore cillum culpa in sunt quis sint veniam.
+                  Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis
+                  minim velit nostrud pariatur culpa magna in aute.
+                </span>
+              </details>
+              <details class="mb-4">
+                <summary class="font-semibold bg-gray-200 rounded-md py-2 px-4">
+                  Apa Cerita dan Manfaat Aplikasi "Wisata-Nusantara"?
+                </summary>
+
+                <span>
+                    Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 
+                    diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat 
+                    melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, 
+                    aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional.
+                </span>
+              </details>
+              <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  Kapan acara presidensi G20 Indonesia 2022?
+                </summary>
+
+                <span>
+                    Serangkaian acara Presidensi G20 Indonesia yang sudah dimulai sejak 1 Desember 2021 lalu, sudah hampir terlaksana 
+                    seluruhnya. Indonesia telah sampai pada momen puncak Presidensi G20 yaitu KTT G20 yang telah diselenggarakan pada 
+                    tanggal 15-16 November 2022 di Bali. Berbagai substansi telah disepakati, working groups dan engagement group 
+                    telah menghasilkan berbagai terobosan dan pencapaian dalam berbagai sektor.
+                </span>
+              </details>
+              <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  Apakah ada destinasi wisata yang direkomendasikan Kemenparekraf?
+                </summary>
+
+                <span>
+                    Pemerintah Indonesia melalui Kementerian Pariwisata dan Ekonomi Kreatif tengah menggaungkan potensi pariwisata 
+                    Tanah Air. Salah satu upayanya adalah dengan mempromosikan 5 destinasi super prioritas di Indonesia. 5 destinasi 
+                    wisata super prioritas yang dicanangkan Kementerian Pariwisata dan Ekonomi Kreatif (Kemenparekraf) tersebut 
+                    mencakup Borobudur, Danau Toba, Likupang, Mandalika, dan Labuan Bajo. Masing-masing destinasi itu memiliki pesona 
+                    dan keunikannya masing-masing. Bila Anda belum sempat mengunjungi 5 destinasi super prioritas tersebut, tak ada 
+                    salahnya menyiapkan rencananya sejak saat ini.
+                </span>
+              </details>
+              <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  Tips dalam menentukan destinasi wisata?
+                </summary>
+
+                <span>
+                    
+                    <p>1. Memperkirakan Jarak Tempuh.</p>
+                    <p>2. Menentukan Jenis Tujuan Wisata. </p>
+                    <p>3. Mengetahui Tujuan dan Sesuatu yang Akan Didapat.</p>
+                    <p>4. Pertimbangkan Cuaca.</p>
+                    <p>5. Anggaran dengan Matang.</p>
+                </span>
+              </details> -->
+            </div>
+          </div>
+        </div>
+              <div class="mt-9 md:mt-11 lg:mt-16">
+                <div class="text-center" >
+                    <h1 class="text-3xl font-medium leading-loose text-gray-800 dark:text-white">Didn’t find an answer?</h1>
+                    <p class="mx-4 md:mx-0 mb-4 text-base leading-none text-gray-600 dark:text-gray-200 mt-4">Our team is just an email away and ready to answer your questions</p>
+                    <div class="flex justify-center items-center" >
+                        <button class="mt-2 md:mt-6 py-3 px-6 bg-blue-600 hover:bg-indigo-700 rounded text-white text-center font-medium text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800" onclick="modalHandler(true)">Ask New Question</button>
+                    </div>
+                </div>
+                <div role="list" aria-label="Our Team mates" class="flex flex-wrap items-center justify-around mt-7">
+                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
+                        <img src="https://i.ibb.co/zS3y67Q/Unsplash-Avatars-0000s-0019-analise-benevides-88w-Kdd-JTwp8-unsplash-1.png" alt="Display avatar of julia john" role="img">
+                        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white mt-2">Julia John</p>
+                        <p class="text-base leading-none text-gray-600 dark:text-gray-200 mt-2">Designer</p>
+                    </div>
+                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
+                        <img src="https://i.ibb.co/vJSM2Ch/Unsplash-Avatars-0004s-0005-laurence-cruz-P7yvmaj-Pvk-M-unsplash.png" alt="Display avatar of Tom Koch" role="img" >
+                        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white mt-2">Tom Koch</p>
+                        <p class="text-base leading-none text-gray-600 dark:text-gray-200 mt-2">Developer</p>
+                    </div>
+                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
+                        <img src="https://i.ibb.co/0tzwY54/Unsplash-Avatars-0004s-0012-tiffany-collins-Gsy-St-BSs-Yd0-unsplash.png" alt="Display avatar of Kera Ann" role="img">
+                        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white mt-2">Kera Ann</p>
+                        <p class="text-base leading-none text-gray-600 dark:text-gray-200 mt-2">Designer</p>
+                    </div>
+                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
+                        <img src="https://i.ibb.co/DWMLC3n/Unsplash-Avatars-0004s-0013-sirio-w-Siku-Nio6-UY-unsplash.png" alt="Display Avatar of Glenn Jo" role="img">
+                        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white mt-2">Glenn Jo</p>
+                        <p class="text-base leading-none text-gray-600 dark:text-gray-200 mt-2">Support</p>
+                    </div>
+                    <div role="listitem" class="focus:outline-none" class="flex flex-col items-center justify-center m-6" >
+                        <img src="https://i.ibb.co/vkHZYXY/Unsplash-Avatars-0004s-0029-azamat-zhanisov-4yh-Hhp-AMC3-U-unsplash.png" alt="Display avatar of Shing Co" role="img">
+                        <p class="text-base font-semibold leading-none text-gray-800 dark:text-white mt-2">Xhing Co</p>
+                        <p class="text-base leading-none text-gray-600 dark:text-gray-200 mt-2">Support</p>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center" >
+                    <button class="mt-4 md:mt-6 py-3 px-6 bg-indigo-800 hover:bg-indigo-700 rounded text-white text-center font-medium text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-800">Contact us</button>
+                </div>
+            </div>
+      </section>
+    </div>
+
+<script>
+  $(document).ready(function(){
+      $.get("{% url 'faq:show_faq_by_json_public' %}", function(data){
+          var content = `
+          <div class="w-full lg:w-1/2 px-4 py-2 mt-0">
+          `;
+          for(var i = 0; i < data.length; i++){
+              content += `
+              <details class="mb-4">
+                <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
+                  ${data[i].fields.question}
+                </summary>
+
+                <span>
+                  ${data[i].fields.answer}
+                </span>
+              </details>
+              `
+          }
+          content += `
+        </div>
+          `
+          $('#isi-disini').html(content);
+      })
+
+      $('#submit-button').click(function(){
+            var username = document.getElementById('username').value;
+            var question = $('#question').val();
+            var CSRFtoken = $('input[name="csrfmiddlewaretoken"]').val();
+            $.post('/faq/add/', {
+                username: username,
+              
+                question: question,
+                
+                csrfmiddlewaretoken: CSRFtoken,
+            }, function(){
+              window.alert("uglaa")
+            })
+        })
+      
+  })
+
+  //###############################################################################################//
+
+  let modal = document.getElementById("modal");
+      function modalHandler(val) {
+          if (val) {
+              document.getElementById("hide-sec").style.display = "none";
+              fadeIn(modal);
+          } else {
+              document.getElementById("hide-sec").style.display = "block";
+              fadeOut(modal);
+          }
+      }
+      function fadeOut(el) {
+          el.style.opacity = 1;
+          (function fade() {
+              if ((el.style.opacity -= 0.1) < 0) {
+                  el.style.display = "none";
+              } else {
+                  requestAnimationFrame(fade);
+              }
+          })();
+      }
+      function fadeIn(el, display) {
+          el.style.opacity = 0;
+          el.style.display = display || "flex";
+          (function fade() {
+              let val = parseFloat(el.style.opacity);
+              if (!((val += 0.2) > 1)) {
+                  el.style.opacity = val;
+                  requestAnimationFrame(fade);
+              }
+          })();
+      }
+      fadeOut(modal);
+
+</script>
+
+
+{% endblock content %}
+
+
+    
