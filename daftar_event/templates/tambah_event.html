@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block page_title %}
+  Add Event & Activity | Wisata Nusantara
+{% endblock %}
+
+
+{% block content %}
+<body>
+<div class=" h-screen bg-gradient-to-r from-green-500 to-slate-500">
+    <p class="text-center text-4xl font-bold py-5">Add New Event</p>
+    <div class="flex justify-center">
+        <form method="POST" action="" id="addEvent">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><label for="{{form.nama.id_for_label}}" id="" class="font-semibold">Name</label></td>
+                    <td>{{forms.nama}}</td>
+                </tr>
+                <tr>
+                    <td><label for="{{form.lokasi.id_for_label}}" id="" class="font-semibold">Location</label></td>
+                    <td>{{forms.lokasi}}</td>
+                </tr>
+                <tr>
+                    <td><label for="{{form.jenis.id_for_label}}" id="" class="font-semibold">Category</label></td>
+                    <td>{{forms.jenis}}</td>
+                </tr>
+                <tr>
+                    <td><label for="{{form.deskripsi.id_for_label}}" id="" class="font-semibold">Description</label></td>
+                    <td>{{forms.deskripsi}}</td>
+                </tr>
+                <tr>
+                  <td><label for="{{form.foto.id_for_label}}" id="" class="font-semibold">Photo URL</label></td>
+                  <td>{{forms.foto}}</td>
+              </tr>
+                
+            </table>
+            <div class="flex justify-center">
+                <input id="submit-btn" type="submit" class="bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full" value="Add New Event">
+
+              </div>
+            <div class="flex justify-center">
+              <a href="/event/" class="bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full mt-4">Back</a>
+            </div>
+        </form>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).on("submit", "#addEvent", function (e) {
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "{% url 'daftar_event:add_json' %}",
+      data: {
+        nama: $("#nama").val(),
+        lokasi: $("#lokasi").val(),
+        jenis: $("#jenis").val(),
+        deskripsi: $("#deskripsi").val(),
+        foto : $("#foto").val(),
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      dataType: "json",
+      success: function () {
+        document.location.href = "/event/";
+      },
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Cerita Perjalanan
+{% endblock %}
+
+{% block content %}
+<div class="mt-10">
+  <div class="flex justfy-center flex-col items-center w-auto font-mono text-lg font-bold">
+    <form class="w-6/12 p-10 rounded-lg shadow-lg"
+      style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');"
+      method="POST" action="{% url 'cerita_perjalanan:submit' %}">
+      {% csrf_token %}
+      <h1 class="text-center text-3xl font-bold mb-10">Give us a review!</h1>
+      <div class="form-group mb-6">
+        {{ form.name }}
+      </div>
+      <div class="form-group mb-6">
+        {{ form.review }}
+      </div>
+      <button type="submit" class="
+  w-full
+  p-4
+  bg-green-600
+  text-white
+  font-xl
+  text-xl
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      hover:bg-green-700 hover:shadow-lg
+      focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0
+      active:bg-green-800 active:shadow-lg
+      transition
+      duration-150
+      ease-in-out">Send</button>
+    </form>
+    <h1 class="mt-5 mb-5 flex justfy-center items-center text-zinc-600 text-5xl italic">Apa kata mereka?</h1>
+  </div>
+  <div class="container px-4 flex-grow w-full py-4 sm:py-16 mx-auto px-0">
+    <div class="mx-auto w-full md:w-4/5 px-4">
+      <div class="container my-8">
+        <div class="flex justify-between items-center mb-4">
+          <div id="scrollContainer" class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8">
+            {% for item in cerita %}
+            <div class="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 border rounded-lg">
+              <a href="#" class="space-y-4">
+                <div class="aspect-w-16 aspect-h-9">
+                  <img class="object-cover shadow-md hover:shadow-xl rounded-lg"
+                    src="https://3.bp.blogspot.com/-UfwsLXiqxAE/Wnt7DqCNArI/AAAAAAAAAlU/4j8EEfMvqJshHfdhXI5MpTZ9HtAI66QUwCLcBGAs/s1600/w1.jpg"
+                    alt="" />
+                </div>
+                <div class="px-5 py-5 text-center">
+                  <div class="text-lg leading-6 font-medium space-y-1">
+                    <h3 class="font-bold text-gray-800 text-3xl mb-2">
+                      {{ item.name }}
+                    </h3>
+                  </div>
+                  <div class="text-lg">
+                    <p class="">
+                     {{ item.review }}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+    {% endblock content %}

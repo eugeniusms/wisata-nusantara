@@ -1,10 +1,10 @@
 from django.urls import path
-from cerita_perjalanan.views import submit_review
-from cerita_perjalanan.views import get_review
+from cerita_perjalanan.views import submit
+from cerita_perjalanan.views import get
 
 app_name = 'cerita_perjalanan'
 
 urlpatterns = [
-    path('/submit_review', submit_review, name='submit_review'),
-    path('/get_review', get_review, name='get_review'),
+    path('submit', submit, name='submit'),
+    path('get', get, name='get'),
 ]
