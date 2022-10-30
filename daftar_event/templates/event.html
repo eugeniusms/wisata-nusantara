@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+  {{ nama }} | Wisata Nusantara
+{% endblock %}
+
+{% block content %}
+
+<div class="h-screen bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="container px-5 py-24 mx-auto" style="cursor: auto;">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap flex justify-center justify-items-center">
+      <img  class="lg:w-1/2 lg:h-auto h-64 object-contains rounded" src="{{foto}}" style="cursor: auto;">
+      <div class="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0" style="cursor: auto;">
+        <h1 class="text-white text-3xl font-semibold">{{nama}}</h1>
+        <p class="text-white leading-relaxed">{{deskripsi}}</p>
+        <div class="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
+          </div>
+          <div class="flex justify-center">
+            <a href="/event/" class="bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full mt-4">Back</a>
+          </div>
+  </div>
+  </div>
+  
+{% endblock %}
