@@ -35,7 +35,7 @@ def show_json(request) :
 @csrf_exempt
 def delete_event(request,id):
   if request.method == 'DELETE' :
-    Event.objects.filter(pk=id).delete()
+    Event.objects.filter(id=id).delete()
   return JsonResponse({"object": "Data dihapus"},status=200)
   
 def lihat_event(request, id):
