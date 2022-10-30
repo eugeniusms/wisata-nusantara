@@ -18,6 +18,6 @@ def submit_ajax(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         question = request.POST.get('question')
-        new_task = privateFaqData(user = request.user, username = username, question = question)
-        new_task.save()
+        new_question = privateFaqData(user = request.user, username = username, question = question,)
+        new_question.save()
     return HttpResponse('')
