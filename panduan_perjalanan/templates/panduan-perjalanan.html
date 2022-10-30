@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+  Panduan Perjalanan | Wisata Nusantara
+{% endblock %}
+{% block meta %} 
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" type="text/css" href="{% static 'panduan_perjalanan/css/style.css' %}" />
+{% endblock meta %}
+
+{% block content %}
+<div>
+  <section class="hero-section">
+    <div class="hero-container">
+        <h1 id="primary-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h1>
+        <br>
+        <p id="subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit illum dignissimos distinctio similique temporibus veniam fuga neque incidunt?</p>
+        <br>
+        <button class="btn btn-hero">Pandu Wisata &DownArrow;</button>
+    </div>
+  </section>
+
+  <main class="section-container form-section">
+    <div class="card">
+      <form id="form-panduan" onsubmit="return false;">
+        {% csrf_token %}
+        <div class="kota-asal">
+          <label>Kota Asal</label>
+          <input class="input-panduan" type="text" name="kota_asal" placeholder="Kota Asal" required />
+        </div>
+        <div class="kota-destinasi">
+          <label>Kota Destinasi</label>
+          <input class="input-panduan" type="text" name="kota_destinasi" placeholder="Kota Destinasi" required />
+        </div>
+        <input type="submit" class="btn btn-submit">
+      </form>
+    </div>
+  </main>
+
+  <section class="section-panduan">
+    <div class="container">
+      <h2>Hello Worlds</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+    <div class="daftar-panduan">
+      <div class="container grid">
+
+
+        <div class="kota-asal">
+          <img src="https://openweathermap.org/img/wn/04n.png" alt="weather-logo" class="icon" />
+          <div>
+            <p>Kota Asal</p>
+            <p>Cuaca Hari</p>
+          </div>
+        </div>
+
+        <div class="kota-destinasi">
+          <img src="https://openweathermap.org/img/wn/04n.png" alt="weather-logo" class="icon" />
+          <div>
+            <p>Kota Destinasi</p>
+            <p>Cuaca Hari</p>
+          </div>
+        </div>
+
+
+        <div class="daftar-rekomendasi">
+          <ul>
+            <li>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis laboriosam quibusdam optio harum perspiciatis.</li>
+            <li>2</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="{% static 'panduan_perjalanan/js/script.js' %}"></script>
+{% endblock content %}
