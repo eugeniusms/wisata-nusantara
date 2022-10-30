@@ -1,7 +1,33 @@
-{% extends "base.html" %} {% block page_title %} Cerita Perjalanan {% endblock
+{% comment %} {% extends "base.html" %} {% block page_title %} Cerita Perjalanan {% endblock
 %} {% block content %}
 
-<div class="container mt-5 pt-5">
+<form method="POST" action="">
+  {% csrf_token %}
+      <div class="form-control">
+          <td>name: </td>
+          {{form.name}}
+      </div>
+          
+      <div class="form-control">
+        <td>review: </td>
+        {{form.review}}
+      </div>
+
+      <div class="form-control">
+        <td>date: </td>
+        {{form.date}}
+      </div>
+
+      <tr>
+          <td></td>
+          <td><input class="btn btn-primary" type="submit" value="Submit" value="post"></td>
+      </tr> 
+</form>
+
+
+ {% endcomment %}
+
+ <div class="container mt-5 pt-5">
   <header class="d-flex justify-content-between align-items-center">
     <h1>Apa kata mereka?</h1>
     <!-- Button trigger modal -->
@@ -47,12 +73,12 @@
                 <input type="text" class="form-control" id="name" />
               </div>
             </div>
-            <div class="col">
+            {% comment %} <div class="col">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" />
               </div>
-            </div>
+            </div> {% endcomment %}
           </div>
           <div class="mb-3">
             <label for="review" class="form-label">Review</label>
@@ -72,7 +98,7 @@
 
 <script>
   function getListReview() {
-    return fetch("{% url 'cerita_perjalanan:get' %}").then((res) => res.json());
+    return fetch("{% url 'cerita_perjalanan:get_review' %}").then((res) => res.json());
   }
   function postReview() {
     const name = document.getElementById("name").value;
