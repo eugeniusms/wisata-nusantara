@@ -22,9 +22,6 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('destination/', include('daftar_destinasi.urls')),
     path('auth/', include('login_register.urls')),
-<<<<<<< HEAD
     path('panduan-perjalanan/', include('panduan_perjalanan.urls')),
-=======
     path('event/', include('daftar_event.urls')),
->>>>>>> 3565f7044a06a525b641025d059175ce3189cb82
 ]

@@ -110,18 +110,17 @@ function setPanduan(weatherStatus, description) {
 
 // event button
 
-document.querySelector(".btn-submit").addEventListener("click", addPanduan);
+// document.querySelector(".btn-submit").addEventListener("click", addPanduan);
 
 const btnHero = document.querySelector(".btn-hero");
-const secForm = document.querySelector(".form-section");
-const formPanduan = document.querySelector("#form-panduan");
-const btnSubmit = document.querySelector(".btn-submit");
+const descriptionSection = document.querySelector(".page-description");
+// const btnSubmit = document.querySelector(".btn-submit");
 const secPanduan = document.querySelector(".section-container");
 
 btnHero.addEventListener("click", function(e) {
-  secForm.scrollIntoView({behavior:"smooth"})
+  descriptionSection.scrollIntoView({behavior:"smooth"})
 })
 
-btnSubmit.addEventListener("click", function(e) {
-  secPanduan.scrollIntoView({behavior:"smooth"});
-})
+// btnSubmit.addEventListener("click", function(e) {
+//   secPanduan.scrollIntoView({behavior:"smooth"});
+// })
