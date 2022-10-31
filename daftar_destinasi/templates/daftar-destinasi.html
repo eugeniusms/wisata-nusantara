@@ -128,6 +128,8 @@
         sidebarElements.map((element) => {
           $("#sidebar-destination").append(sidebarElement(element));
         });
+        $("#hello-mobile").append(`<p>Hello, ${data[0].fields.username}!</p>`);
+        $("#hello-tablet-desktop").append(`<p>Hello, ${data[0].fields.username}!</p>`);
       }
     })
 
@@ -253,7 +255,7 @@
 <div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
   <div>
     <div class="p-4">
-      <p>Hello, {{ username }}!</p>
+      <p id="hello-mobile"></p>
       <p class="font-bold text-xl py-2">Where do you want to go?</p>
       <input type="text" name="search-destination" id="search-destination-mobile" placeholder="Search destination name" size="30" class="py-2 px-2 rounded-xl"/>
       
@@ -296,7 +298,7 @@
 
     <div>
       <div class="pl-8 pt-6 pb-4">
-        <p>Hello, {{ username }}!</p>
+        <p id="hello-tablet-desktop"></p>
         <p class="font-bold text-xl pb-3">Where do you want to go?</p>
         <input type="text" name="search-destination" id="search-destination-tablet-desktop" placeholder="Search destination name" size="40" class="shadow-3xl py-2 px-2 rounded-xl"/>
         
