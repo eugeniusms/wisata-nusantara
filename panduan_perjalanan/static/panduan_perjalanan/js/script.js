@@ -1,79 +1,88 @@
 'use strict';
 
+let stringCuaca = "";
+
 async function getJson() {
   return fetch("./get_data").then( res => res.json())
-}
-
-async function updateUI() {
-  document.querySelector(".daftar-panduan").innerHTML = "";
-  const panduan = await getJson();
-  // belum selesai
-  let htmlString = ``;
-  panduan.forEach(item => {
-    htmlString += `
-    <div>
-      <div>${item.fields.kota_asal}</div>
-      <div>${item.fields.kota_destinasi}</div>
-    <div/>
-    `
-  });
-
-  // document.querySelector(".daftar-panduan").insertAdjacentHTML("afterbegin", htmlString);
 }
 
 function addPanduan() {
   fetch("./create_data/", {
         method: "POST",
         body: new FormData(document.querySelector('#form-panduan'))
-    }).then(updateUI);
+    }).then(callWeatherApi);
   return false;
 }
 
-document.querySelector(".btn-submit").addEventListener("click", addPanduan);
+async function callWeatherApi() {
+  const inputKota = await getJson();
+  const index = Object.keys(inputKota).length - 1;
 
-const btnHero = document.querySelector(".btn-hero");
-const secForm = document.querySelector(".form-section");
-const formPanduan = document.querySelector("#form-panduan");
-const btnSubmit = document.querySelector(".btn-submit");
-const secPanduan = document.querySelector(".section-container");
+  const kotaAsal = inputKota[index].fields.kota_asal;
+  const kotaDestinasi = inputKota[index].fields.kota_destinasi;
+  getCitiesData(kotaAsal, kotaDestinasi);
+}
 
-btnHero.addEventListener("click", function(e) {
-  secForm.scrollIntoView({behavior:"smooth"})
-})
+async function getCitiesData(kotaAsal, kotaDestinasi) {
+  const cuacaAsal = await getWeather(kotaAsal);
+  const cuacaDestinasi = await getWeather(kotaDestinasi);
 
-btnSubmit.addEventListener("click", function(e) {
-  secPanduan.scrollIntoView({behavior:"smooth"});
-})
+  const dataCuacaAsal = await cuacaAsal.json();
+  const dataCuacaDestinasi = await cuacaDestinasi.json();
+
+  console.log(dataCuacaAsal);
+  console.log(dataCuacaDestinasi);
+  writeCityData(dataCuacaAsal);
+  writeCityData(dataCuacaDestinasi);
+
+  updateUI();
+}
+
+async function updateUI() {
+  document.querySelector(".daftar-panduan").innerHTML = "";
+  stringCuaca += `
+    <div class="daftar-rekomendasi">
+      <ul>
+        <li>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis laboriosam quibusdam optio harum perspiciatis.</li>
+        <li>2</li>
+      </ul>
+    </div>
+  `;
+  document.querySelector(".daftar-panduan").innerHTML = stringCuaca;
+  stringCuaca = "";
+}
 
 // Weather App
-const apiKey = "2bf8699a999ba51b8a89cb7600b39312";
-
-function getWeather(city) {
-  fetch(
+async function getWeather(city) {
+  const apiKey = "2bf8699a999ba51b8a89cb7600b39312";
+  return fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
       city +
       "&units=metric&appid=" +
       apiKey
-    )
-  .then((response) => {
-    if (!response.ok) {
-      alert("No weather found.");
-      throw new Error("No weather found.");
-    }
-    return response.json();
-  })
-  .then((data) => displayWeather(data));  
+    );
 }
 
-function displayWeather(data) {
+function writeCityData(data) {
   const { name } = data;
   const { icon, description } = data.weather[0];
   const { temp, humidity } = data.main;
   const { speed } = data.wind;
-  console.log(name, icon, description, temp, humidity, speed);
+  stringCuaca += `
+    <div class="kota">
+      <p>Weather in ${name}</p>
+      <p>${temp}°C</p>
+      <div>
+        <img src="https://openweathermap.org/img/wn/${icon}.png" alt="weather-logo" class="icon" />
+        <p class="description">${description}</p>
+      </div>
+      <div>
+        <div class="humidity">Humidity: ${humidity}%</div>
+        <div class="wind">Wind speed: ${speed} km/h</div>
+      </div>
+    </div>
+  `;
 }
-
-getWeather("Jakarta");
 
 function setPanduan(weatherStatus, description) {
   /*
@@ -98,3 +107,21 @@ function setPanduan(weatherStatus, description) {
 
   }
 }
+
+// event button
+
+document.querySelector(".btn-submit").addEventListener("click", addPanduan);
+
+const btnHero = document.querySelector(".btn-hero");
+const secForm = document.querySelector(".form-section");
+const formPanduan = document.querySelector("#form-panduan");
+const btnSubmit = document.querySelector(".btn-submit");
+const secPanduan = document.querySelector(".section-container");
+
+btnHero.addEventListener("click", function(e) {
+  secForm.scrollIntoView({behavior:"smooth"})
+})
+
+btnSubmit.addEventListener("click", function(e) {
+  secPanduan.scrollIntoView({behavior:"smooth"});
+})
