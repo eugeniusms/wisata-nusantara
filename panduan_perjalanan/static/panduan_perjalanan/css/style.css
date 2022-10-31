@@ -75,21 +75,18 @@
 }
 
 .section-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: var(--background-color);
+  padding: 9.6rem 0;
 }
 
-.container {
+.box-container {
+  /* 1140px */
+  max-width: 71.25rem;
   padding: 0 2rem;
   margin: 0 auto;
 }
 
 .card {
   padding: 1.2rem;
-  margin: 1rem;
   background-color: azure;
   border-radius: 0.5rem;
   width: 100%;
@@ -129,11 +126,53 @@
 
 .grid {
   display: grid;
+  column-gap: 4rem;
+  row-gap: 6rem;
+  align-items: center;
+}
+
+.grid-2cols-2rows {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
 }
 
+.grid-2cols {
+  grid-template-columns: 1fr 1fr;
+}
+
 .daftar-rekomendasi {
   grid-column: 1/-1;
+}
+
+.panduan-number {
+  font-size: 5.25rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 0.75rem;
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.panduan-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.panduan-img-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panduan-img {
+  width: 75%;
 }

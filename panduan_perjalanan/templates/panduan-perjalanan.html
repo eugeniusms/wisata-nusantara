@@ -22,8 +22,70 @@
     </div>
   </section>
 
-  <main class="section-container form-section">
-    <div class="card">
+  <main class="box-container">
+    <div class="box-container">
+      <h2>Hello Worlds</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <div class="container grid grid-2cols grid--center-v">
+      <!-- panduan 01 -->
+      <div class="panduan-text-box">
+        <p class="panduan-number">01</p>
+        <h3 class=" ">
+          Ramalan cuaca terkini
+        </h3>
+        <p class="panduan-description">
+          Ramalan cuaca di dua kota, kota keberangkatan dan kota destinasi.
+          Dengan begitu, anda dapat mengetahui kondisi tujuan wisata serta
+          berangkat di saat cuaca yang baik!
+        </p>
+      </div>
+
+      <div class="panduan-img-box">
+        <img
+          src="{% static 'panduan_perjalanan/img/weather-forecast.jpg' %}"
+          class="panduan-img"
+          alt="weather-forecast"
+        />
+      </div>
+
+      <!-- panduan 02 -->
+      <div class="panduan-img-box">
+        <img
+          src="{% static 'panduan_perjalanan/img/bag.jpg' %}"
+          class="panduan-img"
+          alt="travel-bag"
+        />
+      </div>
+      <div class="panduan-text-box">
+        <p class="panduan-number">02</p>
+        <h3 class="heading-tertiary">Rekomendasi perlengkapan sesuai kondisi cuaca</h3>
+        <p class="panduan-description">
+          Setelah mengetahui kondisi cuaca di kedua kota. Kami rekomendasikan
+          perlengkapan yang dapat dibawa agar perjalanan wisata anda tetap nyaman!
+        </p>
+      </div>
+
+      <!-- panduan 03 -->
+      <div class="panduan-text-box">
+        <p class="panduan-number">03</p>
+        <h3 class="heading-tertiary">Ketahui lokasi tujuan anda!</h3>
+        <p class="panduan-description">
+          Wisata akan menjadi perjalanan yang panjang! Jadi, persiapkan
+          diri dengan melihat gambaran jarak kota asalmu dan destinasi wisata.
+        </p>
+      </div>
+      <div class="panduan-img-box">
+        <img
+          src="{% static 'panduan_perjalanan/img/maping.jpg' %}"
+          class="panduan-img"
+          alt="peta indonesia"
+        />
+      </div>
+    </div>
+
+    <!-- <div class="card">
       <form id="form-panduan" onsubmit="return false;">
         {% csrf_token %}
         <div class="kota-asal">
@@ -35,40 +97,14 @@
           <input class="input-panduan" type="text" name="kota_destinasi" placeholder="Kota Destinasi" required />
         </div>
         <input type="submit" class="btn btn-submit">
-      </form>
+      </form> -->
     </div>
   </main>
 
   <section class="section-panduan">
     <div class="container">
-      <h2>Hello Worlds</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    </div>
-    <div class="container">
-      <div class="grid daftar-panduan">
-        <div class="kota-asal">
-          <img src="https://openweathermap.org/img/wn/04n.png" alt="weather-logo" class="icon" />
-          <div>
-            <p>Kota Asal</p>
-            <p>Cuaca Hari</p>
-          </div>
-        </div>
-
-        <div class="kota-destinasi">
-          <img src="https://openweathermap.org/img/wn/04n.png" alt="weather-logo" class="icon" />
-          <div>
-            <p>Kota Destinasi</p>
-            <p>Cuaca Hari</p>
-          </div>
-        </div>
-
-
-        <div class="daftar-rekomendasi">
-          <ul>
-            <li>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis laboriosam quibusdam optio harum perspiciatis.</li>
-            <li>2</li>
-          </ul>
-        </div>
+      <div class="grid grid-2cols-2rows daftar-panduan">
+        <!-- isi panduan -->
       </div>
       
     </div>
