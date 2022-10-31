@@ -19,28 +19,6 @@ def show_json(request):
 def daftar_destinasi(request):
   return render(request, 'daftar-destinasi.html')
 
-def destinasi_by_id(request, id):
-  destinasi = Destinasi.objects.get(pk=id)
-  username = request.user.username
-  is_admin = username == "eugenius.mario"
-  is_loggedin = username != ""
-
-  context = {
-    'nama': destinasi.nama,
-    'deskripsi': destinasi.deskripsi,
-    'lokasi': destinasi.lokasi,
-    'kategori': destinasi.kategori,
-    'foto_thumbnail_url': destinasi.foto_thumbnail_url,
-    'foto_cover_url': destinasi.foto_cover_url,
-    'maps_url': destinasi.maps_url,
-    'jumlah_suka': destinasi.jumlah_suka,
-    'username': username,
-    'is_admin': is_admin,
-    'is_loggedin': is_loggedin
-  }
-
-  return render(request, 'destinasi-by-id.html', context)
-
 @csrf_exempt
 @login_required(login_url='/auth/login')
 def tambah_destinasi(request):
