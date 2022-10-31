@@ -60,54 +60,63 @@
     const sidebarElements = [
       {
         name: "Home",
+        id: "home-button",
         icon: "fa-solid fa-house",
         iconColor: "#CBD5E1",
         link: "/",
       },
       {
         name: "Events",
+        id: "events-button",
         icon: "fa-solid fa-calendar-days",
         iconColor: "#CBD5E1",
         link: "/event/",
       },
       {
         name: "Journey",
+        id: "journey-button",
         icon: "fa-solid fa-book",
         iconColor: "#CBD5E1",
         link: "/journey/",
       },
       {
         name: "Story",
+        id: "story-button",
         icon: "fa-solid fa-comments",
         iconColor: "#CBD5E1",
         link: "/story/",
       },
       {
         name: "FAQ",
+        id: "faq-button",
         icon: "fa-solid fa-question",
         iconColor: "#CBD5E1",
         link: "/faq/",
       },
       {
         name: "Profile",
+        id: "profile-button",
         icon: "fa-solid fa-user",
         iconColor: "#CBD5E1",
         link: "/destination/profile/",
       },
       {
         name: "Wishlist",
+        id: "wishlist-button",
         icon: "fa-solid fa-heart",
         iconColor: "#22C55E",
         link: "/destination/wishlist/",
       },
       {
         name: "Add Destination",
+        id: "add-destination-button",
         icon: "fa-solid fa-plus",
         iconColor: "#22C55E",
         link: "/destination/add/",
       },
       {
         name: "Delete Destination",
+        id: "delete-destination-button",
         icon: "fa-solid fa-trash",
         iconColor: "#BD4B4B",
         link: "/destination/delete/",
@@ -118,12 +127,12 @@
     const sidebarElement = (element) => {
       if (element.name == "Wishlist" && userLoggedIn.length != 0) {
         return(`
-          <a href="${element.link}" class="text-slate-300 hover:text-bone">
+          <button class="text-slate-300 hover:text-bone" id=${element.id}>
             <div class="flex items-center py-1 mt-8">
               <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
               <p class="pl-2">${element.name}</p>
             </div>
-          </a>
+          </button>
         `)
       }
       if (element.name == "Wishlist" && userLoggedIn.length == 0) {
@@ -134,6 +143,17 @@
       }
       if (element.name == "Delete Destination" && userLoggedIn[0].fields.username != "eugenius.mario") {
         return ``;
+      }
+
+      if (element.id == "add-destination-button" || element.id == "delete-destination-button") {
+        return(`
+          <button class="text-slate-300 hover:text-bone" id=${element.id}>
+            <div class="flex items-center py-1">
+              <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
+              <p class="pl-2">${element.name}</p>
+            </div>
+          </button>
+        `)
       }
       return(`
         <a href="${element.link}" class="text-slate-300 hover:text-bone">
@@ -157,6 +177,8 @@
         });
         $("#hello-mobile").append(`<p>Hello, ${data[0].fields.username}!</p>`);
         $("#hello-tablet-desktop").append(`<p>Hello, ${data[0].fields.username}!</p>`);
+       
+        activateSidebarModal();
       }
     })
 
@@ -299,7 +321,7 @@
     }
     // ================================ END OF RESULT SHOW =================================
 
-    // ================================ ALL ABOUT MODAL =================================
+    // ================================ ALL ABOUT DESTINATION MODAL ========================
     const modalCard = (destinasi) => {
       // FOR MOBILE
       $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
@@ -416,6 +438,23 @@
       })
     }
 
+    const activateSidebarModal = () => {
+      // ================================ ALL ABOUT FORM ADD MODAL ========================
+      $("#add-destination-button").click(function() {
+        $("#modalAddDestinationTabletDesktop").html(`
+          <div id="myModal" class="modal">
+            <div class="modal-content-destination-tablet-desktop">
+              <span class="text-3xl cursor-pointer hover:text-rose" id="close-modal">&times;</span>
+            </div>
+          </div>
+        `)
+
+        // Close the modal
+        $("#close-modal").click(function() {
+            $("#myModal").remove();
+        })
+      })
+    }
     
   })
 </script>
@@ -441,6 +480,7 @@
     </div>
 
     <div id="modalMobile"></div>
+    <div id="modalAddDestinationMobile"></div>
 
   </div>
 
@@ -486,6 +526,7 @@
       </div>
 
       <div id="modalTabletDesktop"></div>
+      <div id="modalAddDestinationTabletDesktop"></div>
 
       <div class="h-[200px]"></div>
     </div>
