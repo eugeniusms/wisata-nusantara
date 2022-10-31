@@ -1,12 +1,15 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+from matplotlib import use
 from .models import Destinasi
 from django.core import serializers
 
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+
+from .forms import AddDestinasiForm
 
 # Create your views here.
 def show_json(request):
@@ -42,31 +45,38 @@ def destinasi_by_id(request, id):
 @login_required(login_url='/auth/login')
 def tambah_destinasi(request):
   if (request.method == 'POST'):
-    nama = request.POST.get('nama')
-    deskripsi = request.POST.get('deskripsi')
-    lokasi = request.POST.get('lokasi')
-    kategori = request.POST.get('kategori')
-    foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
-    foto_cover_url = request.POST.get('foto_cover_url')
-    maps_url = request.POST.get('maps_url')
-    created_by = request.user
+    # nama = request.POST.get('nama')
+    # deskripsi = request.POST.get('deskripsi')
+    # lokasi = request.POST.get('lokasi')
+    # kategori = request.POST.get('kategori')
+    # foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
+    # foto_cover_url = request.POST.get('foto_cover_url')
+    # maps_url = request.POST.get('maps_url')
+    # created_by = request.user
+    destinasi_form = AddDestinasiForm(request.POST, instance=request.user)
 
-    destinasi = Destinasi(
-      nama=nama,
-      deskripsi=deskripsi,
-      lokasi=lokasi,
-      kategori=kategori,
-      foto_thumbnail_url=foto_thumbnail_url,
-      foto_cover_url=foto_cover_url,
-      maps_url=maps_url,
-      created_by=created_by
-    )
-    destinasi.save()
+    if destinasi_form.is_valid():
+      destinasi_form.save()
+      return redirect('daftar_destinasi:daftar_destinasi')
+    return redirect('daftar_destinasi:daftar_destinasi')
+    # destinasi = Destinasi(
+    #   nama=nama,
+    #   deskripsi=deskripsi,
+    #   lokasi=lokasi,
+    #   kategori=kategori,
+    #   foto_thumbnail_url=foto_thumbnail_url,
+    #   foto_cover_url=foto_cover_url,
+    #   maps_url=maps_url,
+    #   created_by=created_by
+    # )
+    # destinasi.save()
 
     return JsonResponse({"header": "Destinasi Ditambahkan"}, status=200)
+  else:
+    destinasi_form = AddDestinasiForm()
 
   context = {
-    'username': request.user.username
+    'destinasi_form': destinasi_form
   }
 
   return render(request, 'tambah-destinasi.html', context)
