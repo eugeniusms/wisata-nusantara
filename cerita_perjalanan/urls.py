@@ -6,5 +6,5 @@ app_name = 'cerita_perjalanan'
 
 urlpatterns = [
     path('submit', submit, name='submit'),
-    path('get', get, name='get'),
+    path('', get, name='get'),
 ]
