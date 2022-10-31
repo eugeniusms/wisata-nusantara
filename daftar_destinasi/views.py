@@ -33,7 +33,7 @@ def destinasi_by_id(request, id):
     'foto_thumbnail_url': destinasi.foto_thumbnail_url,
     'foto_cover_url': destinasi.foto_cover_url,
     'maps_url': destinasi.maps_url,
-    'suka': destinasi.suka,
+    'jumlah_suka': destinasi.jumlah_suka,
     'username': username,
     'is_admin': is_admin,
     'is_loggedin': is_loggedin

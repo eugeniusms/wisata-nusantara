@@ -136,10 +136,10 @@
     // ================================ END OF INITIATING DATA ===================================
 
     // ================================ ALL ABOUT DESTINATION ====================================
-    // Destination Card
-    const destination = (destinasi) => {
+    // Destination Card : Mobile
+    const destinationMobile = (destinasi) => {
       return(`
-        <a href="/destination/${destinasi.pk}">
+        <div id="destinasi-card-mobile-${destinasi.pk}">
           <div class="p-4 hover:scale-105 transition duration-150 ease-in-out">
             <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
               <div class="h-[210px]"></div>
@@ -156,7 +156,30 @@
               <div class="h-[1px]"></div>
             </div>
           </div>
-        </a>
+        </div>
+      `)
+    }
+    // Destination Card : Tablet & Desktop
+    const destinationTabletDesktop = (destinasi) => {
+      return(`
+        <div id="destinasi-card-tablet-desktop-${destinasi.pk}">
+          <div class="p-4 hover:scale-105 transition duration-150 ease-in-out">
+            <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
+              <div class="h-[210px]"></div>
+              <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
+                <div>
+                  <p class="font-bold text-[11px]">${destinasi.fields.nama}</p>
+                  <p class="text-philippinesilver text-[9px]">${destinasi.fields.lokasi}</p>
+                </div> 
+                <div class="text-center">
+                  <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                  <p class="text-[9px]">${destinasi.fields.suka}</p>
+                </div>
+              </div>
+              <div class="h-[1px]"></div>
+            </div>
+          </div>
+        </div>
       `)
     }
 
@@ -168,8 +191,9 @@
         console.log(data);
         allData = data;
         data.map((destinasi) => {
-          $("#daftar-destinasi-mobile").append(destination(destinasi))
-          $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
+          $("#daftar-destinasi-mobile").append(destinationMobile(destinasi))
+          $("#daftar-destinasi-tablet-desktop").append(destinationTabletDesktop(destinasi));
+          modalCard(destinasi);
         })
       }
     })
@@ -228,8 +252,8 @@
       $("#daftar-destinasi-tablet-desktop").html("");
 
       filteredData.map((destinasi) => {
-        $("#daftar-destinasi-mobile").append(destination(destinasi))
-        $("#daftar-destinasi-tablet-desktop").append(destination(destinasi));
+        $("#daftar-destinasi-mobile").append(destinationMobile(destinasi))
+        $("#daftar-destinasi-tablet-desktop").append(destinationTabletDesktop(destinasi));
       })
 
       // Jika kosong
@@ -246,6 +270,15 @@
 
     }
     // ================================ END OF RESULT SHOW =================================
+
+    const modalCard = (destinasi) => {
+      $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
+        console.log("HEY")
+      })
+      $(`#destinasi-card-tablet-desktop-${destinasi.pk}`).click(function() {
+        console.log("HEY")
+      })
+    }
   })
 </script>
 {% endblock %}

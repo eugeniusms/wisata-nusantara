@@ -10,6 +10,10 @@ class Destinasi(models.Model):
   foto_thumbnail_url = models.URLField()
   foto_cover_url = models.URLField()
   maps_url = models.URLField()
-  suka = models.IntegerField(default=0)
+  jumlah_suka = models.IntegerField(default=0)
   # user related
   created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Suka(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  destinasi = models.ForeignKey(Destinasi, on_delete=models.CASCADE)
