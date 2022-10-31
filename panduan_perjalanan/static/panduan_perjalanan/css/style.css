@@ -1,6 +1,6 @@
 :root {
   --text-color: #fff;
-  --background-color: #333;
+  --main-color: #22C55E;
   --button-color: aqua;
 
 }
@@ -35,28 +35,18 @@
   text-align: center;
 }
 
-#primary-text {
-  font-size: 6vmin;
-  font-weight: 700;
-  color: var(--text-color);
-  line-height: 1.05;
-  margin-bottom: 2rem;
-  letter-spacing: -0.5px;
-}
-
-#subtitle {
-  padding: 0 3rem;
-  font-size: 1.2rem;
+.hero-description {
+  font-size: 1.25rem;
   line-height: 1.6;
-  margin-bottom: 4.8rem;
+  margin-bottom: 3rem;
 }
 
 .btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
-  background-color: aqua;
-  color: rebeccapurple;
+  background-color: var(--main-color);
+  color: #fff;
 
   text-decoration: none;
   font-size: 1.2rem;
@@ -85,41 +75,6 @@
   margin: 0 auto;
 }
 
-.card {
-  padding: 1.2rem;
-  background-color: azure;
-  border-radius: 0.5rem;
-  width: 100%;
-  max-width: 26.25rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
-}
-
-#form-panduan {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 1.8rem;
-}
-
-#form-panduan label {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.8rem;
-}
-
-#form-panduan .input-panduan {
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1.5rem;
-  font-family: inherit;
-  color: inherit;
-  border: none;
-  background-color: #eee;
-  border-radius: 9px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
-}
-
 .section-panduan {
   padding: 8rem 0;
 }
@@ -131,7 +86,7 @@
   align-items: center;
 }
 
-.grid-2cols-2rows {
+.grid-2-2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   align-items: center;
@@ -145,11 +100,25 @@
   grid-column: 1/-1;
 }
 
-.panduan-number {
-  font-size: 5.25rem;
-  font-weight: 600;
-  color: #ddd;
-  margin-bottom: 0.75rem;
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-secondary {
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin-bottom: 6rem;
+}
+
+.heading-primary {
+  color: #fff;
+  font-size: 3.25rem;
+  line-height: 1.05;
+  margin-bottom: 2rem;
 }
 
 .heading-tertiary {
@@ -159,6 +128,23 @@
   font-weight: 700;
   color: #333;
   letter-spacing: -0.5px;
+}
+
+.subheading {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--main-color);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 0.75px;
+}
+
+.panduan-number {
+  font-size: 5.25rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 0.75rem;
 }
 
 .panduan-description {
@@ -175,4 +161,73 @@
 
 .panduan-img {
   width: 75%;
+}
+
+.section-form {
+  padding: 3rem 0 8rem;
+}
+
+.heading-form {
+  font-size: 2.75rem;
+  line-height: 1.2;
+}
+
+.form-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.form-box {
+  display: grid;
+  /* 2/3 = 66.6% + 1/3 = 33.3% */
+  grid-template-columns: 2fr 1fr;
+  /* background-color: #; */
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+  border-radius: 11px;
+
+  /* background-image: linear-gradient(to right bottom, #eb984e, #e67e22); */
+  background-color: var(--main-color);
+  overflow: hidden;
+}
+
+.form-text-box {
+  padding: 3rem 4rem 4rem 4rem;
+  color: #0a3b1c;
+}
+
+.form-panduan {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+}
+
+.form-panduan label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.form-panduan input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.125rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-img-box {
+  background: linear-gradient(
+      to right bottom,
+      rgba(145, 226, 175, 0.35),
+      rgba(189, 238, 207, 0.35)
+    ),
+    url("/static/panduan_perjalanan/img/travel-map.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
 }

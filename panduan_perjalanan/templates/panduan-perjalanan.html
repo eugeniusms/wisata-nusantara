@@ -14,25 +14,25 @@
 <div>
   <section class="hero-section">
     <div class="hero-container">
-        <h1 id="primary-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit</h1>
+        <h1 class="heading-primary">Panduan Perjalanan</h1>
         <br>
-        <p id="subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit illum dignissimos distinctio similique temporibus veniam fuga neque incidunt?</p>
+        <p class="hero-description">Panduan Perjalanan berisikan informasi dan rekomendasi perlengkapan yang berguna untuk perjalanan wisata yang aman dan nyaman</p>
         <br>
         <button class="btn btn-hero">Pandu Wisata &DownArrow;</button>
     </div>
   </section>
 
-  <main class="section-container page-description">
+  <section class="section-container page-description">
     <div class="box-container">
-      <h2>Hello Worlds</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <p class="subheading">DESKRIPSI PANDUAN</p>
+      <p class="heading-secondary">Terdapat 3 hal dalam panduan perjalanan</p>
     </div>
 
     <div class="box-container grid grid-2cols grid--center-v">
       <!-- panduan 01 -->
       <div class="panduan-text-box">
         <p class="panduan-number">01</p>
-        <h3 class=" ">
+        <h3 class="heading-tertiary">
           Ramalan cuaca terkini
         </h3>
         <p class="panduan-description">
@@ -84,26 +84,52 @@
         />
       </div>
     </div>
-
-    <!-- <div class="card">
-      <form id="form-panduan" onsubmit="return false;">
-        {% csrf_token %}
-        <div class="kota-asal">
-          <label>Kota Asal</label>
-          <input class="input-panduan" type="text" name="kota_asal" placeholder="Kota Asal" required />
-        </div>
-        <div class="kota-destinasi">
-          <label>Kota Destinasi</label>
-          <input class="input-panduan" type="text" name="kota_destinasi" placeholder="Kota Destinasi" required />
-        </div>
-        <input type="submit" class="btn btn-submit">
-      </form> -->
     </div>
-  </main>
+  </section>
+
+  <section class="section-form">
+    <div class="box-container">
+      <div class="form-box">
+        <div class="form-text-box">
+          <h2 class="heading-form">Hello World</h2>
+          <p class="form-text">lorem</p>
+  
+          <form class="form-panduan" onsubmit="return false;">
+            {% csrf_token %}
+            <div>
+              <label>Kota Asal</label>
+              <input
+              class="input-kota" 
+              type="text" 
+              name="kota_asal" 
+              placeholder="Kota Asal" 
+              required />
+            </div>
+
+            <div>
+              <label>Kota Destinasi</label>
+              <input 
+                class="input-kota" 
+                type="text" 
+                name="kota_destinasi"
+                placeholder="Kota Destinasi" 
+                required />
+            </div>
+
+            <button type="submit" class="btn btn--form">Submit</button>
+  
+          </form>
+        </div>
+        <div 
+          class="form-img-box"
+          role="img"
+        ></div>
+    </div>
+  </section>
 
   <section class="section-panduan">
     <div class="container">
-      <div class="grid grid-2cols-2rows daftar-panduan">
+      <div class="grid grid-2-2 daftar-panduan">
         <!-- isi panduan -->
       </div>
       
