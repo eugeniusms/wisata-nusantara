@@ -9,9 +9,12 @@ def show_faq(request):
 
 def show_faq_by_json_public(request):
     data = publicFaqData.objects.all()
-    print(data)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-    
+
+def show_faq_by_json_private(request):
+    data = privateFaqData.objects.filter( user = request.user )
+    # print(type(data))
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def submit_ajax(request):
     # print('sdasdqwe')

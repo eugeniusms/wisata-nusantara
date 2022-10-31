@@ -5,7 +5,8 @@ app_name = 'wishlist'
 
 urlpatterns = [
     path('', show_faq, name='show_faq'),
-    path('json/', show_faq_by_json_public, name='show_faq_by_json_public'),
+    path('json/public/', show_faq_by_json_public, name='show_faq_by_json_public'),
+    path('json/private/', show_faq_by_json_private, name='show_faq_by_json_private'),
     path('add/', submit_ajax, name='submit_ajax'),
 
 ]
