@@ -5,6 +5,28 @@
 {% endblock %}
 
 {% block meta %}
+<style>
+/* MODAL.CSS */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content-destination {
+  margin: auto;
+  margin-top: 150px;
+  width: 40%;
+}
+</style>
 <script>
   $(document).ready(function(){
     // ================================ ALL ABOUT INITIATING DATA ================================
@@ -150,7 +172,7 @@
                 </div> 
                 <div class="text-center">
                   <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                  <p class="text-[9px]">${destinasi.fields.suka}</p>
+                  <p class="text-[9px]">${destinasi.fields.jumlah_suka}</p>
                 </div>
               </div>
               <div class="h-[1px]"></div>
@@ -173,7 +195,7 @@
                 </div> 
                 <div class="text-center">
                   <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
-                  <p class="text-[9px]">${destinasi.fields.suka}</p>
+                  <p class="text-[9px]">${destinasi.fields.jumlah_suka}</p>
                 </div>
               </div>
               <div class="h-[1px]"></div>
@@ -254,6 +276,7 @@
       filteredData.map((destinasi) => {
         $("#daftar-destinasi-mobile").append(destinationMobile(destinasi))
         $("#daftar-destinasi-tablet-desktop").append(destinationTabletDesktop(destinasi));
+        modalCard(destinasi);
       })
 
       // Jika kosong
@@ -271,14 +294,61 @@
     }
     // ================================ END OF RESULT SHOW =================================
 
+    // ================================ ALL ABOUT MODAL =================================
     const modalCard = (destinasi) => {
       $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
         console.log("HEY")
       })
       $(`#destinasi-card-tablet-desktop-${destinasi.pk}`).click(function() {
-        console.log("HEY")
+        console.log("HEY");
+
+        $(`#modalTabletDesktop`).html(`
+          <div id="myModal" class="modal">
+            <div class="modal-content-destination">
+
+              <div class="bg-white rounded-3xl divide-y divide-slate-300 border-black border-[1px]">
+
+                <div class="flex pt-5 px-6 pb-5 rounded-xl items-center">
+                  <img src="${destinasi.fields.foto_cover_url}" class="h-36 rounded-3xl"/>
+                  <div class="pl-6">
+                    <p class="font-bold text-[16px]">${destinasi.fields.nama}</p>
+                    <p class="text-philippinesilver text-[13px]">${ destinasi.fields.lokasi }</p>
+                  </div> 
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-200 to-slate-100 divide-y divide-slate-300 rounded-b-3xl">
+                  <div>
+                    <div class="flex gap-16 px-6 pt-4 pb-4">
+                      <div class="text-center">
+                        <i class="fa fa-solid fa-sun" style="font-size:24px;color:#bdac4b"></i>
+                        <p class="text-[11px] font-bold">${destinasi.fields.kategori}</p>
+                        <p class="text-black text-[11px]">Category</p>
+                      </div>
+                      <div class="text-center">
+                        <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                        <p class="text-[11px] font-bold">${destinasi.fields.jumlah_suka}</p>
+                        <p class="text-black text-[11px]">Likes</p>
+                      </div>
+                      <a href="${destinasi.fields.maps_url}" class="flex bg-white px-4 rounded-xl items-center border-black border-[1px] hover:bg-slate-300 hover:scale-105 transition duration-150 ease-in-out">
+                        <div class="flex items-center text-center">
+                          <i class="fa fa-duotone fa-map-location-dot" style="font-size:24px;color:#4bbd7a"></i>&nbsp;&nbsp;
+                          <p class="text-[11px] font-bold">Open</p>
+                          <p class="text-black/90 text-[11px]">Maps</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <p class="text-[12px] py-4 px-6">${destinasi.fields.deskripsi}</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        `)
       })
     }
+
   })
 </script>
 {% endblock %}
@@ -344,6 +414,8 @@
         <div id="daftar-destinasi-tablet-desktop" class="flex flex-wrap"></div>
         <div id="daftar-destinasi-not-found-tablet-desktop"></div>
       </div>
+
+      <div id="modalTabletDesktop"></div>
 
       <div class="h-[200px]"></div>
     </div>
