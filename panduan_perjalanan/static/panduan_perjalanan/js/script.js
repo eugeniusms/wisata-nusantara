@@ -1,6 +1,7 @@
 'use strict';
 
 let stringCuaca = "";
+const btnSubmit = document.querySelector(".btn-submit");
 
 async function getJson() {
   return fetch("./get_data").then( res => res.json())
@@ -9,10 +10,12 @@ async function getJson() {
 function addPanduan() {
   fetch("./create_data/", {
         method: "POST",
-        body: new FormData(document.querySelector('#form-panduan'))
+        body: new FormData(document.querySelector('.form-panduan'))
     }).then(callWeatherApi);
   return false;
 }
+
+btnSubmit.addEventListener("click", addPanduan);
 
 async function callWeatherApi() {
   const inputKota = await getJson();

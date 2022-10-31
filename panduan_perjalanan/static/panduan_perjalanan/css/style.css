@@ -82,14 +82,13 @@
 .grid {
   display: grid;
   column-gap: 4rem;
-  row-gap: 6rem;
+  row-gap: 2rem;
   align-items: center;
 }
 
 .grid-2-2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  align-items: center;
 }
 
 .grid-2cols {
@@ -98,6 +97,7 @@
 
 .daftar-rekomendasi {
   grid-column: 1/-1;
+  align-self: start;
 }
 
 .heading-primary,
