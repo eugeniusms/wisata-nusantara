@@ -22,7 +22,11 @@
 }
 
 /* Modal Content */
-.modal-content-destination {
+.modal-content-destination-mobile {
+  margin: auto;
+  width: 90%;
+}
+.modal-content-destination-tablet-desktop {
   margin: auto;
   margin-top: 10%;
   width: 40%;
@@ -297,15 +301,69 @@
 
     // ================================ ALL ABOUT MODAL =================================
     const modalCard = (destinasi) => {
+      // FOR MOBILE
       $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
-        console.log("HEY")
-      })
-      $(`#destinasi-card-tablet-desktop-${destinasi.pk}`).click(function() {
-        console.log("HEY");
+        $(`#modalMobile`).html(`
+          <div id="myModal" class="modal">
+            <div class="modal-content-destination-mobile">
+              <div class="bg-white rounded-3xl divide-y divide-slate-300">
 
+                <div class="pt-5 px-6 pb-5 rounded-xl">
+                  <div class="flex justify-end">
+                    <span class="text-3xl cursor-pointer hover:text-rose" id="close-modal">&times;</span>
+                  </div>
+                  <div class="flex justify-center">
+                    <img src="${destinasi.fields.foto_cover_url}" class="h-44 rounded-3xl"/>
+                  </div>
+                  <div class="flex justify-center pt-4">
+                    <div class="text-center">
+                      <p class="font-bold text-[15px]">${destinasi.fields.nama}</p>
+                      <p class="text-philippinesilver text-[12px]">${ destinasi.fields.lokasi }</p>
+                    </div>
+                  </div> 
+                </div>
+
+                <div class="bg-gradient-to-r from-slate-200 to-slate-100 divide-y divide-slate-300 rounded-b-3xl">
+                  <div>
+                    <div class="flex justify-between px-6 pt-4 pb-4">
+                      <div class="text-center">
+                        <i class="fa fa-solid fa-sun" style="font-size:20px;color:#bdac4b"></i>
+                        <p class="text-[10px] font-bold">${destinasi.fields.kategori}</p>
+                        <p class="text-black text-[10px]">Category</p>
+                      </div>
+                      <div class="text-center">
+                        <i class="fa fa-duotone fa-heart" style="font-size:20px;color:#BD4B4B"></i>
+                        <p class="text-[10px] font-bold">${destinasi.fields.jumlah_suka}</p>
+                        <p class="text-black text-[10px]">Likes</p>
+                      </div>
+                      <a href="${destinasi.fields.maps_url}" class="flex bg-white px-4 rounded-xl items-center border-black border-[1px] hover:bg-slate-300 hover:scale-105 transition duration-150 ease-in-out">
+                        <div class="flex items-center text-center">
+                          <i class="fa fa-duotone fa-map-location-dot" style="font-size:20px;color:#4bbd7a"></i>&nbsp;&nbsp;
+                          <p class="text-[10px] font-bold">Open</p>
+                          <p class="text-black/90 text-[10px]">Maps</p>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <p class="text-[10px] py-4 px-6">${destinasi.fields.deskripsi}</p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        `)
+        // Close the modal
+        $("#close-modal").click(function() {
+          $("#myModal").remove();
+        })
+      })
+
+      // FOR TABLET & DESKTOP
+      $(`#destinasi-card-tablet-desktop-${destinasi.pk}`).click(function() {
         $(`#modalTabletDesktop`).html(`
           <div id="myModal" class="modal">
-            <div class="modal-content-destination">
+            <div class="modal-content-destination-tablet-desktop">
               <div class="bg-white rounded-3xl divide-y divide-slate-300">
 
                 <div class="flex justify-between pt-5 px-6 pb-5 rounded-xl">
@@ -353,7 +411,6 @@
         `)
         // Close the modal
         $("#close-modal").click(function() {
-          console.log("CLOSE");
           $("#myModal").remove();
         })
       })
@@ -382,6 +439,8 @@
       <div id="daftar-destinasi-mobile" class="flex overflow-x-auto"></div>
       <div id="daftar-destinasi-not-found-mobile"></div>
     </div>
+
+    <div id="modalMobile"></div>
 
   </div>
 
