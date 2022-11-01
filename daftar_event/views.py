@@ -11,10 +11,12 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def daftar_event(request) :
   daftar_event = Event.objects.all()
-  user_loggedin = request.user.username
+  username = request.user.username
+  user_admin = username = "aul"
   context = {
     'daftar_event' : daftar_event,
-    'user_loggedin' : user_loggedin,
+    'username' : username,
+    'user_admin' : user_admin,
   }
   return render(request,"daftar_event.html",context)
 
@@ -58,8 +60,7 @@ def add_json(request):
     jenis = request.POST.get('jenis')
     deskripsi = request.POST.get('deskripsi')
     foto = request.POST.get('foto')
-    created_by = request.user.username
-    Event.objects.create(nama=nama, lokasi=lokasi, jenis = jenis, deskripsi=deskripsi,foto=foto,created_by=created_by)
+    Event.objects.create(nama=nama, lokasi=lokasi, jenis = jenis, deskripsi=deskripsi,foto=foto)
     return JsonResponse({"Sukses": "Data masuk"},status=200)
 
 def category_event(request,cat):
