@@ -231,3 +231,41 @@
   background-size: cover;
   background-position: center;
 }
+
+.daftar-panduan {
+    /* background-color: #; */
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.15);
+    border-radius: 11px;
+  
+    padding: 3rem;
+    color: #072713;
+    background-color: #7adc9e;
+    overflow: hidden;
+}
+
+.condition {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: start;
+}
+
+.kota .subheading {
+  font-size: 1.25rem;
+  text-transform: none;
+  color: #11632f;
+}
+
+.description {
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.temp {
+  font-size: 2rem;
+}
+
+.other-condition {
+  letter-spacing: 1px;
+}
