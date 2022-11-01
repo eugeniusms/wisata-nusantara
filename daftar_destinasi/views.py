@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
 from .forms import AddDestinasiForm
+from . import forms
 
 # Create your views here.
 def show_json(request):
@@ -22,42 +23,26 @@ def daftar_destinasi(request):
 @csrf_exempt
 @login_required(login_url='/auth/login')
 def tambah_destinasi(request):
-  if (request.method == 'POST'):
-    # nama = request.POST.get('nama')
-    # deskripsi = request.POST.get('deskripsi')
-    # lokasi = request.POST.get('lokasi')
-    # kategori = request.POST.get('kategori')
-    # foto_thumbnail_url = request.POST.get('foto_thumbnail_url')
-    # foto_cover_url = request.POST.get('foto_cover_url')
-    # maps_url = request.POST.get('maps_url')
-    # created_by = request.user
-    destinasi_form = AddDestinasiForm(request.POST, instance=request.user)
-
-    if destinasi_form.is_valid():
-      destinasi_form.save()
-      return redirect('daftar_destinasi:daftar_destinasi')
-    return redirect('daftar_destinasi:daftar_destinasi')
-    # destinasi = Destinasi(
-    #   nama=nama,
-    #   deskripsi=deskripsi,
-    #   lokasi=lokasi,
-    #   kategori=kategori,
-    #   foto_thumbnail_url=foto_thumbnail_url,
-    #   foto_cover_url=foto_cover_url,
-    #   maps_url=maps_url,
-    #   created_by=created_by
-    # )
-    # destinasi.save()
-
-    return JsonResponse({"header": "Destinasi Ditambahkan"}, status=200)
+  if request.method == "POST":
+    form = AddDestinasiForm(request.POST)
+    print(form)
+    if form.is_valid():
+        destinasi = Destinasi(
+            nama = form.cleaned_data['nama'],
+            deskripsi = form.cleaned_data['deskripsi'],
+            lokasi = form.cleaned_data['lokasi'],
+            kategori = form.cleaned_data['kategori'],
+            foto_thumbnail_url = form.cleaned_data['foto_thumbnail_url'],
+            foto_cover_url = form.cleaned_data['foto_cover_url'],
+            maps_url = form.cleaned_data['maps_url'],
+            created_by = request.user
+        )
+        # Memasukkan task ke database
+        destinasi.save()
+        return HttpResponseRedirect("/destination/")
   else:
-    destinasi_form = AddDestinasiForm()
-
-  context = {
-    'destinasi_form': destinasi_form
-  }
-
-  return render(request, 'tambah-destinasi.html', context)
+    form = AddDestinasiForm()
+  return render(request, 'tambah-destinasi.html')
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
