@@ -1,7 +1,6 @@
 'use strict';
 
 let stringCuaca = "";
-const btnSubmit = document.querySelector(".btn-submit");
 
 async function getJson() {
   return fetch("./get_data").then( res => res.json())
@@ -15,7 +14,7 @@ function addPanduan() {
   return false;
 }
 
-btnSubmit.addEventListener("click", addPanduan);
+
 
 async function callWeatherApi() {
   const inputKota = await getJson();
@@ -73,13 +72,13 @@ function writeCityData(data) {
   const { speed } = data.wind;
   stringCuaca += `
     <div class="kota">
-      <p>Weather in ${name}</p>
-      <p>${temp}°C</p>
-      <div>
+      <p class="subheading">Weather in ${name}</p>
+      <p class="temp">${temp}°C</p>
+      <div class="condition">
         <img src="https://openweathermap.org/img/wn/${icon}.png" alt="weather-logo" class="icon" />
         <p class="description">${description}</p>
       </div>
-      <div>
+      <div class="other-condition">
         <div class="humidity">Humidity: ${humidity}%</div>
         <div class="wind">Wind speed: ${speed} km/h</div>
       </div>
@@ -113,17 +112,17 @@ function setPanduan(weatherStatus, description) {
 
 // event button
 
-// document.querySelector(".btn-submit").addEventListener("click", addPanduan);
-
 const btnHero = document.querySelector(".btn-hero");
+const btnSubmit = document.querySelector(".btn-submit");
 const descriptionSection = document.querySelector(".page-description");
-// const btnSubmit = document.querySelector(".btn-submit");
-const secPanduan = document.querySelector(".section-container");
+const sectionPanduan = document.querySelector(".informasi-panduan");
 
-btnHero.addEventListener("click", function(e) {
+btnHero.addEventListener("click", function() {
   descriptionSection.scrollIntoView({behavior:"smooth"})
 })
 
-// btnSubmit.addEventListener("click", function(e) {
-//   secPanduan.scrollIntoView({behavior:"smooth"});
-// })
+btnSubmit.addEventListener("click",addPanduan);
+btnSubmit.addEventListener("click", function() {
+  sectionPanduan.scrollIntoView({behavior:"smooth"})
+  sectionPanduan.classList.remove("hidden");
+})

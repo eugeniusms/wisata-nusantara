@@ -8,6 +8,7 @@
 {% block meta %} 
 <!-- CSS CUSTOM -->
 <link rel="stylesheet" type="text/css" href="{% static 'panduan_perjalanan/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'panduan_perjalanan/css/queries.css' %}" />
 {% endblock meta %}
 
 {% block content %}
@@ -15,11 +16,10 @@
   <section class="hero-section">
     <div class="hero-container">
         <h1 class="heading-primary">Panduan Perjalanan</h1>
-        <br>
         <p class="hero-description">Panduan Perjalanan berisikan informasi dan rekomendasi perlengkapan yang berguna untuk perjalanan wisata yang aman dan nyaman</p>
-        <br>
+        
         <button class="btn btn-hero">Pandu Wisata &DownArrow;</button>
-    </div>
+      </div>
   </section>
 
   <section class="section-container page-description">
@@ -129,40 +129,9 @@
 
   <!-- belum selesai -->
   <section class="section-container">
-    <div class="box-container">
+    <div class="box-container informasi-panduan hidden">
       <div class="grid grid-2-2 daftar-panduan">
-        <div class="kota">
-          <p class="subheading">Weather in Paris</p>
-          <p class="temp">19.23°C</p>
-          <div class="condition">
-            <img src="https://openweathermap.org/img/wn/01n.png" alt="weather-logo" class="icon">
-            <p class="description">clear sky</p>
-          </div>
-          <div class="other-condition">
-            <p class="humidity">Humidity: 74%</p>
-            <p class="wind">Wind speed: 5.14 km/h</p>
-          </div>
-        </div>
-      
-        <div class="kota">
-          <p class="subheading">Weather in Bandung</p>
-          <p class="temp">21.26°C</p>
-          <div class="condition">
-            <img src="https://openweathermap.org/img/wn/04n.png" alt="weather-logo" class="icon">
-            <p class="description">overcast clouds</p>
-          </div>
-          <div class="other-condition">
-            <p class="humidity">Humidity: 91%</p>
-            <p class="wind">Wind speed: 0.43 km/h</p>
-          </div>
-        </div>
-      
-        <div class="daftar-rekomendasi panduan-description">
-          <ul>
-            <li>1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis laboriosam quibusdam optio harum perspiciatis.</li>
-            <li>2</li>
-          </ul>
-        </div>
+        <!-- panduan -->
       </div>
       
     </div>
