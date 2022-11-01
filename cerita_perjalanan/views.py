@@ -36,7 +36,7 @@ def get(request):
 def submit(request):
     if request.method == "POST":
         form = FormCerita(request.POST)
-        form.instance.name = "nabila"
+        form.instance.name = request.user.username
         if form.is_valid():
             form.save()
             response = HttpResponseRedirect("/review/")
