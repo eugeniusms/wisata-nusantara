@@ -18,11 +18,6 @@ def show_json(request):
   return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def daftar_destinasi(request):
-  return render(request, 'daftar-destinasi.html')
-
-@csrf_exempt
-@login_required(login_url='/auth/login')
-def tambah_destinasi(request):
   if request.method == "POST":
     form = AddDestinasiForm(request.POST)
     print(form)
@@ -42,7 +37,7 @@ def tambah_destinasi(request):
         return HttpResponseRedirect("/destination/")
   else:
     form = AddDestinasiForm()
-  return render(request, 'tambah-destinasi.html')
+  return render(request, 'daftar-destinasi.html')
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
