@@ -25,3 +25,5 @@ urlpatterns = [
     path('faq/', include('faq.urls', namespace="faq") ),
     path('event/', include('daftar_event.urls')),
 ]
+
+handler404 = "helpers.views.error_404_view"
