@@ -92,7 +92,7 @@
     {% block meta %}{% endblock %}
 </head>
     <!-- NAVBAR COMPONENT -->
-    <div class="bg-gradient-to-r from-green-500 to-slate-500 top-0 z-50 mobile:fixed tablet:sticky">
+    <div class="bg-gradient-to-r from-green-500 to-slate-500 top-0 z-50 w-full fixed">
     <header class="">
         <div class="flex justify-between items-center bg-black drop-shadow-xl text-white font-roboto cursor-pointer p-4 rounded-b-3xl tablet:rounded-none">
             <div class="flex items-center">
@@ -159,6 +159,7 @@
 
     <!-- CHILD COMPONENT -->
     <body class="top-0 relative">
+        <div class="h-14"></div>
         <div class="font-poppins">
             {% block content %}{% endblock %}
         </div>
