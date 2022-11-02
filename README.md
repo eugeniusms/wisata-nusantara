@@ -26,6 +26,9 @@
 ### Tautan
 <a href="https://ristek.link/wisata-nusantara"><button>WISATA NUSANTARA</button></a><br/>
 ![Counter](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Feugeniusms1212%2Fhit-counter)
+<br/>
+Heroku Pipeline
+<br/>
 ![Heroku CI Status](https://github.com/gregsadetsky/heroku-ci-badge/blob/master/badges/succeeded.svg)
 
 

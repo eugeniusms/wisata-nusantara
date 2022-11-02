@@ -39,17 +39,17 @@ Cerita Perjalanan
     </form>
     <h1 class="mt-14 mb-5 flex justfy-center items-center text-3xl italic animate-bounce">Apa kata mereka?</h1>
   </div>
-  <div class="container px-4 flex-grow w-full py-4 sm:py-16 mx-auto px-0">
+  <div class="container px-4 w-full py-4 sm:py-16 mx-auto px-0">
     <div class="mx-auto w-full md:w-4/5 px-4">
       <div class="container my-8">
         <div class="flex justify-between items-center mb-4">
           <div id="scrollContainer" class="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8">
             {% for item in cerita %}
-            <div class="flex-none w-1/4 md:w-1/5 mr-8 md:pb-4 border-8 rounded-3xl bg-white hover:scale-95 transition duration-150 ease-in-out">
+            <div class="mr-8 md:pb-4 border-8 rounded-3xl bg-white hover:scale-95 transition duration-150 ease-in-out">
               <a href="#" class="space-y-4">
                 <div class="px-5 py-5 text-center">
                   <div class="text-lg leading-6 font-medium space-y-1">
-                    <h3 class="font-bold text-gray-800 text-lg mb-2">
+                    <h3 class="font-bold text-gray-800 text-lg mb-2 pt-4 px-[100px]">
                       {{ item.name }}
                     </h3>
                   </div>
