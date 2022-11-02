@@ -89,7 +89,7 @@
             })
         });
       </script>
-
+    {% block meta %}{% endblock %}
 </head>
     <!-- NAVBAR COMPONENT -->
     <div class="bg-gradient-to-r from-green-500 to-slate-500 sticky top-0 z-50">
@@ -107,9 +107,9 @@
                     <a href="/" class="mr-4 hover:text-suede">Dashboard</a> 
                     <a href="/destination/" class="mr-4 hover:text-suede">Destination</a>
                     <a href="/event/" class="mr-4 hover:text-suede">Event</a>
-                    <a href="#" class="mr-4 hover:text-suede">Journey</a>
-                    <a href="#" class="mr-4 hover:text-suede">Story</a>
-                    <a href="#" class="mr-4 hover:text-suede">FAQ</a>
+                    <a href="/journey/" class="mr-4 hover:text-suede">Journey</a>
+                    <a href="/story/" class="mr-4 hover:text-suede">Story</a>
+                    <a href="/faq/" class="mr-4 hover:text-suede">FAQ</a>
                     {% if user.is_authenticated %}
                         <a href="/auth/logout/" class="mr-4 text-rose hover:text-suede">Logout</a>
                     {% endif %}
@@ -134,19 +134,19 @@
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <a href="#" class="ml-2 hover:text-leather">Event</a>
+                    <a href="/event/" class="ml-2 hover:text-leather">Event</a>
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-book"></i>
-                    <a href="#" class="ml-2 hover:text-leather">Journey</a>
+                    <a href="/journey/" class="ml-2 hover:text-leather">Journey</a>
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-comments"></i>
-                    <a href="#" class="ml-2 hover:text-leather">Story</a>
+                    <a href="/story/" class="ml-2 hover:text-leather">Story</a>
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-question"></i>
-                    <a href="#" class="ml-2 hover:text-leather">FAQ</a>
+                    <a href="/faq/" class="ml-2 hover:text-leather">FAQ</a>
                 </div>
                 <div class="py-1">
                     <i class="fa-solid fa-right-to-bracket"></i>
@@ -156,16 +156,99 @@
         </div>
     </header>
     </div>
+
     <!-- CHILD COMPONENT -->
     <body class="top-0 relative">
         <div class="font-poppins">
             {% block content %}{% endblock %}
         </div>
     </body>
+    
     <!-- FOOTER COMPONENT -->
     <footer>
-        <div>
-            {% block footer %}{% endblock %}
+        <!-- MOBILE -->
+        <div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
+            <div class="bg-black text-white font-poppins px-8 pt-10 pb-16">
+                <div class="flex justify-center grid grid-cols-1 divide-gray-800 divide-y">
+
+                <div>
+                    
+                    <div class="flex justify-center items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/G20_Indonesia_2022_logo.svg/1229px-G20_Indonesia_2022_logo.svg.png" height="48" width=48"/>
+                    <div class="text-[11px]">
+                        <p>G20 - 2022</p>
+                        <p>Recovery Movement</p>
+                        <p>Jakarta, Indonesia</p>
+                    </div>
+                    </div>
+
+                    <div>
+                    <div class="text-center text-[14px] pb-2 pt-6">
+                        Credit
+                    </div>
+                    <div class="rounded-xl text-white text-sm border-[1px] border-white text-[11px] p-3 grid grid-cols-1 divide-y mx-12">
+                        <div>Eugenius Mario Situmorang</div>
+                        <div>Abdillah Assajjad</div>
+                        <div>Aulia Najwa Salsabila</div>
+                        <div>Rizka Nisrina Nabila</div>
+                        <div>Septio Nugroho</div>
+                        <div>Wahyu Sahrijal</div>
+                    </div>
+                    </div>
+
+                    <div class="flex justify-center items-center gap-4 pt-10">
+                    <img src="https://acakadul.files.wordpress.com/2013/08/makara-ui-fasilkom.png" height="48" width="48"/>
+                    <div class="text-[11px]">
+                        <p>PBP Midterm Project</p>
+                        <p>Fakultas Ilmu Komputer</p>
+                        <p>Universitas Indonesia</p>
+                    </div>
+                    </div>
+
+                </div>
+            
+                </div>
+            </div>
         </div>
+
+        <!-- TABLET & DESKTOP -->
+        <div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
+            <div class="bg-black text-white font-poppins px-8 pt-10 pb-16">
+                <div class="flex justify-center grid grid-cols-3 divide-gray-800 divide-x">
+
+                <div class="flex justify-center items-center gap-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/G20_Indonesia_2022_logo.svg/1229px-G20_Indonesia_2022_logo.svg.png" height="64" width="64"/>
+                    <div class="text-sm">
+                    <p>G20 - 2022</p>
+                    <p>Recovery Movement</p>
+                    <p>Jakarta, Indonesia</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-center text-[16px] py-2">
+                    Credit
+                    </div>
+                    <div class="rounded-xl text-white text-sm border-[1px] border-white text-[15px] p-3 grid grid-cols-1 divide-y mx-24">
+                    <div>Eugenius Mario Situmorang</div>
+                    <div>Abdillah Assajjad</div>
+                    <div>Aulia Najwa Salsabila</div>
+                    <div>Rizka Nisrina Nabila</div>
+                    <div>Septio Nugroho</div>
+                    <div>Wahyu Sahrijal</div>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center gap-4">
+                    <img src="https://acakadul.files.wordpress.com/2013/08/makara-ui-fasilkom.png" height="64" width="64"/>
+                    <div class="text-sm">
+                    <p>PBP Midterm Project</p>
+                    <p>Fakultas Ilmu Komputer</p>
+                    <p>Universitas Indonesia</p>
+                    </div>
+                </div>
+            
+                </div>
+            </div>
+        </div>
+
     </footer>
 </html>
