@@ -1,7 +1,7 @@
 :root {
   --text-color: #fff;
   --main-color: #22C55E;
-  --button-color: aqua;
+  --form-color: #072713;
 
 }
 
@@ -190,7 +190,7 @@
 
 .form-text-box {
   padding: 3rem 4rem 4rem 4rem;
-  color: #0a3b1c;
+  color: var(--form-color);
 }
 
 .form-panduan {
@@ -236,7 +236,7 @@
     
   
     padding: 3rem;
-    color: #072713;
+    color: var(--form-color);
     background-color: #7adc9e;
     overflow: hidden;
 }
@@ -270,4 +270,24 @@
 
 .hidden {
   display: none;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--main-color);
 }
