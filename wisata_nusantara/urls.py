@@ -23,6 +23,7 @@ urlpatterns = [
     path('destination/', include('daftar_destinasi.urls')),
     path('auth/', include('authentication.urls')),
     path('event/', include('daftar_event.urls')),
-]
+    path('faq/', include('faq.urls', namespace="faq") ),
+] 
 
 handler404 = "helpers.views.error_404_view"
