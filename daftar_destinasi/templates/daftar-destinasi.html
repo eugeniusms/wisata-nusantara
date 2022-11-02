@@ -183,6 +183,7 @@
         $("#hello-tablet-desktop").append(`<p>Hello, ${data[0].fields.username}!</p>`);
        
         activateSidebarModal();
+        activateDeleteDestinationButton();
       }
     })
 
@@ -215,9 +216,14 @@
     // Destination Card : Tablet & Desktop
     const destinationTabletDesktop = (destinasi) => {
       return(`
-        <div id="destinasi-card-tablet-desktop-${destinasi.pk}">
+        <div id="destinasi-card-tablet-desktop-${destinasi.pk}" class="destinasi-card">
           <div class="p-4 hover:scale-105 transition duration-150 ease-in-out">
-            <div class="bg-local rounded-3xl w-[200px] shadow-2xl" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
+            <div class="bg-local rounded-3xl w-[200px] shadow-2xl relative" id="card" style="background-image:url(${destinasi.fields.foto_thumbnail_url});background-size:250px;">
+              <a href="/destination/delete/${destinasi.pk}" id="delete-card-button" class="hidden">
+                <div class="absolute top-0 right-0">
+                  <i class="bg-white rounded-full p-4 m-2 fa fa-solid fa-trash text-rose z-49 hover:scale-110 hover:bg-rose hover:text-white transition duration-150 ease-in-out"></i>
+                </div>
+              </a>
               <div class="h-[210px]"></div>
               <div class="flex justify-between bg-white gap-3 items-center rounded-xl p-4 m-2 w-[185px]">
                 <div>
@@ -606,6 +612,23 @@
         $("#close-modal").click(function() {
             $("#myModal").remove();
         })
+      })
+    }
+
+    // DELETE DESTINATION
+
+    const activateDeleteDestinationButton = () => {
+      $("#delete-destination-button").click(function() {
+        const deleteButtons = document.querySelectorAll("#delete-card-button");
+        // TOGGLE SHOW/HIDE
+        for (button of deleteButtons) {
+          if (button.style.display !== 'none') {
+              button.style.display = 'none';
+          }
+          else {
+              button.style.display = 'block';
+          }
+        }
       })
     }
     
