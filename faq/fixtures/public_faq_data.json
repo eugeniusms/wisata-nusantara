@@ -3,29 +3,21 @@
         "model":"faq.publicFaqData",
         "pk":1,
         "fields":{
-            "question":"How Long is this site live?",
-            "answer":"Laboris qui labore cillum culpa in sunt quis sint veniam. Dolore ex aute deserunt esse ipsum elit aliqua. Aute quis minim velit nostrud pariatur culpa magna in aute."
-        }
-    },
-    {
-        "model":"faq.publicFaqData",
-        "pk":2,
-        "fields":{
             "question":"Apa Cerita dan Manfaat Aplikasi \"Wisata-Nusantara\"?",
             "answer":"Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional."
         }
     },
     {
         "model":"faq.publicFaqData",
-        "pk":2,
+        "pk":5,
         "fields":{
-            "question":"Apa Cerita dan Manfaat Aplikasi \"Wisata-Nusantara\"?",
-            "answer":"Aplikasi “Wisata Nusantara” terinspirasi dari antusiasme presidensi G20 Indonesia 2022. G20 Indonesia 2022 diharapkan dapat menjadi sarana untuk mempromosikan sektor pariwisata Indonesia dan ekonomi kreatif yang sempat melemah akibat pandemi Covid-19. Aplikasi ini akan memuat beragam destinasi dan acara di Indonesia. Selain itu, aplikasi ini juga akan memberikan panduan perjalanan bagi para wisatawan lokal dan internasional."
+            "question":"Berapa berat barang yang bisa dibawa ke dalam kabin pesawat?",
+            "answer":"Banyak wisatawan yang lebih merasa aman untuk membawa barang bawaannya ke dalam pesawat. Barang yang bisa masuk ke dalam kabin pesawat tidak boleh lebih besar dari ukuran 56cm (tinggi) x 36cm (lebar) x 23cm (kedalaman). Sementara itu, jenis barang yang bisa di bawa ialah tas tangan, buku, dompet, komputer, payung, tongkat berjalan, kamera kecil, makanan bayi dan barang bebas bea yang disetujui."
         }
     },
     {
         "model":"faq.publicFaqData",
-        "pk":3,
+        "pk":2,
         "fields":{
             "question":"Kapan acara presidensi G20 Indonesia 2022??",
             "answer":"Serangkaian acara Presidensi G20 Indonesia yang sudah dimulai sejak 1 Desember 2021 lalu, sudah hampir terlaksana seluruhnya. Indonesia telah sampai pada momen puncak Presidensi G20 yaitu KTT G20 yang telah diselenggarakan pada tanggal 15-16 November 2022 di Bali. Berbagai substansi telah disepakati, working groups dan engagement group telah menghasilkan berbagai terobosan dan pencapaian dalam berbagai sektor."
@@ -33,7 +25,7 @@
     },
     {
         "model":"faq.publicFaqData",
-        "pk":4,
+        "pk":3,
         "fields":{
             "question":"Apakah ada destinasi wisata yang direkomendasikan Kemenparekraf?",
             "answer":"Pemerintah Indonesia melalui Kementerian Pariwisata dan Ekonomi Kreatif tengah menggaungkan potensi pariwisata Tanah Air. Salah satu upayanya adalah dengan mempromosikan 5 destinasi super prioritas di Indonesia. 5 destinasi wisata super prioritas yang dicanangkan Kementerian Pariwisata dan Ekonomi Kreatif (Kemenparekraf) tersebut mencakup Borobudur, Danau Toba, Likupang, Mandalika, dan Labuan Bajo. Masing-masing destinasi itu memiliki pesona dan keunikannya masing-masing. Bila Anda belum sempat mengunjungi 5 destinasi super prioritas tersebut, tak ada salahnya menyiapkan rencananya sejak saat ini."
@@ -41,10 +33,18 @@
     },
     {
         "model":"faq.publicFaqData",
-        "pk":5,
+        "pk":4,
         "fields":{
             "question":"Tips dalam menentukan destinasi wisata?",
             "answer":"1. Memperkirakan Jarak Tempuh. \t 2. Menentukan Jenis Tujuan Wisata. \n 3. Mengetahui Tujuan dan Sesuatu yang Akan Didapat. \n 4. Pertimbangkan Cuaca. \n \n 5. Anggaran dengan Matang. \n"
+        }
+    },
+    {
+        "model":"faq.publicFaqData",
+        "pk":6,
+        "fields":{
+            "question":"Apa kelemahan pariwisata indonesia yang perlu dibenahi?",
+            "answer":"Kekurangan dari pariwisata di Indonesia adalah minimnya infrastruktur akses menuju tempat wisata. Hal tersebut membuat biaya transportasi ke lokasi yang dipromosikan menjadi mahal."
         }
     }
 ]
