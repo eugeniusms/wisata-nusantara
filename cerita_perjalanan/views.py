@@ -19,7 +19,7 @@ def submit(request):
         'cerita':ceritaPerjalananItems.objects.all(),
         'username':request.user.username
         }
-    return render(request, 'cerita_perjalanan.html', context)
+    return render(request, 'cerita-perjalanan.html', context)
 
 def get(request):
     form = FormCerita()
@@ -31,7 +31,7 @@ def get(request):
     }
     # print(ceritaPerjalananItems.objects.all())
     
-    return render(request, 'cerita_perjalanan.html', context)
+    return render(request, 'cerita-perjalanan.html', context)
 
 def submit(request):
     if request.method == "POST":
@@ -45,4 +45,4 @@ def submit(request):
         form = FormCerita()
 
     context = {'form':form}
-    return render(request, 'cerita_perjalanan.html', context)
+    return render(request, 'cerita-perjalanan.html', context)
