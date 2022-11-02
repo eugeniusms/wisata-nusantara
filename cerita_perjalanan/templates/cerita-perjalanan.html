@@ -9,7 +9,7 @@ Cerita Perjalanan
   <div class="flex justfy-center flex-col items-center w-auto font-mono text-lg font-bold">
     <form class="w-6/12 p-10 rounded-lg shadow-lg"
       style="background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/dot-grid.png');"
-      method="POST" action="{% url 'cerita_perjalanan:submit' %}">
+      method="POST" action="{% url 'cerita_perjalanan:submit-cerita' %}">
       {% csrf_token %}
       <h1 class="text-center text-3xl font-bold mb-10">Give us a review!</h1>
       <div class="form-group mb-6">
@@ -64,6 +64,14 @@ Cerita Perjalanan
                   </div>
                 </div>
               </a>
+              {% if username == item.name %}
+              <a href="/story/delete/{{ item.pk }}">
+                <div class="flex justify-center">
+                  <button class="py-4 px-8 rounded-xl bg-bone hover:bg-rose hover:text-white">Delete</button>
+                </div>
+              </a>
+              {% endif %}
+              <div class="h-10"></div>
             </div>
             {% endfor %}
           </div>

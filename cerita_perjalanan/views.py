@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
-def submit(request):
+def submit_cerita(request):
     if request.method == 'POST':
         username = request.user.username
         form = FormCerita(request.POST)
@@ -26,7 +26,7 @@ def submit(request):
         }
     return render(request, 'cerita-perjalanan.html', context)
 
-def get(request):
+def get_cerita(request):
     form = FormCerita()
     username = request.user.username
     context = {
@@ -39,7 +39,7 @@ def get(request):
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
-def submit(request):
+def submit_cerita(request):
     if request.method == "POST":
         form = FormCerita(request.POST)
         form.instance.name = request.user.username
@@ -52,3 +52,12 @@ def submit(request):
 
     context = {'form':form}
     return render(request, 'cerita-perjalanan.html', context)
+
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def delete_cerita(request, id):
+    task = ceritaPerjalananItems.objects.get(pk=id)
+    task.delete()
+
+    return HttpResponseRedirect("/story/")
+        
