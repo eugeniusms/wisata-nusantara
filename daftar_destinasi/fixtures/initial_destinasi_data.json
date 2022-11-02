@@ -73,5 +73,80 @@
       "jumlah_suka": 102,
       "created_by": 1
     }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 6,
+    "fields": {
+      "nama": "Jomblang Cave",
+      "deskripsi": "Ever wanted to repel 150+ feet down into a cave, trek through knee deep mud, and witness the light from heaven emerging from above? Well, the Goa Jomblang cave in Java, Indonesia offers that exact type of experience. This will be a muddy excursion but it is sure to be one of the most memorable ones to take part during your time in the country. Read on to learn everything you need to know about this one of a kind day.",
+      "lokasi": "Yogyakarta",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/21/6f/a4/216fa4cd685c16fffe9d24bf22342af6.jpg",
+      "foto_cover_url": "https://i.pinimg.com/736x/e7/49/09/e74909d15dc5889fd1f921c5c697559c.jpg",
+      "maps_url": "https://g.page/Jomblang_cave_id?share",
+      "jumlah_suka": 162,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 7,
+    "fields": {
+      "nama": "Fort Marlborough",
+      "deskripsi": "It was built between 1713-1719 by the East India Company under the leadership of Governor Joseph Collett as a defensive fort for the British East India Company's Residency there. It was one of the strongest British forts in the eastern region, second only to Fort St. George in Madras, India.",
+      "lokasi": "Bengkulu",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/a8/e3/03/a8e303d1aa0160357a667fc48e9d77aa.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/c5/2e/15/c52e15210560ca848ee3a70684853939.jpg",
+      "maps_url": "https://g.page/benteng-marlborough?share",
+      "jumlah_suka": 61,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 8,
+    "fields": {
+      "nama": "Karimun Jawa",
+      "deskripsi": "The Karimun Jawa archipelago, located in the Java Sea, across the capital city of Semarang, has everything to offer for divers and backpackers who enjoy trekking and snorkeling along a gorgeous beach. The Karimunjawa National Park (not to be confused with the Karimun Islands in Bintan, Riau) is one of seven marine national parks in Indonesia. Taking only a four to five-hour trip from Semarang, you will be surrounded by a natural beauty so stunning, you wish you could stay here forever.",
+      "lokasi": "Jawa Tengah",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/736x/85/15/46/85154635daeec56bc69ca05e995528a4.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/06/bf/f3/06bff3d3662e54e69bd928aa76bfc24e.jpg",
+      "maps_url": "https://goo.gl/maps/rJoeSVofxyGEbyXy6",
+      "jumlah_suka": 101,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 9,
+    "fields": {
+      "nama": "Garuda Wisnu Kencana",
+      "deskripsi": "On the Bukit Peninsula lies a park with its iconic majestic monument called Garuda Wisnu Kencana or simply known as GWK. It presents the limestone plateau with a beautiful serene park in southern Bali. The cultural park is dedicated to embrace and preserve the art, cultural and spiritual aspects of the Island of Bali. This 60-hectare park offers a place to watch art & cultural performances, observe exhibitions, and experience conferences. In addition, there are breathtaking spots for you to spend the day.",
+      "lokasi": "Bali",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/6a/a5/9b/6aa59b846969e8a65ea5029e65d02139.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/b9/d2/9b/b9d29be9425061d1eda554d625f17056.jpg",
+      "maps_url": "https://g.page/gwkbali?share",
+      "jumlah_suka": 71,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 10,
+    "fields": {
+      "nama": "Komodo National Park",
+      "deskripsi": "These volcanic islands are inhabited by a population of around 5,700 giant lizards, whose appearance and aggressive behaviour have led to them being called 'Komodo dragons'. They exist nowhere else in the world and are of great interest to scientists studying the theory of evolution. The rugged hillsides of dry savannah and pockets of thorny green vegetation contrast starkly with the brilliant white sandy beaches and the blue waters surging over coral.",
+      "lokasi": "Nusa Tenggara Timur",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/06/ff/f4/06fff4f8ee1eadbff046abe4c90fb377.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/dd/b6/35/ddb635b2baa578867eb0bdc9d91e3485.jpg",
+      "maps_url": "https://goo.gl/maps/58dERDgSPFNjeq7J8",
+      "jumlah_suka": 431,
+      "created_by": 1
+    }
   }
 ]
