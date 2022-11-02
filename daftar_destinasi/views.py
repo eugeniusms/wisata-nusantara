@@ -38,18 +38,6 @@ def daftar_destinasi(request):
   else:
     form = AddDestinasiForm()
   return render(request, 'daftar-destinasi.html')
-
-@csrf_exempt
-@login_required(login_url='/auth/login')
-def hapus_destinasi(request):
-  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
-    data = Destinasi.objects.all()
-
-    context = {
-      'data': data
-    }
-
-    return render(request, 'hapus-destinasi.html', context)
   
 @csrf_exempt
 @login_required(login_url='/auth/login')
@@ -80,3 +68,9 @@ def sukai_destinasi(request, id):
     data.save()
 
   return HttpResponseRedirect("/destination/")
+
+@login_required(login_url='/auth/login')
+def show_wishlist(request):
+  user = request.user
+  data = Suka.objects.filter(user=user)
+  return render(request, 'wishlist.html', {'data': data})

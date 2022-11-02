@@ -99,13 +99,6 @@
         link: "/faq/",
       },
       {
-        name: "Profile",
-        id: "profile-button",
-        icon: "fa-solid fa-user",
-        iconColor: "#CBD5E1",
-        link: "/destination/profile/",
-      },
-      {
         name: "Wishlist",
         id: "wishlist-button",
         icon: "fa-solid fa-heart",
@@ -132,12 +125,14 @@
     const sidebarElement = (element) => {
       if (element.name == "Wishlist" && userLoggedIn.length != 0) {
         return(`
-          <button class="text-slate-300 hover:text-bone" id=${element.id}>
-            <div class="flex items-center py-1 mt-8">
-              <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
-              <p class="pl-2">${element.name}</p>
-            </div>
-          </button>
+          <a href="/destination/wishlist/">
+            <button class="text-slate-300 hover:text-bone" id=${element.id}>
+              <div class="flex items-center py-1 mt-8">
+                <i class="${element.icon}" style="font-size:14px;color:${element.iconColor};"></i>
+                <p class="pl-2">${element.name}</p>
+              </div>
+            </button>
+          </a>
         `)
       }
       if (element.name == "Wishlist" && userLoggedIn.length == 0) {
