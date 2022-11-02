@@ -134,7 +134,7 @@ $(document).ready(function () {
 
   // GET User Logged In
   $.ajax({
-    url: "http://localhost:8000/auth/show-user-loggedin/json",
+    url: "/auth/show-user-loggedin/json",
     type: "GET",
     success: function (data) {
       userLoggedIn = data;
@@ -209,7 +209,7 @@ $(document).ready(function () {
 
   // GET All Destination Data
   $.ajax({
-    url: "http://localhost:8000/destination/json",
+    url: "/destination/json",
     type: "GET",
     success: function (data) {
       console.log(data);
@@ -494,7 +494,7 @@ $(document).ready(function () {
 
   // GET All Suka Destination Data
   $.ajax({
-    url: "http://localhost:8000/destination/suka/json",
+    url: "/destination/suka/json",
     type: "GET",
     success: function (data) {
       sukaAllData = data;
