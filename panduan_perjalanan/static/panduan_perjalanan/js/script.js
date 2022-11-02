@@ -55,7 +55,6 @@ async function updateUI() {
   document.querySelector(".daftar-panduan").innerHTML = "";
   document.querySelector(".daftar-panduan").innerHTML = stringCuaca;
   stringCuaca = "";
-  sectionPanduan.classList.remove("hidden");
 }
 
 // Weather App
@@ -185,7 +184,7 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
     kondisi = "Cuaca yang bagus untuk pergi wisata!";
     iconKondisi = "sunny";
   } else if (cuacaDestinasi[0].slice(0,1) === "0") {
-    kondisi = "Cuacae berawan, tetapi tidak mengganggu wisata!";
+    kondisi = "Cuaca berawan, tetapi tidak akan mengganggu perjalanan!";
     iconKondisi = "cloudy";
   } else {
     const status = cuacaDestinasi[0].slice(0,2);
@@ -238,10 +237,15 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
 const btnHero = document.querySelector(".btn-hero");
 const btnSubmit = document.querySelector(".btn-submit");
 const descriptionSection = document.querySelector(".page-description");
-const sectionPanduan = document.querySelector(".informasi-panduan");
+const sectionPanduan = document.querySelector(".daftar-panduan");
 
 btnHero.addEventListener("click", function() {
-  descriptionSection.scrollIntoView({behavior:"smooth"})
+  descriptionSection.scrollIntoView({behavior:"smooth"});
 })
 
 btnSubmit.addEventListener("click",addPanduan);
+btnSubmit.addEventListener("click", function(e) {
+  e.preventDefault();
+  sectionPanduan.classList.remove("hidden");
+  sectionPanduan.scrollIntoView({behavior:"smooth"});
+});
