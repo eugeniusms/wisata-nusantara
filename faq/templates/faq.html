@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div>
+<div class="bg-gradient-to-r from-green-500 to-slate-500">
     <!-- component -->
 <!-- Code block starts -->
 <dh-component>
@@ -239,13 +239,13 @@
           `;
           for(var i = 0; i < data.length; i++){
               content += `
-              <details class="mb-4 hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-2 hover:scale-105 transition duration-150 ease-in-out">
+              <details class=" mb-4 hover:bg-gradient-to-gray hover:from-slate-100 hover:to-slate-300 hover:-translate-y-2 hover:scale-105 transition duration-150 ease-in-out">
                 <summary class="font-semibold  bg-gray-200 rounded-md py-2 px-4">
                   ${data[i].fields.question}
                 </summary>
-                <span clas="transition duration-150 ease-in-out">
-                  ${data[i].fields.answer}
-                </span>
+                  <span class="text-white transition duration-150 ease-in-out">
+                    ${data[i].fields.answer}
+                  </span>
               </details>
               `
           }
@@ -265,12 +265,12 @@
               "https://akcdn.detik.net.id/community/media/visual/2014/11/22/73f25b27-8b85-4a0d-8545-320453cc4251_169.jpg?w=620"]; 
             let pointer = 0;
             var content = `
-            <header>Your Special Question Shown Below:</header>
+            <header class="text-white font-semibold">Your Special Question Shown Below:</header>
               <div id="disniiis" class="flex flex-row gap-4 mt-6">
             `;
             for(var i = 0; i < data.length; i++){
               content += `
-                <div class="max-w-sm rounded overflow-hidden shadow-lg hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
+                <div class="max-w-sm rounded-xl overflow-hidden shadow-lg bg-white hover:bg-gradient-to-r hover:from-slate-100 hover:to-slate-300 hover:-translate-y-4 hover:scale-105 transition duration-150 ease-in-out">
                   <img class="w-full" src="${link[pointer++]}" >
                   <div class="px-6 py-4">
                     <div class="font-bold text-xl mb-2">${data[i].fields.username}</div>
@@ -317,7 +317,7 @@
               "https://akcdn.detik.net.id/community/media/visual/2014/11/22/73f25b27-8b85-4a0d-8545-320453cc4251_169.jpg?w=620"]; 
             let pointer = 0;
             var content = `
-            <header>Your Special Question Shown Below:</header>
+            <header class="text-white font-semibold">Your Special Question Shown Below:</header>
               <div id="disiniii" class="flex flex-row gap-4 mt-6">
             `;
             for(var i = 0; i < data.length; i++){
