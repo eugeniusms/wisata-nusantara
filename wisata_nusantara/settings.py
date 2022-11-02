@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "dashboard",
     "cerita_perjalanan",
     "faq",
+    "panduan_perjalanan"
 ]
 
 MIDDLEWARE = [

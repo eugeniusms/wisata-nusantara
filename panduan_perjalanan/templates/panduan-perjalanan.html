@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+  Panduan Perjalanan | Wisata Nusantara
+{% endblock %}
+{% block meta %} 
+<!-- CSS CUSTOM -->
+<link rel="stylesheet" type="text/css" href="{% static 'panduan_perjalanan/css/style.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'panduan_perjalanan/css/queries.css' %}" />
+{% endblock meta %}
+
+{% block content %}
+<div>
+  <section class="hero-section">
+    <div class="hero-container">
+        <h1 class="heading-primary">Panduan Perjalanan</h1>
+        <p class="hero-description">Panduan Perjalanan berisikan informasi dan rekomendasi perlengkapan yang berguna untuk perjalanan wisata yang aman dan nyaman</p>
+        
+        <button class="btn btn-hero">Pandu Wisata &DownArrow;</button>
+      </div>
+  </section>
+
+  <section class="section-container page-description">
+    <div class="box-container">
+      <p class="subheading">DESKRIPSI PANDUAN</p>
+      <p class="heading-secondary">Terdapat 2 hal dalam panduan perjalanan</p>
+    </div>
+
+    <div class="box-container grid grid-2cols grid--center-v">
+      <!-- panduan 01 -->
+      <div class="panduan-text-box">
+        <p class="panduan-number">01</p>
+        <h3 class="heading-tertiary">
+          Ramalan cuaca terkini
+        </h3>
+        <p class="panduan-description">
+          Ramalan cuaca di dua kota, kota keberangkatan dan kota destinasi.
+          Dengan begitu, anda dapat mengetahui kondisi tujuan wisata serta
+          berangkat di saat cuaca yang baik!
+        </p>
+      </div>
+
+      <div class="panduan-img-box">
+        <img
+          src="{% static 'panduan_perjalanan/img/weather-forecast.jpg' %}"
+          class="panduan-img"
+          alt="weather-forecast"
+        />
+      </div>
+
+      <!-- panduan 02 -->
+      <div class="panduan-img-box">
+        <img
+          src="{% static 'panduan_perjalanan/img/bag.jpg' %}"
+          class="panduan-img"
+          alt="travel-bag"
+        />
+      </div>
+      <div class="panduan-text-box">
+        <p class="panduan-number">02</p>
+        <h3 class="heading-tertiary">Rekomendasi perlengkapan sesuai kondisi cuaca</h3>
+        <p class="panduan-description">
+          Setelah mengetahui kondisi cuaca di kedua kota. Kami rekomendasikan
+          perlengkapan yang dapat dibawa agar perjalanan wisata anda tetap nyaman!
+        </p>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+  <section class="section-form">
+    <div class="box-container">
+      <div class="form-box">
+        <div class="form-text-box">
+          <h2 class="heading-form">Mulai pandu perjalanan!</h2>
+          <p class="form-text">Hanya perlu mengisi form dengan kota keberangkatan dan kota destinasi</p>
+  
+          <form class="form-panduan" onsubmit="return false;">
+            {% csrf_token %}
+            <div>
+              <label>Kota Asal</label>
+              <input
+              class="input-kota" 
+              type="text" 
+              name="kota_asal" 
+              placeholder="Kota Asal" 
+              required />
+            </div>
+
+            <div>
+              <label>Kota Destinasi</label>
+              <input 
+                class="input-kota" 
+                type="text" 
+                name="kota_destinasi"
+                placeholder="Kota Destinasi" 
+                required />
+            </div>
+
+            <button type="submit" class="btn btn-submit">Submit</button>
+  
+          </form>
+        </div>
+        <div 
+          class="form-img-box"
+          role="img"
+        ></div>
+    </div>
+  </section>
+
+  <section class="section-container">
+    <div class="box-container informasi-panduan">
+      <div class="grid grid-2-2 daftar-panduan hidden">
+        <!-- panduan -->
+      </div>
+      
+    </div>
+  </section>
+</div>
+
+<script src="{% static 'panduan_perjalanan/js/script.js' %}"></script>
+{% endblock content %}
