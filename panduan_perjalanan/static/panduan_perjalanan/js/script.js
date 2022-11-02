@@ -1,18 +1,20 @@
-"use strict";
+'use strict';
 
 let stringCuaca = "";
 
 async function getJson() {
-  return fetch("./get_data").then((res) => res.json());
+  return fetch("./get_data").then( res => res.json())
 }
 
 function addPanduan() {
   fetch("./create_data/", {
-    method: "POST",
-    body: new FormData(document.querySelector(".form-panduan")),
-  }).then(callWeatherApi);
+        method: "POST",
+        body: new FormData(document.querySelector('.form-panduan'))
+    }).then(callWeatherApi);
   return false;
 }
+
+
 
 async function callWeatherApi() {
   const inputKota = await getJson();
@@ -32,11 +34,11 @@ async function getCitiesData(kotaAsal, kotaDestinasi) {
     const dataCuacaDestinasi = await cuacaDestinasi.json();
     console.log(dataCuacaAsal);
     console.log(dataCuacaDestinasi);
-
+    
     const kondisiKotaAsal = writeCityData(dataCuacaAsal);
     const kondisiKotaDestinasi = writeCityData(dataCuacaDestinasi);
     setPanduan(kondisiKotaAsal, kondisiKotaDestinasi);
-
+    
     updateUI();
   } else {
     let error = "";
@@ -63,7 +65,7 @@ async function getWeather(city) {
       city +
       "&units=metric&appid=" +
       apiKey
-  );
+    );
 }
 
 function writeCityData(data) {
@@ -90,28 +92,29 @@ function writeCityData(data) {
 
 function setPanduan(cuacaAsal, cuacaDestinasi) {
   /*
-   * Weathers conditions from OpenWeather API, https://openweathermap.org/weather-conditions
-   * 01: clear sky
-   * 02: few clouds
-   * 03: scattered clouds
-   * 04: broken clouds
-   * 10: rain
-   * 11: thunderstorm
-   * 13: snow
-   * 50: mist
-   */
+  * Weathers conditions from OpenWeather API, https://openweathermap.org/weather-conditions
+  * 01: clear sky
+  * 02: few clouds
+  * 03: scattered clouds
+  * 04: broken clouds
+  * 10: rain
+  * 11: thunderstorm
+  * 13: snow
+  * 50: mist 
+  */
 
   let penerbangan = "";
   let kondisiAsal = "";
 
-  if (cuacaAsal[0].slice(0, 2) === "01") {
+  if (cuacaAsal[0].slice(0,2) === "01") {
     penerbangan = "Cuaca yang bagus untuk berangkat";
-  } else if (cuacaAsal[0].slice(0, 1) === "0") {
+  } else if (cuacaAsal[0].slice(0,1) === "0") {
     penerbangan = "Cuaca berawan, tetapi tidak akan mengganggu perjalanan";
   } else {
-    const status = cuacaAsal[0].slice(0, 2);
+
+    const status = cuacaAsal[0].slice(0,2); 
     if (status == 10) {
-      kondisiAsal = "hujan";
+      kondisiAsal = "hujan"
     } else if (status == 11) {
       kondisiAsal = "badai";
     } else if (status == 13) {
@@ -125,7 +128,7 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
   let kondisiDestinasi = "";
   let suhuDestinasi = "";
 
-  if (cuacaDestinasi[1] >= 27) {
+  if (cuacaDestinasi[1] >= 27 ) {
     suhuDestinasi = `
     <li class="item-list">
       <img
@@ -177,17 +180,17 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
 
   let kondisi = "";
   let iconKondisi = "";
-  if (cuacaDestinasi[0].slice(0, 2) === "01") {
+  if (cuacaDestinasi[0].slice(0,2) === "01") {
     kondisi = "Cuaca yang bagus untuk pergi wisata!";
     iconKondisi = "sunny";
-  } else if (cuacaDestinasi[0].slice(0, 1) === "0") {
+  } else if (cuacaDestinasi[0].slice(0,1) === "0") {
     kondisi = "Cuaca berawan, tetapi tidak akan mengganggu perjalanan!";
     iconKondisi = "cloudy";
   } else {
-    const status = cuacaDestinasi[0].slice(0, 2);
+    const status = cuacaDestinasi[0].slice(0,2);
     let deskripsiCuaca = "";
     if (status == 10) {
-      deskripsiCuaca = "hujan";
+      deskripsiCuaca = "hujan"
       iconKondisi = "rainy";
     } else if (status == 11) {
       deskripsiCuaca = "badai";
@@ -210,7 +213,7 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
       />
       <span>${kondisi}</span>
     </li>
-    `;
+    `
 
   stringCuaca += `
     <div class="daftar-rekomendasi">
@@ -236,13 +239,13 @@ const btnSubmit = document.querySelector(".btn-submit");
 const descriptionSection = document.querySelector(".page-description");
 const sectionPanduan = document.querySelector(".daftar-panduan");
 
-btnHero.addEventListener("click", function () {
-  descriptionSection.scrollIntoView({ behavior: "smooth" });
-});
+btnHero.addEventListener("click", function() {
+  descriptionSection.scrollIntoView({behavior:"smooth"});
+})
 
-btnSubmit.addEventListener("click", addPanduan);
-btnSubmit.addEventListener("click", function (e) {
+btnSubmit.addEventListener("click",addPanduan);
+btnSubmit.addEventListener("click", function(e) {
   e.preventDefault();
   sectionPanduan.classList.remove("hidden");
-  sectionPanduan.scrollIntoView({ behavior: "smooth" });
+  sectionPanduan.scrollIntoView({behavior:"smooth"});
 });
