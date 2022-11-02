@@ -10,7 +10,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def panduan_perjalanan(request):
-  TujuanPerjalanan.objects.all().delete()
   return render(request, "panduan-perjalanan.html")
 
 def get_perjalanan_json(request):
