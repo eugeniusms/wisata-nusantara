@@ -42,7 +42,7 @@ def daftar_destinasi(request):
 @csrf_exempt
 @login_required(login_url='/auth/login')
 def hapus_destinasi_by_id(request, id):
-  if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
+  if (request.user.username == "admin"): # hanya user dengan username ini yg bisa hapus destination
     task = Destinasi.objects.get(pk=id)
     task.delete()
   return HttpResponseRedirect("/destination/")

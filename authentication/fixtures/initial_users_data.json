@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$390000$F5b06JPo2qJPATDTUBtBxL$F/9tSEBz1k6NNzfGoGPSV4VA6RwlxNpSv5jjUAmgigs=",
-      "last_login": "2022-10-29T16:53:25.415Z",
+      "last_login": "2022-11-02T04:44:35.232Z",
       "is_superuser": true,
       "username": "eugenius.mario",
       "first_name": "",
@@ -13,6 +13,24 @@
       "is_staff": true,
       "is_active": true,
       "date_joined": "2022-10-27T16:52:49.922Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$390000$FSeIwVbkV2NQ1WLnPyuZXE$V2uO04IGwwWwQX9DpyGOFDZcSFiaSyfR3n+RS1Z2HKA=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-11-02T04:47:34.051Z",
       "groups": [],
       "user_permissions": []
     }

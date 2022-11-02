@@ -104,7 +104,7 @@ $(document).ready(function () {
     }
     if (
       element.name == "Delete Destination" &&
-      userLoggedIn[0].fields.username != "eugenius.mario"
+      userLoggedIn[0].fields.username != "admin"
     ) {
       return ``;
     }
