@@ -68,11 +68,15 @@ def show_suka_json(request):
 def sukai_destinasi(request, id):
   user = request.user
   data = Destinasi.objects.get(pk=id)
-  
   suka = Suka(user=user, destinasi=data)
 
-  # jika belum pernah ada maka disave (menjamin unique)
+  # jika belum pernah ada maka disave (menjamin unique) 
+  # menyimpan object Suka
   if (Suka.objects.filter(user=user, destinasi=data).count() == 0):
     suka.save()
+
+    # menambahkan jumlah suka di Destinasi
+    data.jumlah_suka += 1
+    data.save()
 
   return HttpResponseRedirect("/destination/")

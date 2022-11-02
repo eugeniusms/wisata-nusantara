@@ -334,24 +334,23 @@
 
     // ================================ ALL ABOUT DESTINATION MODAL ========================
     const modalCard = (destinasi) => {
-      // SUKA TOGGLE GRAY OR RED
-      let sukaButton = `<i class="fa fa-duotone fa-heart animate-bounce" style="font-size:24px;color:#999999"></i>`; // GRAY
-      let isLiked = false
-      let likeMessage = "Likes"
-
-      for (like of sukaAllData) {
-        if (like.fields.user == userLoggedIn[0].pk && like.fields.destinasi == destinasi.pk) {
-          isLiked = true
-          break;
-        }
-      }
-      if (isLiked) {
-        sukaButton = `<i class="fa fa-solid fa-heart" style="font-size:24px;color:#BD4B4B"></i>`; // RED
-        likeMessage = "Liked"
-      }
-
       // FOR MOBILE
       $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
+        // SUKA TOGGLE GRAY OR RED
+        let sukaButton = `<i class="fa fa-duotone fa-heart animate-bounce" style="font-size:24px;color:#999999"></i>`; // GRAY
+        let isLiked = false
+        let likeMessage = "Likes"
+
+        for (like of sukaAllData) {
+          if (like.fields.user == userLoggedIn[0].pk && like.fields.destinasi == destinasi.pk) {
+            isLiked = true
+            break;
+          }
+        }
+        if (isLiked) {
+          sukaButton = `<i class="fa fa-solid fa-heart" style="font-size:24px;color:#BD4B4B"></i>`; // RED
+          likeMessage = "Liked"
+        }
         $(`#modalMobile`).html(`
           <div id="myModal" class="modal">
             <div class="modal-content-destination-mobile">
