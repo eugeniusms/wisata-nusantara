@@ -1,0 +1,28 @@
+from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render
+from django.core import serializers
+from faq.models import *
+from django.contrib.auth.decorators import login_required
+
+# Create your views here.
+def show_faq(request):
+    return render(request, 'faq.html')
+
+def show_faq_by_json_public(request):
+    data = publicFaqData.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_faq_by_json_private(request):
+    data = privateFaqData.objects.filter( user = request.user )
+    # print(type(data))
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+# @login_required(login_url='/auth/login')
+def submit_ajax(request):
+    # print('sdasdqwe')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        question = request.POST.get('question')
+        new_question = privateFaqData(user = request.user, username = username, question = question,)
+        new_question.save()
+    return HttpResponse('')
