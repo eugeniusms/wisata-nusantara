@@ -4,13 +4,18 @@ from cerita_perjalanan.models import ceritaPerjalananItems
 from cerita_perjalanan.forms import FormCerita
 from django.core import serializers
 
+from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
+
+@csrf_exempt
+@login_required(login_url='/auth/login')
 def submit(request):
     if request.method == 'POST':
         username = request.user.username
         form = FormCerita(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/review/')
+            return HttpResponseRedirect('/story/')
     else:
         form = FormCerita()
     
@@ -29,17 +34,18 @@ def get(request):
         'username':username,
         'form':form
     }
-    # print(ceritaPerjalananItems.objects.all())
     
     return render(request, 'cerita-perjalanan.html', context)
 
+@csrf_exempt
+@login_required(login_url='/auth/login')
 def submit(request):
     if request.method == "POST":
         form = FormCerita(request.POST)
         form.instance.name = request.user.username
         if form.is_valid():
             form.save()
-            response = HttpResponseRedirect("/review/")
+            response = HttpResponseRedirect("/story/")
             return response
     else:
         form = FormCerita()
