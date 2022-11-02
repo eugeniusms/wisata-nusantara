@@ -7,7 +7,7 @@
 {% block content %}
 
 <body>
-  <div class="h-screen bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="bg-gradient-to-r from-green-500 to-slate-500">
     <p class="text-center text-4xl font-bold pt-5 mb-3">Events</p>
     {% if user.is_authenticated %}
       <p class="text-center text-2xl font-semibold mb-2">Hello, {{user.username}}</p>
@@ -27,16 +27,18 @@
     </div>
     
     <!-- card component -->
-    <div class="mx-auto h-full mt-5 mb-7 bg-gradient-to-r from-green-500 to-slate-500 h-fit p-4">
-      <div class="flex flex-wrap gap-5 justify-center" id="container">
+    <div class="mx-auto h-full mt-5 bg-gradient-to-r from-green-500 to-slate-500">
+      <div class="flex flex-wrap gap-5 justify-center pl-4" id="container">
         <!-- insert ajax -->
       </div>
-      <div class="flex justify-center justify-items-center bg-gradient-to-r from-green-500 to-slate-500 h-fit p-4">
+      
+      <div class="flex justify-center justify-items-center bg-gradient-to-r from-green-500 to-slate-500 h-fit">
         {% if user.is_authenticated %}
-          <a href="{% url 'daftar_event:tambah-event' %}" id="btn-new" class=" bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full">Add New Event</a>
+          <a href="{% url 'daftar_event:tambah-event' %}" id="btn-new" class=" bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full mt-4">Add New Event</a>
         {% endif %}
       </div>
-  </div>
+      <div class="h-[200px]"></div>
+</div>
 </body>
 
 <!-- script -->

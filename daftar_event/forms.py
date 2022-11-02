@@ -19,6 +19,7 @@ class event_form(forms.ModelForm) :
     'placeholder' : 'Location',
     'class' : 'form-control py-2 px-3 rounded-xl mb-2 ml-4',
     'id' :'lokasi',
+    
   }
   jenis_attrs = {
     'class' : 'form-control py-2 px-3 rounded-xl mb-2 ml-4',
