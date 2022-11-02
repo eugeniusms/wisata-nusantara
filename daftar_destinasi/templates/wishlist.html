@@ -10,7 +10,6 @@
     var allData = null
     var userLoggedIn = null
     var allSukaData = null
-    var sukaUserData = [];
 
     // GET User Logged In
     $.ajax({
@@ -46,13 +45,18 @@
         success: function(data) {
           allSukaData = data;
 
+          var allSukaDataIdDestination = []
           allSukaData.map((suka) => {
             if (suka.fields.user == userLoggedIn[0].pk) {
-              sukaUserData.push(allData[suka.fields.destinasi-1]);
+              allSukaDataIdDestination.push(suka.fields.destinasi)
             }
           })
 
-          sukaUserData.map((destinasi) => {
+          const filteredData = allData.filter((destination) => {
+            return allSukaDataIdDestination.includes(destination.pk)
+          })
+
+          filteredData.map((destinasi) => {
             $("#daftar-destinasi-mobile").append(destinationMobile(destinasi))
             $("#daftar-destinasi-tablet-desktop").append(destinationTabletDesktop(destinasi));
           })
