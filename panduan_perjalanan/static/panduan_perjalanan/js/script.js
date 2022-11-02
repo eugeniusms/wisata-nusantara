@@ -19,6 +19,7 @@ function addPanduan() {
 async function callWeatherApi() {
   const inputKota = await getJson();
   const index = Object.keys(inputKota).length - 1;
+  console.log(index);
 
   const kotaAsal = inputKota[index].fields.kota_asal;
   const kotaDestinasi = inputKota[index].fields.kota_destinasi;
@@ -28,23 +29,33 @@ async function callWeatherApi() {
 async function getCitiesData(kotaAsal, kotaDestinasi) {
   const cuacaAsal = await getWeather(kotaAsal);
   const cuacaDestinasi = await getWeather(kotaDestinasi);
-
-  const dataCuacaAsal = await cuacaAsal.json();
-  const dataCuacaDestinasi = await cuacaDestinasi.json();
-  console.log(dataCuacaAsal);
-  console.log(dataCuacaDestinasi);
-
-  const kondisiKotaAsal = writeCityData(dataCuacaAsal);
-  const kondisiKotaDestinasi = writeCityData(dataCuacaDestinasi);
-  setPanduan(kondisiKotaAsal, kondisiKotaDestinasi);
-
-  updateUI();
+  if (cuacaAsal.ok && cuacaDestinasi.ok) {
+    const dataCuacaAsal = await cuacaAsal.json();
+    const dataCuacaDestinasi = await cuacaDestinasi.json();
+    console.log(dataCuacaAsal);
+    console.log(dataCuacaDestinasi);
+    
+    const kondisiKotaAsal = writeCityData(dataCuacaAsal);
+    const kondisiKotaDestinasi = writeCityData(dataCuacaDestinasi);
+    setPanduan(kondisiKotaAsal, kondisiKotaDestinasi);
+    
+    updateUI();
+  } else {
+    let error = "";
+    if (!cuacaAsal.ok) {
+      error = kotaAsal;
+    } else {
+      error = kotaDestinasi;
+    }
+    alert(`${error} not found`);
+  }
 }
 
 async function updateUI() {
   document.querySelector(".daftar-panduan").innerHTML = "";
   document.querySelector(".daftar-panduan").innerHTML = stringCuaca;
   stringCuaca = "";
+  sectionPanduan.classList.remove("hidden");
 }
 
 // Weather App
@@ -220,8 +231,6 @@ function setPanduan(cuacaAsal, cuacaDestinasi) {
       </ul>
     </div>
   `;
-
-
 }
 
 // event button
@@ -236,7 +245,3 @@ btnHero.addEventListener("click", function() {
 })
 
 btnSubmit.addEventListener("click",addPanduan);
-btnSubmit.addEventListener("click", function() {
-  sectionPanduan.scrollIntoView({behavior:"smooth"})
-  sectionPanduan.classList.remove("hidden");
-})

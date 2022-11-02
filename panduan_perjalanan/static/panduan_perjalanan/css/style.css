@@ -2,7 +2,7 @@
   --text-color: #fff;
   --main-color: #22C55E;
   --form-color: #072713;
-
+  --hover-color: #188a42;
 }
 
 * {
@@ -38,9 +38,7 @@
   margin-bottom: 3rem;
 }
 
-.btn,
-.btn:link,
-.btn:visited {
+.btn {
   display: inline-block;
   background-color: var(--main-color);
   color: #fff;
@@ -51,14 +49,13 @@
   padding: 1rem 2.2rem;
   border-radius: 9px;
 
-  /* Only necessary for .btn */
   border: none;
   cursor: pointer;
   font-family: inherit;
+}
 
-  /* Put transition on original "state" */
-  /* transition: background-color 0.3s; */
-  /* transition: all 0.3s; */
+.btn:hover {
+  background-color: var(--hover-color);
 }
 
 .section-container {
@@ -186,6 +183,10 @@
   /* background-image: linear-gradient(to right bottom, #eb984e, #e67e22); */
   background-color: var(--main-color);
   overflow: hidden;
+}
+
+.btn-submit {
+  border: 3px solid #fff;
 }
 
 .form-text-box {
