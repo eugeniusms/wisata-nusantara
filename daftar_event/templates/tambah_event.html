@@ -3,11 +3,13 @@
   Add Event & Activity | Wisata Nusantara
 {% endblock %}
 
+{% load static %}
+<script src="{% static 'daftar_event/script.js' %}" type="text/javascript"></script>
 
 {% block content %}
 <body>
 <div class=" h-screen bg-gradient-to-r from-green-500 to-slate-500">
-    <p class="text-center text-4xl font-bold py-5">Add New Event</p>
+    <p class="text-center text-4xl font-bold py-5">Add New Event or Activity</p>
     <div class="flex justify-center">
         <form method="POST" action="" id="addEvent">
             {% csrf_token %}
@@ -35,15 +37,12 @@
                 
             </table>
             <div class="flex justify-center">
-                <input id="submit-btn" type="submit" class="bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full" value="Add New Event">
-
-              </div>
-            <div class="flex justify-center">
-              <a href="/event/" class="bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full mt-4">Back</a>
+                <input id="submit-btn" type="submit" class="bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full" value="Add New Event">
             </div>
         </form>
 </div>
 </body>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
     $(document).on("submit", "#addEvent", function (e) {

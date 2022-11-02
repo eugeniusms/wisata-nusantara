@@ -11,7 +11,7 @@ urlpatterns = [
     path('tambah-event/', tambah_event, name='tambah-event'),
     path('json/',show_json, name='show_json'),
     path('add/',add_json, name='add_json'),
-    path('delete/<pk>', delete_event, name='delete-event'),
+    path('delete/<id>', delete_event, name='delete-event'),
     path('lihat-event/<id>',lihat_event, name='lihat-event'),
 
 ]

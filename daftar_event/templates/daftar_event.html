@@ -8,9 +8,9 @@
 
 <body>
   <div class="h-screen bg-gradient-to-r from-green-500 to-slate-500">
-    <p class="text-center text-4xl font-bold pt-5">Events</p>
-    {% if user_loggedin %}
-      <p class="text-center text-2xl font-semibold mb-2">Welcome, {{user_loggedin}}</p>
+    <p class="text-center text-4xl font-bold pt-5 mb-3">Events</p>
+    {% if user.is_authenticated %}
+      <p class="text-center text-2xl font-semibold mb-2">Hello, {{user.username}}</p>
     {% endif %}
     
     <!-- select component -->
@@ -23,7 +23,7 @@
         <option>Budaya</option>
         <option>Lainnya</option>
       </select>
-      <button onclick="showCat()" class=" ml-2 inline-flex items-center py-2 px-3 bg-gray-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full">Apply</button>
+      <button onclick="showCat()" class=" ml-2 inline-flex items-center py-2 px-3 bg-gray-900 hover:bg-slate-500 text-white font-semibold py-2 px-4 rounded-full">Apply</button>
     </div>
     
     <!-- card component -->
@@ -61,8 +61,8 @@
                       <div class="d-flex justify-content-end align-items-end">
                         <p class="h6 mb-0"><a href="/event/lihat-event/${i.pk}">Read more ></a></p>
                       </div>
-                      {% if user.username  == "aul" %}
-                        <button onclick="deleteEvent(${i.pk})"" class="rounded-lg bg-gray-900 text-white">Delete</button>
+                      {% if user.username == user_admin %}
+                        <button onclick="deleteEvent(${i.pk})"" class="hover:bg-slate-500 rounded-lg bg-gray-900 text-white">Delete</button>
                       {% else %}
                       {% endif %}
                       </div>`
@@ -97,8 +97,8 @@
                       <div class="d-flex justify-content-end align-items-end">
                         <p class="h6 mb-0"><a href="/event/lihat-event/${i.pk}">Read more ></a></p>
                       </div>
-                      {% if user.username  == "aul" %}
-                        <button onclick="deleteEvent(${i.pk})"" class="rounded-lg bg-gray-900 text-white">Delete</button>
+                      {% if user.username == user_admin %}
+                        <button onclick="deleteEvent(${i.pk})"" class="bg-gray-900 text-white">Delete</button>
                       {% else %}
                       {% endif %}
                       </div>`;
@@ -110,17 +110,16 @@
         }
     });
   };
-  function deleteEvent(id){
+  function deleteEvent(val){
     $.ajax({
       type : "DELETE",
       csrfmiddlewaretoken: "{{ csrf_token }}",
-      url :`/event/delete/${id}`,
+      url :`/event/delete/${val}`,
       success : function(){
-        $(`#${id}`).remove()
+        $(`#${val}`).remove()
       }
     })
   }
 
 </script>
 {% endblock %}
-
