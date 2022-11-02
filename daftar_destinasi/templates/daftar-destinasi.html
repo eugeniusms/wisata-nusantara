@@ -672,6 +672,31 @@
         console.log(sukaAllData)
       }
     })
+
+    // [POST] ADD DESTINASI 
+    $('#tambah-destinasi').click(function () {
+        // event.preventDefault();
+        const formTerisi = $('#id_nama') && $('#id_deskripsi') && $('#id_lokasi') && $('#id_kategori') && $('#id_foto_thumbnail_url') && $('#id_foto_cover_url') && $('#id_maps_url');
+        if (formTerisi) {
+            $.post(
+                url = '/destination/add/',
+                data = {
+                    nama: $('#id_nama').val(),
+                    deskripsi: $('#id_deskripsi').val(),
+                    kategori: $('#id_kategori').val(),
+                    lokasi: $('#id_lokasi').val(),
+                    foto_thumbnail_url: $('#id_foto_thumbnail_url').val(),
+                    foto_cover_url: $('#id_foto_cover_url').val(),
+                    maps_url: $('#id_maps_url').val(),
+                }, 
+                function (res, status) {
+                    if (status == 'success') {
+                      console.log(res);
+                    }
+                },
+            )
+        }
+    })
     
   })
 </script>
