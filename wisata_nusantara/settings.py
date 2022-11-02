@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication",
     "helpers",
+    "example_app",
+    "daftar_destinasi",
+    "daftar_event",
     "dashboard",
     "daftar_destinasi",
 ]
