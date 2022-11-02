@@ -1,0 +1,45 @@
+/* Responsive di Handphone. 34em -> 544px */
+
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 3rem;
+  }
+
+  .grid-2cols,
+  .grid-2-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 1.5rem 0 4rem 0;
+  }
+
+  .hero-container {
+    padding: 0 2rem;
+  }
+
+  .panduan-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .panduan-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .panduan-img-box {
+    transform: translateY(1.5rem);
+  }
+
+  .form-box {
+    grid-template-columns: 1fr;
+  }
+
+  .form-text-box {
+    padding: 2rem;
+  }
+
+  .form-img-box {
+    height: 20rem;
+    grid-row: 1;
+  }
+}
