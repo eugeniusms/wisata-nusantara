@@ -26,7 +26,10 @@ PRODUCTION = os.getenv('DATABASE_URL') is not None
 SECRET_KEY = "django-insecure-%x%ibb%*s3%9egfly3c%zay%!rc9@blbt+*d(bc)inr@l*5!n3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ON_HEROKU', '0') == '0':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -40,9 +43,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "example_app",
+    "authentication",
+    "helpers",
     "daftar_destinasi",
-    "login_register",
     "panduan_perjalanan",
     "daftar_event",
     "dashboard",
@@ -131,7 +134,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
@@ -148,6 +151,3 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')

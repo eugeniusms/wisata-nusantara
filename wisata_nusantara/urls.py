@@ -22,6 +22,8 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('destination/', include('daftar_destinasi.urls')),
     path('auth/', include('login_register.urls')),
-    path('panduan-perjalanan/', include('panduan_perjalanan.urls')),
     path('event/', include('daftar_event.urls')),
+    path('panduan-perjalanan/', include('panduan_perjalanan.urls')),
 ]
+
+handler404 = "helpers.views.error_404_view"
