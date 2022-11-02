@@ -13,4 +13,3 @@ class Event(models.Model):
   jenis = models.TextField(choices=event_choices, default=None)
   deskripsi = models.TextField()
   foto = models.URLField(null=True)
-  created_by = models.TextField(null=True)

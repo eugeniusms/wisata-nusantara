@@ -2,7 +2,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-# from matplotlib import use
 from .models import Destinasi, Suka
 from django.core import serializers
 
