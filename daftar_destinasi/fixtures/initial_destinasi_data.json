@@ -148,5 +148,80 @@
       "jumlah_suka": 431,
       "created_by": 1
     }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 11,
+    "fields": {
+      "nama": "Sangiran",
+      "deskripsi": "Excavations here from 1936 to 1941 led to the discovery of the first hominid fossil at this site. Later, 50 fossils of Meganthropus palaeo and Pithecanthropus erectus/Homo erectus were found – half of all the world's known hominid fossils. Inhabited for the past one and a half million years, Sangiran is one of the key sites for the understanding of human evolution.",
+      "lokasi": "Jawa Tengah",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/ae/19/0e/ae190efe8ec625d0134e6035df9c504a.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/a8/da/40/a8da40d66739d74e4f864b31882a5661.jpg",
+      "maps_url": "https://goo.gl/maps/ArpNvu5HyzGe6NXX8",
+      "jumlah_suka": 37,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 12,
+    "fields": {
+      "nama": "Tanah Lot",
+      "deskripsi": "Tanah Lot temple is an ancient Hindu temple dedicated to the gods of the sea. The buildings were built after religious figure Dang Hyang Nirartha's sacred journey (tirtha yatra) to Bali in the fifteenth century and have never lost their original function.",
+      "lokasi": "Bali",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/22/8f/83/228f83fc938f74268d4bd47729c749b4.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/12/98/75/12987508581c33d01a4249fb7b71e1ee.jpg",
+      "maps_url": "https://goo.gl/maps/eeiD3DUPsANj6csP8",
+      "jumlah_suka": 337,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 13,
+    "fields": {
+      "nama": "Puncak Jaya",
+      "deskripsi": "Puncak Jaya, or Carstensz Pyramid, is a mountain peak on the continent of Oceania. It is located in Indonesia, in the province of Papua. It is part of the Sudirman  mountain  range. At 4,884 meters (16,024 feet) high, it is the tallest  mountain  in the southwestern Pacific. It is also the highest island peak in the world.",
+      "lokasi": "Papua Tengah",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/7f/27/c1/7f27c1b4554119dd94d571b917eba1d0.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/31/d1/2a/31d12a4a4693e1d2059d03bfc856138c.jpg",
+      "maps_url": "https://goo.gl/maps/QucJNswWHTkNk23X7",
+      "jumlah_suka": 87,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 14,
+    "fields": {
+      "nama": "Dieng Plateau",
+      "deskripsi": "The Dieng Plateau is a marshy plateau that forms the floor of a caldera complex on the Dieng Volcanic Complex in Wonosobo and Banjarnegara, Central Java, Indonesia. Referred to as Dieng by Indonesians, it sits at 2,000 metres (6,600 ft) above sea level, far from major population centres. The name Dieng comes from Dihyang which means place of the ancestors or gods.",
+      "lokasi": "Jawa Tengah",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/736x/d2/0e/70/d20e70e9f02d52f0db0b52e33643b4cf.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/96/9a/42/969a420bb42c0b03c5432c913b66ebf8.jpg",
+      "maps_url": "https://goo.gl/maps/QYJyvhb36WKpu1pKA",
+      "jumlah_suka": 27,
+      "created_by": 1
+    }
+  },
+  {
+    "model": "daftar_destinasi.destinasi",
+    "pk": 15,
+    "fields": {
+      "nama": "Ijen Crater",
+      "deskripsi": "Ijen Crater is a large acidic crater lake and active volcano in East Java, Indonesia. It is located in the border of Banyuwangi Regency and Bondowoso Regency, about 75 kilometres (47 mi) south of Surabaya. The crater is 2,600 metres (8,500 ft) above sea level and 3 kilometres (1.9 mi) wide. The lake is 200 metres (660 ft) deep and 2 kilometres (1.2 mi) wide. The lake is filled with a deep blue acidic water.",
+      "lokasi": "Jawa Timur",
+      "kategori": "Favorites",
+      "foto_thumbnail_url": "https://i.pinimg.com/564x/3f/d0/fd/3fd0fd0edec2b208925fc73235466086.jpg",
+      "foto_cover_url": "https://i.pinimg.com/564x/e6/fc/42/e6fc424590a90c21dd750e75e4692f22.jpg",
+      "maps_url": "https://goo.gl/maps/J7twPZQQQrxE8gDk9",
+      "jumlah_suka": 198,
+      "created_by": 1
+    }
   }
 ]
