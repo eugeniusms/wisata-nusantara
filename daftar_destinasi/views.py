@@ -3,7 +3,7 @@ from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from matplotlib import use
-from .models import Destinasi
+from .models import Destinasi, Suka
 from django.core import serializers
 
 from django.views.decorators.csrf import csrf_exempt
@@ -57,4 +57,22 @@ def hapus_destinasi_by_id(request, id):
   if (request.user.username == "eugenius.mario"): # hanya user dengan username ini yg bisa hapus destination
     task = Destinasi.objects.get(pk=id)
     task.delete()
+  return HttpResponseRedirect("/destination/")
+
+def show_suka_json(request):
+  data = Suka.objects.all()
+  return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def sukai_destinasi(request, id):
+  user = request.user
+  data = Destinasi.objects.get(pk=id)
+  
+  suka = Suka(user=user, destinasi=data)
+
+  # jika belum pernah ada maka disave (menjamin unique)
+  if (Suka.objects.filter(user=user, destinasi=data).count() == 0):
+    suka.save()
+
   return HttpResponseRedirect("/destination/")

@@ -40,6 +40,7 @@
   $(document).ready(function(){
     // ================================ ALL ABOUT INITIATING DATA ================================
     var allData = null
+    var sukaAllData = null
     var userLoggedIn = null
 
     const allCategory = [
@@ -333,6 +334,22 @@
 
     // ================================ ALL ABOUT DESTINATION MODAL ========================
     const modalCard = (destinasi) => {
+      // SUKA TOGGLE GRAY OR RED
+      let sukaButton = `<i class="fa fa-duotone fa-heart animate-bounce" style="font-size:24px;color:#999999"></i>`; // GRAY
+      let isLiked = false
+      let likeMessage = "Likes"
+
+      for (like of sukaAllData) {
+        if (like.fields.user == userLoggedIn[0].pk && like.fields.destinasi == destinasi.pk) {
+          isLiked = true
+          break;
+        }
+      }
+      if (isLiked) {
+        sukaButton = `<i class="fa fa-solid fa-heart" style="font-size:24px;color:#BD4B4B"></i>`; // RED
+        likeMessage = "Liked"
+      }
+
       // FOR MOBILE
       $(`#destinasi-card-mobile-${destinasi.pk}`).click(function() {
         $(`#modalMobile`).html(`
@@ -364,9 +381,11 @@
                         <p class="text-black text-[10px]">Category</p>
                       </div>
                       <div class="text-center">
-                        <i class="fa fa-duotone fa-heart" style="font-size:20px;color:#BD4B4B"></i>
-                        <p class="text-[10px] font-bold">${destinasi.fields.jumlah_suka}</p>
-                        <p class="text-black text-[10px]">Likes</p>
+                        <a href="/destination/suka/${destinasi.pk}">
+                          ${sukaButton}
+                        </a>
+                        <p class="text-[11px] font-bold">${destinasi.fields.jumlah_suka}</p>
+                        <p class="text-black text-[11px]">${likeMessage}</p>
                       </div>
                       <a href="${destinasi.fields.maps_url}" class="flex bg-white px-4 rounded-xl items-center border-black border-[1px] hover:bg-slate-300 hover:scale-105 transition duration-150 ease-in-out">
                         <div class="flex items-center text-center">
@@ -393,6 +412,22 @@
 
       // FOR TABLET & DESKTOP
       $(`#destinasi-card-tablet-desktop-${destinasi.pk}`).click(function() {
+        // SUKA TOGGLE GRAY OR RED
+        let sukaButton = `<i class="fa fa-duotone fa-heart animate-bounce" style="font-size:24px;color:#999999"></i>`; // GRAY
+        let isLiked = false
+        let likeMessage = "Likes"
+
+        for (like of sukaAllData) {
+          if (like.fields.user == userLoggedIn[0].pk && like.fields.destinasi == destinasi.pk) {
+            isLiked = true
+            break;
+          }
+        }
+        if (isLiked) {
+          sukaButton = `<i class="fa fa-solid fa-heart" style="font-size:24px;color:#BD4B4B"></i>`; // RED
+          likeMessage = "Liked"
+        }
+        
         $(`#modalTabletDesktop`).html(`
           <div id="myModal" class="modal">
             <div class="modal-content-destination-tablet-desktop">
@@ -420,9 +455,11 @@
                         <p class="text-black text-[11px]">Category</p>
                       </div>
                       <div class="text-center">
-                        <i class="fa fa-duotone fa-heart" style="font-size:24px;color:#BD4B4B"></i>
+                        <a href="/destination/suka/${destinasi.pk}">
+                          ${sukaButton}
+                        </a>
                         <p class="text-[11px] font-bold">${destinasi.fields.jumlah_suka}</p>
-                        <p class="text-black text-[11px]">Likes</p>
+                        <p class="text-black text-[11px]">${likeMessage}</p>
                       </div>
                       <a href="${destinasi.fields.maps_url}" class="flex bg-white px-4 rounded-xl items-center border-black border-[1px] hover:bg-slate-300 hover:scale-105 transition duration-150 ease-in-out">
                         <div class="flex items-center text-center">
@@ -631,6 +668,16 @@
         }
       })
     }
+
+    // GET All Suka Destination Data
+    $.ajax({
+      url: "http://localhost:8000/destination/suka/json",
+      type: "GET",
+      success: function(data) {
+        sukaAllData = data;
+        console.log(sukaAllData)
+      }
+    })
     
   })
 </script>
