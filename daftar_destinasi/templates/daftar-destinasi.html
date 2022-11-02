@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+  Destination | Wisata Nusantara
+{% endblock %}
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/daftarDestinasi.css' %}"/>
+<script src="{% static 'js/daftarDestinasi.js' %}"></script>
+<script>
+  const activateSidebarModal = () => {
+    // ================================ ALL ABOUT FORM ADD MODAL ========================
+    $("#add-destination-button").click(function () {
+      $("#modalAddDestinationTabletDesktop").html(`
+        <div id="myModal" class="modal pt-10">
+          <div class="modal-content-form-tablet-desktop">
+            <div class="bg-gradient-to-r from-green-500 to-slate-500 rounded-3xl">
+              <span class="flex justify-end pt-3 pr-4 text-3xl cursor-pointer hover:text-rose" id="close-modal">&times;</span>
+              <p class="text-center pb-8 text-3xl font-bold">Add New Destination</p>
+              <div class="flex justify-center">
+                <form action="" method="POST">
+                  {% csrf_token %}
+                  <table>
+                    <tr>
+                      <td><label class="font-semibold">Name</label></td>
+                      <td><input 
+                        type="text" 
+                        name="nama" 
+                        id="id_nama" 
+                        placeholder="Candi Prambanan" 
+                        class="py-2 px-4 rounded-xl mb-2" 
+                        size="18"
+                        maxlength="18"
+                        required/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Description</label></td>
+                      <td><textarea 
+                        type="text" 
+                        name="deskripsi" 
+                        id="id_deskripsi" 
+                        placeholder="Tell Us About The Description of The Added Tours" 
+                        rows="5" 
+                        cols="33" 
+                        class="py-2 px-4 rounded-xl mb-2" 
+                        required></textarea>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Location</label></td>
+                      <td>
+                        <select 
+                          name="lokasi" 
+                          id="id_lokasi" 
+                          class="py-2 px-4 rounded-xl mb-2"
+                          required
+                          >
+                          <option>Aceh</option>
+                          <option>Bali</option>
+                          <option>Bangka Belitung</option>
+                          <option>Banten</option>
+                          <option>Bengkulu</option>
+                          <option>Gorontalo</option>
+                          <option>Jakarta</option>
+                          <option>Jambi</option>
+                          <option>Jawa Barat</option>
+                          <option>Jawa Tengah</option>
+                          <option>Jawa Timur</option>
+                          <option>Kalimantan Barat</option>
+                          <option>Kalimantan Selatan</option>
+                          <option>Kalimantan Tengah</option>
+                          <option>Kalimantan Timur</option>
+                          <option>Kalimantan Utara</option>
+                          <option>Kepulauan Riau</option>
+                          <option>Lampung</option>
+                          <option>Maluku</option>
+                          <option>Maluku Utara</option>
+                          <option>Nusa Tenggara Barat</option>
+                          <option>Nusa Tenggara Timur</option>
+                          <option>Papua</option>
+                          <option>Papua Barat</option>
+                          <option>Riau</option>
+                          <option>Sulawesi Barat</option>
+                          <option>Sulawesi Selatan</option>
+                          <option>Sulawesi Tengah</option>
+                          <option>Sulawesi Tenggara</option>
+                          <option>Sulawesi Utara</option>
+                          <option>Sumatera Barat</option>
+                          <option>Sumatera Selatan</option>
+                          <option>Sumatera Utara</option>
+                          <option>Yogyakarta</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Category</label></td>
+                      <td>
+                        <select 
+                          name="kategori" 
+                          id="id_kategori" 
+                          class="py-2 px-4 rounded-xl mb-2" 
+                          required
+                        >
+                          <option>Art&Culture</option>
+                          <option>Beach&Sea</option>
+                          <option>Caves</option>
+                          <option>Culinary</option>
+                          <option>Temples</option>
+                          <option>Forest</option>
+                          <option>Hills</option>
+                          <option>Historic</option>
+                          <option>Mountains</option>
+                          <option>Nature</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Thumbnail Photo URL&nbsp;&nbsp;&nbsp;</label></td>
+                      <td><input 
+                        type="url" 
+                        name="foto_thumbnail_url" 
+                        id="id_foto_thumbnail_url" 
+                        placeholder="Copy Address From Pinterest" 
+                        class="py-2 px-4 rounded-xl mb-2" 
+                        size="50"
+                        required/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Cover Photo URL</label></td>
+                      <td><input 
+                        type="url" 
+                        name="foto_cover_url" 
+                        id="id_foto_cover_url" 
+                        placeholder="Copy Address From Pinterest" 
+                        class="py-2 px-4 rounded-xl mb-2" 
+                        size="50"
+                        required/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><label class="font-semibold">Maps URL</label></td>
+                      <td><input 
+                        type="url" 
+                        name="maps_url" 
+                        id="id_maps_url" 
+                        placeholder="Copy Address From Google Maps" 
+                        class="py-2 px-4 rounded-xl mb-2" 
+                        size="50"
+                        required/>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="pb-6">
+                    <div class="flex justify-center">
+                      <div class="bg-black text-white text-xl w-fit rounded-xl py-2 px-8 my-6">
+                        <button type="submit" id="tambah-destinasi">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      `);
+
+      // Close the modal
+      $("#close-modal").click(function () {
+        $("#myModal").remove();
+      });
+    });
+  };
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- MOBILE -->
+<div class="tablet:hidden bg-gradient-to-r from-green-500 to-slate-500">
+  <div>
+    <div class="p-4">
+      <p id="hello-mobile"></p>
+      <p class="font-bold text-xl py-2">Where do you want to go?</p>
+      <input type="text" name="search-destination" id="search-destination-mobile" placeholder="Search destination name" size="30" class="py-2 px-2 rounded-xl"/>
+      
+      <p class="font-bold text-lg py-2" id="info-kategori-mobile">Categories</p>
+      <div class="flex gap-3 overflow-x-auto" id="kategori-mobile"></div>
+
+    </div>
+
+    <div>
+      <div id="daftar-destinasi-mobile" class="flex overflow-x-auto"></div>
+      <div id="daftar-destinasi-not-found-mobile"></div>
+    </div>
+
+    <div id="modalMobile"></div>
+    <div id="modalAddDestinationMobile"></div>
+
+  </div>
+
+  <div class="flex justify-between bg-black rounded-tr-3xl rounded-tl-3xl pt-6 pb-8 px-10 mt-3">
+    <a href="/">
+      <i class="fa-solid fa-house" style="font-size:20px;color:white"></i>
+    </a>
+    <a href="/event/">
+      <i class="fa-solid fa-calendar-days" style="font-size:20px;color:white"></i>
+    </a>
+    <a href="/destination/wishlist/">
+      <i class="fa-solid fa-heart" style="font-size:20px;color:white"></i>
+    </a>
+    <a href="/auth/login/">
+      <i class="fa-solid fa-plus" style="font-size:20px;color:white"></i>
+    </a>
+    <a href="/auth/login/">
+      <i class="fa-solid fa-user" style="font-size:20px;color:white"></i>
+    </a>
+  </div>
+</div>
+
+<!-- TABLET & DESKTOP -->
+<div class="mobile:hidden tablet:block bg-gradient-to-r from-green-500 to-slate-500">
+  <div class="flex">
+
+    <div class="bg-zinc-900 px-8 py-4 cursor-pointer w-[250px]" id="sidebar-destination"></div>
+
+    <div class="w-5/6">
+      <div class="pl-8 pt-6 pb-4">
+        <p id="hello-tablet-desktop"></p>
+        <p class="font-bold text-xl pb-3">Where do you want to go?</p>
+        <input type="text" name="search-destination" id="search-destination-tablet-desktop" placeholder="Search destination name" size="40" class="shadow-3xl py-2 px-2 rounded-xl"/>
+        
+        <p class="font-bold text-lg py-3" id="info-kategori-tablet-desktop">Categories</p>
+        <div class="flex gap-3 flex-wrap" id="kategori-tablet-desktop"></div>
+
+      </div>
+
+      <div class="pl-4">
+        <div id="daftar-destinasi-tablet-desktop" class="flex flex-wrap"></div>
+        <div id="daftar-destinasi-not-found-tablet-desktop"></div>
+      </div>
+
+      <div id="modalTabletDesktop"></div>
+      <div id="modalAddDestinationTabletDesktop"></div>
+
+      <div class="h-[200px]"></div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
