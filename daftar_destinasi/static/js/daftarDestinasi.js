@@ -479,6 +479,16 @@ $(document).ready(function () {
           button.style.display = "block";
         }
       }
+
+      const createdByMark = document.querySelectorAll("#destinasi-created-by");
+      // TOGGLE SHOW/HIDE
+      for (mark of createdByMark) {
+        if (mark.style.display !== "none") {
+          mark.style.display = "none";
+        } else {
+          mark.style.display = "block";
+        }
+      }
     });
   };
 

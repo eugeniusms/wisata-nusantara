@@ -16,23 +16,5 @@
       "groups": [],
       "user_permissions": []
     }
-  },
-  {
-    "model": "auth.user",
-    "pk": 2,
-    "fields": {
-      "password": "pbkdf2_sha256$390000$dO4ptqDHsnHBiGjLnTb4D8$V98XeIoL1JegDUCe2LST2V/izxZ+bYccEcsKrQnTsf4=",
-      "last_login": "2022-10-29T13:29:21.862Z",
-      "is_superuser": false,
-      "username": "public",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": false,
-      "is_active": true,
-      "date_joined": "2022-10-29T13:29:14.414Z",
-      "groups": [],
-      "user_permissions": []
-    }
   }
 ]
