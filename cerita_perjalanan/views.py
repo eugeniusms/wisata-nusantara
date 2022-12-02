@@ -37,21 +37,14 @@ def get_cerita(request):
     
     return render(request, 'cerita-perjalanan.html', context)
 
-@csrf_exempt
-@login_required(login_url='/auth/login')
-def submit_cerita(request):
-    if request.method == "POST":
-        form = FormCerita(request.POST)
-        form.instance.name = request.user.username
-        if form.is_valid():
-            form.save()
-            response = HttpResponseRedirect("/story/")
-            return response
-    else:
-        form = FormCerita()
+def get_cerita_json(request):
+    story = ceritaPerjalananItems.objects.all()
+    return HttpResponse(
+        serializers.serialize(
+            "json", 
+            story),
+        content_type="application/json")
 
-    context = {'form':form}
-    return render(request, 'cerita-perjalanan.html', context)
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
