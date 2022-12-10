@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "corsheaders",
     "authentication",
+    "auth_flutter",
     "helpers",
     "daftar_destinasi",
     "daftar_event",
