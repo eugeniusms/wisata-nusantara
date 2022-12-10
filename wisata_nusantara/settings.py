@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-%x%ibb%*s3%9egfly3c%zay%!rc9@blbt+*d(bc)inr@l*5!n3
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://wisata-nusantara.up.railway.app','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app','https://*.127.0.0.1']
 CORS_ALLOW_ALL_ORIGINS=True
 
 CSRF_COOKIE_SECURE = True
