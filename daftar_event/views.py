@@ -68,3 +68,23 @@ def category_event(request,cat):
   if cat == "All":
     data = Event.objects.all()
   return HttpResponse(serializers.serialize("json",data),content_type="application/json")
+
+@csrf_exempt
+def add_from_flutter(request):
+  if request.method == "POST" :
+    request_data = json.load(request.body)
+    nama = request_data['nama']
+    lokasi = request_data['lokasi']
+    jenis = request_data['jenis']
+    deskripsi = request_data['deskripsi']
+    foto = request_data['foto']
+    event = Event(
+      nama = nama,
+      lokasi = lokasi,
+      jenis = jenis,
+      deskripsi= deskripsi,
+      foto = foto,
+    )
+    event.save()
+    return JsonResponse({"Sukses" : "Data masuk"}, status = 200)
+  return JsonResponse({"Gagal" : "Data tidak masuk"}, status= 304)
