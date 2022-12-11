@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from cerita_perjalanan.models import ceritaPerjalananItems
 from cerita_perjalanan.forms import FormCerita
 from django.core import serializers
-
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
@@ -26,6 +26,19 @@ def submit_cerita(request):
         }
     return render(request, 'cerita-perjalanan.html', context)
 
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def submit_cerita_json(request):
+    if request.method == 'POST':
+        review = request.POST['review']
+        name = request.POST['name']
+        story = ceritaPerjalananItems.objects.create(
+            name = name,
+            review = review,
+            )
+    return JsonResponse([story,], safe=False, status=200) 
+
+
 def get_cerita(request):
     form = FormCerita()
     username = request.user.username
@@ -44,12 +57,18 @@ def get_cerita_json(request):
             "json", 
             story),
         content_type="application/json")
+    
+@csrf_exempt
+@login_required(login_url='/auth/login')
+def delete_cerita_json(request, id):
+    task = ceritaPerjalananItems.objects.get(pk=id)
+    task.delete()
+    return JsonResponse({"object": "Data dihapus"},status=200)
         
 @csrf_exempt
 @login_required(login_url='/auth/login')
 def delete_cerita(request, id):
     task = ceritaPerjalananItems.objects.get(pk=id)
     task.delete()
-
     return HttpResponseRedirect("/story/")
         
