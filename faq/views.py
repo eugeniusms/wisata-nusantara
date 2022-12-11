@@ -43,3 +43,8 @@ def add_faq_flutter(request):
         return JsonResponse({"status" : "success"}, status = 200)
 
     return JsonResponse({"status" : "failed"}, status = 304)
+
+def get_faq_flutter(request):
+    data = privateFaqData.objects.all()
+    # print(type(data))
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
