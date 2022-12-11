@@ -30,7 +30,6 @@ def daftar_destinasi(request):
             foto_thumbnail_url = form.cleaned_data['foto_thumbnail_url'],
             foto_cover_url = form.cleaned_data['foto_cover_url'],
             maps_url = form.cleaned_data['maps_url'],
-            created_by = request.user
         )
         # Memasukkan task ke database
         destinasi.save()
@@ -86,8 +85,7 @@ def add_destination_flutter(request):
           kategori = destination['kategori'],
           foto_thumbnail_url = destination['foto_thumbnail_url'],
           foto_cover_url = destination['foto_cover_url'],
-          maps_url = destination['maps_url'],
-          created_by = request.user
+          maps_url = destination['maps_url']
         )
         new_destination.save()
         return JsonResponse({"status" : "success"}, status = 200)

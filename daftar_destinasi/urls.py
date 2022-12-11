@@ -10,5 +10,5 @@ urlpatterns = [
     path('suka/<int:id>', sukai_destinasi, name='sukai_destinasi'), # UPDATE
     path('delete/<int:id>', hapus_destinasi_by_id, name='hapus_destinasi_by_id'),
     path('wishlist/', show_wishlist, name='show_wishlist'), # GET
-    path('add-flutter/', add_destination_flutter, name='add_destination_flutter')
+    path('add/', add_destination_flutter, name='add_destination_flutter')
 ]
