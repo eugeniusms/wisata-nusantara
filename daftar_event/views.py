@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from daftar_event.models import Event
 from daftar_event.forms import event_form
