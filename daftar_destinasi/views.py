@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
@@ -73,3 +74,22 @@ def show_wishlist(request):
   user = request.user
   data = Suka.objects.filter(user=user)
   return render(request, 'wishlist.html', {'data': data})
+
+@csrf_exempt
+def add_destination_flutter(request):
+    if request.method == "POST":
+        destination = json.loads(request.body)
+        new_destination = Destinasi(
+          nama = destination['nama'],
+          deskripsi = destination['deskripsi'],
+          lokasi = destination['lokasi'],
+          kategori = destination['kategori'],
+          foto_thumbnail_url = destination['foto_thumbnail_url'],
+          foto_cover_url = destination['foto_cover_url'],
+          maps_url = destination['maps_url'],
+          created_by = request.user
+        )
+        new_destination.save()
+        return JsonResponse({"status" : "success"}, status = 200)
+
+    return JsonResponse({"status" : "failed"}, status = 304)
