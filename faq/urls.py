@@ -8,5 +8,7 @@ urlpatterns = [
     path('json/public/', show_faq_by_json_public, name='show_faq_by_json_public'),
     path('json/private/', show_faq_by_json_private, name='show_faq_by_json_private'),
     path('add/', submit_ajax, name='submit_ajax'),
+    path('add_flutter/', add_faq_flutter, name='add_faq_flutter'),
+    path('get_flutter/', get_faq_flutter, name='get_faq_flutter'),
 
 ]

@@ -1,20 +1,18 @@
+import datetime
 from django.shortcuts import render
-
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-
 from django.contrib.auth import authenticate, login
-
 from django.contrib.auth import logout
-
-import datetime
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-
 from django.core import serializers
-
 from django.contrib.auth.models import User
+
+from django.http import JsonResponse
+from django.contrib.auth import authenticate, login as auth_login
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def register(request):
@@ -44,6 +42,32 @@ def login_user(request):
           messages.info(request, 'Username atau Password salah!')
   context = {}
   return render(request, 'login.html', context)
+
+@csrf_exempt
+def login_flutter(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        if user.is_active:
+            auth_login(request, user)
+            # Redirect to a success page.
+            return JsonResponse({
+              "status": True,
+              "message": "Successfully Logged In!"
+              # Insert any extra data if you want to pass data to Flutter
+            }, status=200)
+        else:
+            return JsonResponse({
+              "status": False,
+              "message": "Failed to Login, Account Disabled."
+            }, status=401)
+
+    else:
+        return JsonResponse({
+          "status": False,
+          "message": "Failed to Login, check your email/password."
+        }, status=401)
 
 def logout_user(request):
   logout(request)

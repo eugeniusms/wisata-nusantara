@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('dashboard.urls')),
     path('destination/', include('daftar_destinasi.urls')),
     path('auth/', include('authentication.urls')),
+    path('auth-flutter/', include('auth_flutter.urls')),
     path('event/', include('daftar_event.urls')),
     path('story/', include('cerita_perjalanan.urls')),
     path('faq/', include('faq.urls', namespace="faq")),

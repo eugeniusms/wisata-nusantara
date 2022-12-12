@@ -26,13 +26,16 @@ PRODUCTION = os.getenv('DATABASE_URL') is not None
 SECRET_KEY = "django-insecure-%x%ibb%*s3%9egfly3c%zay%!rc9@blbt+*d(bc)inr@l*5!n3"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ON_HEROKU', '0') == '0':
-    DEBUG = True
-else:
-    DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app','https://*.127.0.0.1']
+CORS_ALLOW_ALL_ORIGINS=True
 
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
 
 # Application definition
 
@@ -44,13 +47,15 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "authentication",
+    "auth_flutter",
     "helpers",
     "daftar_destinasi",
     "daftar_event",
     "dashboard",
     "cerita_perjalanan",
     "faq",
-    "panduan_perjalanan"
+    "panduan_perjalanan",
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
@@ -62,6 +67,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = "wisata_nusantara.urls"
@@ -153,5 +159,3 @@ for directory in [*STATICFILES_DIRS, STATIC_ROOT]:
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CSRF_TRUSTED_ORIGINS = ['https://*.up.railway.app','https://*.127.0.0.1']
