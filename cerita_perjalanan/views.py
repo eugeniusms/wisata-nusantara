@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from cerita_perjalanan.models import ceritaPerjalananItems
@@ -6,7 +7,6 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-import json
 from django.contrib.auth.models import User
 
 @csrf_exempt
@@ -20,6 +20,7 @@ def submit_cerita(request):
             return HttpResponseRedirect('/story/')
     else:
         form = FormCerita()
+    
     context = {
         'form':form,
         'cerita':ceritaPerjalananItems.objects.all(),
@@ -28,20 +29,18 @@ def submit_cerita(request):
     return render(request, 'cerita-perjalanan.html', context)
 
 @csrf_exempt
-@login_required(login_url='/auth/login')
 def submit_cerita_json(request):
     if request.method == 'POST':
-        cerita = json.loads(request.body)
-        
-        review = cerita['review']
-        user_id = cerita['id']
-        name = User.objects.get(id=user_id)
-        story = ceritaPerjalananItems.objects.create(
-            name = name.get_full_name(),
+        res = json.loads(request.body)
+        review = res['review']
+        name = res['username']
+        story = ceritaPerjalananItems(
+            name = name,
             review = review,
-            )
-    return JsonResponse([story,], safe=False, status=200) 
-
+        )
+        story.save()
+        return JsonResponse({"status" : "success"}, status = 200)
+    return JsonResponse({"status" : "failed"}, status = 304)
 
 def get_cerita(request):
     form = FormCerita()
