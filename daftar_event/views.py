@@ -8,6 +8,7 @@ from django.core import serializers
 from django.shortcuts import redirect
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
 def daftar_event(request) :
@@ -89,3 +90,11 @@ def add_from_flutter(request):
     event.save()
     return JsonResponse({"Sukses" : "Data masuk"}, status = 200)
   return JsonResponse({"Gagal" : "Data tidak masuk"}, status= 304)
+
+@csrf_exempt() 
+def delete_from_flutter(request, id) :
+  if request.method == 'DELETE' :
+    data = Event.objects.get(id=id)
+    post.delete()
+    return JsonResponse({"object": "Data dihapus"},status=200)
+ 
