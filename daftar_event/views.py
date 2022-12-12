@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from daftar_event.models import Event
 from daftar_event.forms import event_form
@@ -73,7 +74,7 @@ def category_event(request,cat):
 @csrf_exempt
 def add_from_flutter(request):
   if request.method == "POST" :
-    request_data = json.load(request.body)
+    request_data = json.loads(request.body)
     nama = request_data['nama']
     lokasi = request_data['lokasi']
     jenis = request_data['jenis']
