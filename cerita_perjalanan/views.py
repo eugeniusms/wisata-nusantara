@@ -6,6 +6,8 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+import json
+from django.contrib.auth.models import User
 
 @csrf_exempt
 @login_required(login_url='/auth/login')
@@ -18,7 +20,6 @@ def submit_cerita(request):
             return HttpResponseRedirect('/story/')
     else:
         form = FormCerita()
-    
     context = {
         'form':form,
         'cerita':ceritaPerjalananItems.objects.all(),
@@ -30,10 +31,13 @@ def submit_cerita(request):
 @login_required(login_url='/auth/login')
 def submit_cerita_json(request):
     if request.method == 'POST':
-        review = request.POST['review']
-        name = request.POST['name']
+        cerita = json.loads(request.body)
+        
+        review = cerita['review']
+        user_id = cerita['id']
+        name = User.objects.get(id=user_id)
         story = ceritaPerjalananItems.objects.create(
-            name = name,
+            name = name.get_full_name(),
             review = review,
             )
     return JsonResponse([story,], safe=False, status=200) 
